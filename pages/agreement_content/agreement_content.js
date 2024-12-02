@@ -7,13 +7,16 @@ Page({
   data: {
     statusBarHeight: wx.getSystemInfoSync().statusBarHeight,
     navHeight: wx.getSystemInfoSync().statusBarHeight + 44,
+    type: '', // 隐私政策、用户协议 privacy agreement
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      type: options.type
+    })
   },
 
   /**

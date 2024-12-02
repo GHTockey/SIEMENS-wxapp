@@ -1,7 +1,39 @@
 /* pages/agreement_content/agreement_content.wxss */
 .agreement-content-container {
-    min-height: 100vh;
+    height: 100vh;
     box-sizing: border-box;
     padding: 0 30rpx;
-}
+    // border: 1rpx solid red;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100rpx;
+    overflow: auto;
 
+    .agreement-content-update-date {
+        font-size: 28rpx;
+        color: #DFDFDF;
+        margin-left: 50rpx;
+    }
+
+    .agreement-content-content {
+        margin-top: 30rpx;
+        background-color: #0c3c53;
+        position: relative;
+        padding: 40rpx;
+        font-size: 24rpx;
+        line-height: 40rpx;
+        overflow: auto;
+        flex: 1;
+        
+
+        .agreement-content-decoration-bar {
+            position: absolute;
+            right: 0;
+            top: 20rpx;
+            width: 4rpx;
+            height: 127rpx;
+            background: #00E2D8;
+            border-radius: 2rpx 2rpx 2rpx 2rpx;
+        }
+    }
+}

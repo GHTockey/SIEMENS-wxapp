@@ -7,11 +7,11 @@
             <text>个人信息管理</text>
             <image style="width: 24rpx;" src="../../static/next.svg" mode="widthFix"></image>
         </view>
-        <view class="option-item">
+        <view class="option-item" bind:tap="myNavigateTo" data-url="/pages/agreement_content/agreement_content?type=agreement">
             <text>用户协议</text>
             <image style="width: 24rpx;" src="../../static/next.svg" mode="widthFix"></image>
         </view>
-        <view class="option-item">
+        <view class="option-item" bind:tap="myNavigateTo" data-url="/pages/agreement_content/agreement_content?type=privacy">
             <text>隐私协议</text>
             <image style="width: 24rpx;" src="../../static/next.svg" mode="widthFix"></image>
         </view>
