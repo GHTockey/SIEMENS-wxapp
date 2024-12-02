@@ -1,0 +1,45 @@
+/* components/nav-bar/nav-bar.wxss */
+
+.customNavigation {
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    .title-center {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .title-left {
+        position: absolute;
+        left: 28rpx;
+    }
+
+    .back-icon {
+        position: absolute;
+        left: 28rpx;
+        // top: 50%;
+        // transform: translateY(-50%);
+        width: 27rpx;
+        // height: 27rpx;
+    }
+
+    .find-icon {
+        position: absolute;
+        left: 28rpx;
+        width: 35rpx;
+        height: 35rpx;
+    }
+
+    .logo {
+        position: absolute;
+        left: 28rpx;
+        // left: 0;
+        width: 191rpx;
+        height: 30rpx;
+    }
+}

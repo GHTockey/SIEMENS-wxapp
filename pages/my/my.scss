@@ -1,0 +1,172 @@
+/* pages/my/my.wxss */
+.my_container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: #021638;
+
+    // 用户头像/昵称/设置
+    .user-info {
+        display: flex;
+        gap: 35rpx;
+        justify-content: space-between;
+        margin-top: 126rpx;
+
+        .user-avatar {
+            position: relative;
+            width: 154rpx;
+            height: 154rpx;
+        }
+
+        .user-name {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            color: #fff;
+            padding-bottom: 24rpx;
+            box-sizing: border-box;
+        }
+
+        .user-setting {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 20rpx;
+            box-sizing: border-box;
+        }
+    }
+
+    // 足迹/互动/邀请记录
+    .user-record {
+        padding: 0 30rpx;
+        height: 80rpx;
+        margin-top: 42rpx;
+        display: flex;
+        justify-content: space-between;
+
+        .record-item {
+            gap: 10rpx;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24rpx;
+        }
+    }
+
+    // 活动横幅
+    .activity-banner {
+        margin-top: 42rpx;
+        // border: 1px solid red;
+        overflow: hidden;
+        border-radius: 10rpx;
+        height: 198rpx;
+        box-sizing: border-box;
+        position: relative;
+
+        .join-btn {
+            position: absolute;
+            bottom: 22rpx;
+            right: 24rpx;
+            width: 119.77rpx;
+            height: 43.11rpx;
+        }
+    }
+
+    // 参与的活动
+    .participated-activities-box {
+        margin-top: 10rpx;
+
+        .participated-activities-title {
+            margin-bottom: 10rpx;
+        }
+
+        .participated-activities {
+            height: 256rpx;
+            width: 100%;
+            // border: 1px solid red;
+            padding: 10rpx 0;
+            box-sizing: border-box;
+            background-color: #062d48;
+            white-space: nowrap;
+            border-radius: 10rpx;
+
+            .activity-item {
+                box-sizing: border-box;
+                // display: flex;
+                // flex-direction: column;
+                // align-items: center;
+                // justify-content: center;
+                width: 263rpx;
+                color: #fff;
+                font-size: 28rpx;
+                margin: 0 10rpx;
+
+                display: inline-block;
+                // width: 100%;
+                // height: 300rpx;
+                height: 100%;
+
+                .activity-item-title {
+                    // height: 100%;
+                    // display: flex;
+                    // align-items: center;
+                    // border: 1px solid red;
+                    height: calc(100% - 147rpx - 10rpx);
+                    word-break: break-all;
+                    white-space: normal;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    /*! autoprefixer: off */
+                    -webkit-box-orient: vertical;
+
+                }
+            }
+        }
+    }
+
+    // 常用功能
+    .common-function-box {
+        margin-top: 10rpx;
+
+        .common-function-title {
+            margin-bottom: 20rpx;
+        }
+
+        .common-function {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            // justify-content: space-evenly;
+            justify-content: space-between;
+            column-gap: 45rpx;
+            row-gap: 30rpx;
+            background-color: #062d48;
+            border-radius: 10rpx;
+            padding: 20rpx 50rpx;
+            padding-bottom: 34rpx;
+
+            .function-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                .function-item-icon {
+                    width: 80rpx;
+                    height: 80rpx;
+                }
+                .function-item-title {
+                    color: white;
+                    font-size: 24rpx;
+                }
+            }
+        }
+    }
+}

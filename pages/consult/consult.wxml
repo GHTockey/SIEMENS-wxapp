@@ -1,0 +1,6 @@
+<!--pages/consult/consult.wxml-->
+<view class="consult_container">
+  <text>pages/consult/consult.wxml</text>
+
+  <tab-bar></tab-bar>
+</view>

@@ -1,0 +1,5 @@
+<view class="index_container">
+
+
+  <tab-bar></tab-bar>
+</view>

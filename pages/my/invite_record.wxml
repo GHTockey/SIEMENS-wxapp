@@ -1,0 +1,43 @@
+<!-- pages/my/invite_record.wxml -->
+<nav-bar title="我的邀请记录" showBackIcon></nav-bar>
+<view class="invite-record-container" style="padding-top: {{navHeight}}px;">
+    <view class="tabs-container">
+        <view wx:for="{{tabsList}}" wx:key="index" wx:for-item="item" class="tab-item {{tabsIndex === index ? 'active' : ''}}" bind:tap="changeTabs" data-index="{{index}}">
+            {{item}}
+            <!-- 选中条 -->
+            <image wx:if="{{tabsIndex === index}}" class="active-line" src="../../static/my/1091.svg" mode="widthFix"></image>
+        </view>
+    </view>
+    <!-- 内容 -->
+    <view class="content-container">
+        <view class="content-item" wx:for="{{contentList}}" wx:key="index">
+            <!-- 头像 -->
+            <image class="avatar" src="../../static/def.png" mode="widthFix"></image>
+            <!-- 昵称/时间 -->
+            <view class="nickname-time">
+                <text style="font-size: 24rpx;">{{item.nickname}}</text>
+                <text style="font-size: 20rpx; color: #CFCFCF;">{{item.time}}</text>
+            </view>
+            <!-- 手机号 -->
+            <view class="phone">
+                <text style="font-size: 24rpx;">{{item.phone}}</text>
+            <!-- 勾选 -->
+            <image wx:if="{{item.check}}" bind:tap="selectContent" data-index="{{index}}" class="check" src="../../static/my/2480.svg" mode="widthFix"></image>
+            <image wx:else bind:tap="selectContent" data-index="{{index}}" class="check" src="../../static/my/2177.svg" mode="widthFix"></image>
+            </view>
+            <!-- 其它信息 -->
+            <view class="other-info">
+                <text style="font-size: 24rpx;">{{item.otherInfo}}</text>
+            </view>
+        </view>
+    </view>
+
+    <!-- 底部操作：全选/删除 -->
+    <view class="bottom-container">
+        <view class="select-all" bind:tap="selectAll">
+            <image class="check" src="../../static/my/{{selectAll ? '2480' : '2177'}}.svg" mode="widthFix"></image>
+            <text>全选</text>
+        </view>
+        <view class="delete-btn">删除</view>
+    </view>
+</view>

@@ -1,0 +1,75 @@
+<!-- pages/my/my.wxml -->
+<view class="my_container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + 50rpx); background-image: url(../../static/my/2346.png);">
+    <nav-bar showTitle="{{false}}" showFindIcon showLogo></nav-bar>
+    <!-- <nav-bar showTitle="{{false}}" showLogo></nav-bar> -->
+    <tab-bar></tab-bar>
+    <!-- 用户头像/昵称/设置 -->
+    <view class="user-info">
+        <view class="user-avatar">
+            <image style="width:100%;height:100%;" src="../../static/my/2411.png" mode="widthFix"></image>
+            <image style="width:40rpx;height:40rpx; position: absolute; bottom: 0; right: 0;" src="../../static/my/2475.png" mode="" />
+        </view>
+        <view class="user-name">
+            <text style="font-size: 33rpx; margin-bottom: 10rpx;">登录 / 注册</text>
+            <!-- <image style="height:44rpx; width:144rpx; margin-bottom: 10rpx;" src="../../static/my/login.png" mode="widthFix"/> -->
+            <text style="font-size: 24rpx;">探索专享体验，感受精彩活动</text>
+        </view>
+        <view class="user-setting">
+            <image style="width:32.93rpx;height:34.2rpx;" src="../../static/my/2414.png" mode="widthFix"></image>
+        </view>
+    </view>
+    <!-- 足迹/互动/邀请记录按钮 -->
+    <view class="user-record">
+        <view class="record-item">
+            <image style="width:80rpx;height:80rpx;" src="../../static/my/2407.png" mode="widthFix"></image>
+            <text>足迹</text>
+        </view>
+        <view class="record-item">
+            <image style="width:80rpx;height:80rpx;" src="../../static/my/2401.png" mode="widthFix"></image>
+            <text>互动</text>
+        </view>
+        <view class="record-item">
+            <image style="width:80rpx;height:80rpx;" src="../../static/my/2404.png" mode="widthFix"></image>
+            <text>邀请记录</text>
+        </view>
+    </view>
+    <!-- 活动横幅 -->
+    <view class="activity-banner">
+        <image style="width:100%;height:100%;" src="../../static/about-us.png" mode="aspectFill"></image>
+        <!-- 参加按钮 -->
+        <image class="join-btn" src="../../static/my/2395.svg" mode="widthFix" />
+    </view>
+    <!-- 参与的活动 -->
+    <view class="participated-activities-box">
+        <view class="participated-activities-title">
+            <image style="width: 209rpx" src="../../static/my/2334.svg" mode="widthFix"></image>
+            <!-- <image src="../../static/my/2476.svg" mode="widthFix"></image> -->
+        </view>
+        <view class="participated-activities">
+            <scroll-view scroll-x style="height: 100%;">
+                <view class="activity-item" wx:for="{{5}}" wx:key="index">
+                    <image style="width: 263rpx;height: 147rpx;" src="../../static/def.png" mode="aspectFill" />
+                    <view class="activity-item-title">
+                        <text style="width: 100%;">Industrial Operation-sX 数字化解决方案</text>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <!-- 常用功能 -->
+    <view class="common-function-box">
+        <view class="common-function-title">
+            <image style="width: 175rpx" src="../../static/my/2391.svg" mode="widthFix"></image>
+        </view>
+        <view class="common-function">
+            <view class="function-item" wx:for="{{commonFunctionList}}" wx:key="index">
+                <view class="function-item-icon">
+                    <image style="width: 100%;height: 100%;" src="{{item.icon}}" mode="widthFix"></image>
+                </view>
+                <view class="function-item-title">
+                    <text>{{item.title}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

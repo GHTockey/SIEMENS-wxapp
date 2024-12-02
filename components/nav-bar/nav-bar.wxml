@@ -1,0 +1,18 @@
+<!-- components/nav-bar/nav-bar.wxml -->
+<view class="customNavigation"
+ style="padding-top:{{statusBarHeight}}px;height:{{navHeight}}px;background:{{background}};">
+    <!-- 标题 -->
+    <text wx:if="{{showTitle}}" class="title-{{titlePosition}}" style="color: {{textColor}};">{{title}}</text>
+    <!-- 返回图标 -->
+    <view wx:if="{{showBackIcon}}" class="back-icon" bind:tap="back">
+        <image style="width: 100%;height: 100%;" src="../../static/back.svg" mode="widthFix"></image>
+    </view>
+    <!-- 搜索图标 -->
+    <view wx:if="{{showFindIcon}}" class="find-icon" bind:tap="find">
+        <image style="width: 100%;height: 100%;" src="../../static/find.svg" mode="widthFix"></image>
+    </view>
+    <!-- logo -->
+    <view wx:if="{{showLogo}}" class="logo">
+        <image style="width: 100%;height: 100%;" src="../../static/logo.png" mode="widthFix"></image>
+    </view>
+</view>

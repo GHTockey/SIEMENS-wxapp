@@ -1,0 +1,6 @@
+<!--pages/activity/activity.wxml-->
+<view class="activity_container">
+  <text>pages/activity/activity.wxml</text>
+
+  <tab-bar></tab-bar>
+</view>
