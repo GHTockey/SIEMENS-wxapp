@@ -14,6 +14,15 @@ const formatNumber = n => {
   return n[1] ? n : `0${n}`
 }
 
+
+// 跳转页面
+function myNavigateTo(url) {
+  wx.navigateTo({
+    url
+  })
+}
+
 module.exports = {
-  formatTime
+  formatTime,
+  myNavigateTo
 }

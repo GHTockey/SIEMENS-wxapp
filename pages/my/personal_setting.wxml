@@ -1,0 +1,25 @@
+<!-- pages/my/personal_setting.wxml -->
+<nav-bar title="个人信息设置" showBackIcon></nav-bar>
+<view class="personal-setting-container" style="padding-top: {{navHeight}}px;">
+    <!-- 选项列表 -->
+    <view class="option-list">
+        <view class="option-item" bind:tap="myNavigateTo" data-url="/pages/my/personal_info">
+            <text>个人信息管理</text>
+            <image style="width: 24rpx;" src="../../static/next.svg" mode="widthFix"></image>
+        </view>
+        <view class="option-item">
+            <text>用户协议</text>
+            <image style="width: 24rpx;" src="../../static/next.svg" mode="widthFix"></image>
+        </view>
+        <view class="option-item">
+            <text>隐私协议</text>
+            <image style="width: 24rpx;" src="../../static/next.svg" mode="widthFix"></image>
+        </view>
+        <view class="option-item">
+            <text>订阅设置</text>
+            <image style="width: 24rpx;" src="../../static/next.svg" mode="widthFix"></image>
+        </view>
+    </view>
+    <!-- 退出登录按钮 -->
+    <view class="logout-btn">退出登录</view>
+</view>

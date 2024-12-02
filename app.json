@@ -5,7 +5,8 @@
     "pages/activity/activity",
     "pages/consult/consult",
     "pages/my/my",
-    "pages/my/invite_record"
+    "pages/my/invite_record",
+    "pages/my/personal_setting"
   ],
   "window": {
     "navigationBarTextStyle": "black",

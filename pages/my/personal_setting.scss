@@ -1,0 +1,46 @@
+/* pages/my/personal_setting.wxss */
+.personal-setting-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+
+
+    // 选项列表
+    .option-list {
+        margin-top: 30rpx;
+        background-color:#0c3c53;
+        padding: 0 30rpx;
+        display: flex;
+        flex-direction: column;
+        // gap: 20rpx;
+
+        .option-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 28rpx;
+            border-bottom: 1.5rpx solid #00989859;
+            padding: 36rpx 0;
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    // 退出登录按钮
+    .logout-btn {
+        position: fixed;
+        bottom: 56rpx;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 560rpx;
+        height: 92rpx;
+        border: 2rpx solid #009898;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 28rpx;
+        color: #00E2D8;
+    }
+}

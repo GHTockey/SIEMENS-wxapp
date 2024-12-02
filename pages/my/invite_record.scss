@@ -5,6 +5,7 @@
     padding: 0 30rpx;
     // border: 1rpx solid red;
     position: relative;
+    padding-bottom: 150rpx;
 
     .tabs-container {
         // border: 1rpx solid red;
@@ -47,7 +48,9 @@
 
     .content-container {
         // border: 1rpx solid red;
-        min-height: 1088rpx;
+        // min-height: 1088rpx;
+        height: 1100rpx;
+        overflow: auto;
         // margin-top: -80rpx;
         padding: 20rpx 26rpx;
         // padding-top: calc(84rpx + 34rpx);
@@ -120,6 +123,7 @@
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
+        font-size: 28rpx;
         // border: 1rpx solid red;
 
 
