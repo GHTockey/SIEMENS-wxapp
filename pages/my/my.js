@@ -9,14 +9,14 @@ Page({
     navHeight: wx.getSystemInfoSync().statusBarHeight + 44,
     // 常用功能
     commonFunctionList: [
-      { icon: '../../static/my/2364.svg', title: '我的报名' },
-      { icon: '../../static/my/2382.svg', title: '我的签到' },
-      { icon: '../../static/my/2386.svg', title: '我的问卷' },
-      { icon: '../../static/my/2369.svg', title: '我的消息' },
-      { icon: '../../static/my/2377.svg', title: '我的收藏' },
-      { icon: '../../static/my/2375.svg', title: '邀请好友' },
-      { icon: '../../static/my/2361.svg', title: '在线咨询' },
-      { icon: '../../static/my/2371.svg', title: '订阅消息' }
+      { icon: '../../static/my/2364.svg', title: '我的报名', url: '/pages/my/personal_setting' },
+      { icon: '../../static/my/2382.svg', title: '我的签到', url: '/pages/my/personal_setting' },
+      { icon: '../../static/my/2386.svg', title: '我的问卷', url: '/pages/my/personal_setting' },
+      { icon: '../../static/my/2369.svg', title: '我的消息', url: '/pages/my/personal_setting' },
+      { icon: '../../static/my/2377.svg', title: '我的收藏', url: '/pages/my/personal_setting' },
+      { icon: '../../static/my/2375.svg', title: '邀请好友', url: '/pages/my/invite_friend' },
+      { icon: '../../static/my/2361.svg', title: '在线咨询', url: '/pages/my/personal_setting' },
+      { icon: '../../static/my/2371.svg', title: '订阅消息', url: '/pages/my/personal_setting' }
     ],
   },
 

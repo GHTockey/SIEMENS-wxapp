@@ -8,7 +8,9 @@
     "pages/my/invite_record",
     "pages/my/personal_setting",
     "pages/my/personal_info",
-    "pages/agreement_content/agreement_content"
+    "pages/agreement_content/agreement_content",
+    "pages/my/invite_friend",
+    "pages/my/part_activity"
   ],
   "window": {
     "navigationBarTextStyle": "black",

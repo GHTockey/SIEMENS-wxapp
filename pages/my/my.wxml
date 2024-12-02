@@ -14,7 +14,7 @@
             <!-- <image style="height:44rpx; width:144rpx; margin-bottom: 10rpx;" src="../../static/my/login.png" mode="widthFix"/> -->
             <text style="font-size: 24rpx;">探索专享体验，感受精彩活动</text>
         </view>
-        <view class="user-setting">
+        <view class="user-setting" bind:tap="myNavigateTo" data-url="/pages/my/personal_setting">
             <image style="width:32.93rpx;height:34.2rpx;" src="../../static/my/2414.png" mode="widthFix"></image>
         </view>
     </view>
@@ -62,7 +62,7 @@
             <image style="width: 175rpx" src="../../static/my/2391.svg" mode="widthFix"></image>
         </view>
         <view class="common-function">
-            <view class="function-item" wx:for="{{commonFunctionList}}" wx:key="index">
+            <view class="function-item" wx:for="{{commonFunctionList}}" wx:key="index" bind:tap="myNavigateTo" data-url="{{item.url}}">
                 <view class="function-item-icon">
                     <image style="width: 100%;height: 100%;" src="{{item.icon}}" mode="widthFix"></image>
                 </view>

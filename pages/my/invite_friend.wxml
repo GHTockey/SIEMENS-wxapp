@@ -1,0 +1,14 @@
+<!--pages/my/invite_friend.wxml-->
+<nav-bar title="邀请好友" showBackIcon />
+<view class="invite-friend-container" style="padding-top: {{navHeight}}px;">
+    <!-- 海报 -->
+    <view class="invite-friend-poster">
+        <image style="width: 100%;" src="../../static/invite_friend_img.png" mode="widthFix" />
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="invite-friend-operation-btn">
+        <view class="save-image-btn">保存图片</view>
+        <view class="share-btn">立即分享</view>
+    </view>
+</view>
