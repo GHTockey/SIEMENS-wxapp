@@ -24,7 +24,7 @@
             <image style="width:80rpx;height:80rpx;" src="../../static/my/2407.png" mode="widthFix"></image>
             <text>足迹</text>
         </view>
-        <view class="record-item">
+        <view class="record-item" bind:tap="myNavigateTo" data-url="/pages/my/comment">
             <image style="width:80rpx;height:80rpx;" src="../../static/my/2401.png" mode="widthFix"></image>
             <text>互动</text>
         </view>
@@ -45,7 +45,7 @@
             <image style="width: 209rpx" src="../../static/my/2334.svg" mode="widthFix"></image>
             <!-- <image src="../../static/my/2476.svg" mode="widthFix"></image> -->
         </view>
-        <view class="participated-activities">
+        <view class="participated-activities" bind:tap="myNavigateTo" data-url="/pages/my/part_activity">
             <scroll-view scroll-x style="height: 100%;">
                 <view class="activity-item" wx:for="{{5}}" wx:key="index">
                     <image style="width: 263rpx;height: 147rpx;" src="../../static/def.png" mode="aspectFill" />

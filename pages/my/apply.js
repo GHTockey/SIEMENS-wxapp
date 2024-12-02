@@ -1,4 +1,4 @@
-// pages/my/footprint.js
+// pages/my/apply.js
 Page({
 
   /**
@@ -7,8 +7,7 @@ Page({
   data: {
     statusBarHeight: wx.getSystemInfoSync().statusBarHeight,
     navHeight: wx.getSystemInfoSync().statusBarHeight + 44,
-    // 足迹列表
-    footprintList: [
+    applyList: [
       {
         imgSrc: '../../static/1346.png',
         tag: '线上直播',
@@ -21,21 +20,7 @@ Page({
         tag: '线下活动',
         title: '2024 CSEAC 半导体行业展会',
         date: '2023-02-01',
-        selected: false
-      },
-      {
-        imgSrc: '../../static/1346.png',
-        tag: '线上直播',
-        title: '西门子智能制造交流研讨会 （齐齐哈尔站）',
-        date: '2023-03-01',
-        selected: false
-      },
-      {
-        imgSrc: '../../static/1346.png',
-        tag: '线下活动',
-        title: 'TIA 博途 · 点控未来 — 济南站',
-        date: '2023-04-01',
-        selected: false
+        selected: true
       }
     ],
     // 全选
@@ -44,23 +29,25 @@ Page({
     showPopTip: false
   },
 
+
   selectActivity(e) {
     const index = e.currentTarget.dataset.index;
-    this.data.footprintList[index].selected = !this.data.footprintList[index].selected;
+    this.data.applyList[index].selected = !this.data.applyList[index].selected;
     this.setData({
-      footprintList: this.data.footprintList
+      applyList: this.data.applyList
     });
   },
   selectAll() {
     this.data.selectAll = !this.data.selectAll;
-    this.data.footprintList.forEach(item => {
+    this.data.applyList.forEach(item => {
       item.selected = this.data.selectAll;
     });
     this.setData({
-      footprintList: this.data.footprintList,
+      applyList: this.data.applyList,
       selectAll: this.data.selectAll
     });
   },
+
 
   // 弹窗按钮事件
   popTipHandler(e) {
@@ -79,7 +66,7 @@ Page({
     console.log('删除');
 
     // 判断是否选择了数据
-    const selectedList = this.data.footprintList.filter(item => item.selected);
+    const selectedList = this.data.applyList.filter(item => item.selected);
     if (selectedList.length === 0) {
       wx.showToast({
         title: '请选择要删除的数据',

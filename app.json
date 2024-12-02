@@ -12,7 +12,8 @@
     "pages/my/invite_friend",
     "pages/my/part_activity",
     "pages/my/comment",
-    "pages/my/footprint"
+    "pages/my/footprint",
+    "pages/my/apply"
   ],
   "window": {
     "navigationBarTextStyle": "black",
