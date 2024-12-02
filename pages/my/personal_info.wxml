@@ -1,0 +1,108 @@
+<!-- pages/my/personal_info.wxml -->
+<nav-bar title="个人信息管理" showBackIcon></nav-bar>
+<view class="personal-info-container" style="padding-top: {{navHeight}}px;">
+    <!-- 头像 -->
+    <view class="avatar-container">
+        <image class="avatar" src="../../static/my/2411.png" mode="widthFix"></image>
+    </view>
+    <!-- 表单 -->
+    <view class="form-container">
+        <form>
+            <view class="form-item">
+                <view class="form-item-label">
+                    <text style="color: #E28080;">*</text>
+                    <text>姓名</text>
+                </view>
+                <input class="form-item-input" type="text" placeholder="请输入姓名" name="username" />
+            </view>
+            <view class="form-item">
+                <view class="form-item-label">
+                    <text style="color: #E28080;">*</text>
+                    <text>手机</text>
+                </view>
+                <input class="form-item-input" type="text" placeholder="请输入手机号" name="phone" />
+            </view>
+            <view class="form-item">
+                <view class="form-item-label">
+                    <text style="color: #E28080;">*</text>
+                    <text>邮箱</text>
+                </view>
+                <input class="form-item-input" type="text" placeholder="请输入邮箱" name="email" />
+            </view>
+            <view class="form-item">
+                <view class="form-item-label">
+                    <text style="color: #E28080;">*</text>
+                    <text>省/市</text>
+                </view>
+                <picker mode="region">
+                    <!-- <view class="picker">当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}</view> -->
+                </picker>
+            </view>
+            <view class="form-item">
+                <view class="form-item-label">
+                    <text style="color: #E28080;"></text>
+                    <text>西门子员工</text>
+                </view>
+                <view class="form-item-radio">
+                    <view bind:tap="updateRadio" class="form-item-radio-item {{isSiemensEmployee == '1' ? 'active' : ''}}" data-value="1">
+                        <text>是</text>
+                    </view>
+                    <view bind:tap="updateRadio" class="form-item-radio-item {{isSiemensEmployee == '0' ? 'active' : ''}}" data-value="0">
+                        <text>否</text>
+                    </view>
+                </view>
+            </view>
+            <view class="form-item">
+                <view class="form-item-label">
+                    <text style="color: #E28080;"></text>
+                    <text>公司名称</text>
+                </view>
+                <input class="form-item-input" type="text" name="companyName" />
+            </view>
+            <view class="form-item">
+                <view class="form-item-label">
+                    <text style="color: #E28080;"></text>
+                    <text>公司类型</text>
+                </view>
+                <picker mode="selector" bindchange="handlePickerChange" data-type="companyType" range="{{companyTypeArray}}">
+                    <view style="color: #B5B5B5;" wx:if="{{selectedCompanyType == ''}}">请选择</view>
+                    <view wx:else>{{selectedCompanyType}}</view>
+                    <!-- 图标 -->
+                    <image class="form-item-icon" src="../../static/next2.svg" mode="widthFix"></image>
+                </picker>
+            </view>
+            <view class="form-item">
+                <view class="form-item-label">
+                    <text style="color: #E28080;"></text>
+                    <text>所属行业</text>
+                </view>
+                <picker mode="selector" bindchange="handlePickerChange" data-type="industry" range="{{industryArray}}">
+                    <view style="color: #B5B5B5;" wx:if="{{selectedIndustry == ''}}">请选择</view>
+                    <view wx:else>{{selectedIndustry}}</view>
+                    <!-- 图标 -->
+                    <image class="form-item-icon" src="../../static/next2.svg" mode="widthFix"></image>
+                </picker>
+            </view>
+            <view class="form-item">
+                <view class="form-item-label">
+                    <text style="color: #E28080;"></text>
+                    <text>职位</text>
+                </view>
+                <picker mode="selector" bindchange="handlePickerChange" data-type="position" range="{{positionArray}}">
+                    <view style="color: #B5B5B5;" wx:if="{{selectedPosition == ''}}">请选择</view>
+                    <view wx:else>{{selectedPosition}}</view>
+                    <!-- 图标 -->
+                    <image class="form-item-icon" src="../../static/next2.svg" mode="widthFix"></image>
+                </picker>
+            </view>
+        </form>
+    </view>
+    <!-- 隐私协议 -->
+    <view class="privacy-agreement-container">
+        <image bind:tap="updatePrivacyAgreement" data-value="{{isPrivacyAgreementAgreed}}" class="privacy-agreement-icon" src="../../static/my/{{isPrivacyAgreementAgreed ? '2177' : '2480'}}.svg" mode="widthFix"></image>
+        <text>注册即为同意西门子工厂自动化</text>
+        <text bind:tap="navigateTo" data-url="/pages/agreement_content/agreement_content?type=privacy" style="color: #00e2d8;">《隐私政策》</text>
+    </view>
+    <!-- 保存按钮 -->
+    <view class="save-button">保存</view>
+</view>

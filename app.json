@@ -6,7 +6,9 @@
     "pages/consult/consult",
     "pages/my/my",
     "pages/my/invite_record",
-    "pages/my/personal_setting"
+    "pages/my/personal_setting",
+    "pages/my/personal_info",
+    "pages/agreement_content/agreement_content"
   ],
   "window": {
     "navigationBarTextStyle": "black",

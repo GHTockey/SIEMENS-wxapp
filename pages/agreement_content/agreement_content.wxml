@@ -1,0 +1,7 @@
+<!--pages/agreement_content/agreement_content.wxml-->
+<nav-bar title="个人信息管理" showBackIcon></nav-bar>
+<view class="agreement-content-container" style="padding-top: {{navHeight}}px;">
+    <view class="agreement-content-title">
+        <text>隐私政策</text>
+    </view>
+</view>

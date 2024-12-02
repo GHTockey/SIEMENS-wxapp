@@ -1,0 +1,117 @@
+/* pages/my/personal_info.wxss */
+.personal-info-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+
+    // 头像
+    .avatar-container {
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+        // width: 184rpx;
+        // height: 184rpx;
+
+        .avatar {
+            width: 184rpx;
+            height: 184rpx;
+            border-radius: 50%;
+            border: 2rpx solid #00e2d8;
+        }
+    }
+
+    // 表单
+    .form-container {
+        padding: 0 32rpx;
+        padding-top: 20rpx;
+        padding-bottom: 8rpx;
+        margin-top: -20rpx;
+        background-color: #0c3c53;
+
+        .form-item {
+            display: flex;
+            align-items: center;
+            gap: 20rpx;
+            font-size: 28rpx;
+            padding: 34rpx 0;
+            border-bottom: 1rpx solid #184962;
+            font-size: 28rpx;
+            position: relative;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            .form-item-label {
+                display: flex;
+                align-items: center;
+                gap: 20rpx;
+                width: 170rpx;
+            }
+
+            .form-item-input,
+            .form-item-radio {
+                flex: 1;
+                // border: 1rpx solid red;
+            }
+
+            .form-item-radio {
+                display: flex;
+                gap: 30rpx;
+
+                .form-item-radio-item {
+                    width: 136rpx;
+                    height: 48rpx;
+                    border: 2rpx solid #00e2d8;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 24rpx;
+                }
+
+                .form-item-radio-item.active {
+                    background-color: #00e2d8;
+                    color: #0c3c53;
+                }
+            }
+
+            .form-item-icon {
+                position: absolute;
+                right: 10rpx;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 24rpx;
+                height: 12rpx;
+            }
+        }
+    }
+
+    // 隐私协议
+    .privacy-agreement-container {
+        display: flex;
+        align-items: center;
+        margin-top: 20rpx;
+        gap: 10rpx;
+        font-size: 22rpx;
+        color: #CBCBCB;
+
+        .privacy-agreement-icon {
+            width: 32rpx;
+            height: 32rpx;
+        }
+    }
+
+    // 保存按钮
+    .save-button {
+        margin: 0 auto;
+        margin-top: 30rpx;
+        width: 260rpx;
+        height: 74rpx;
+        border: 2rpx solid #009898;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 28rpx;
+        color: #00E2D8;
+    }
+}
