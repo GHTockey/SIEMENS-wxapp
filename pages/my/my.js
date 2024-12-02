@@ -11,7 +11,7 @@ Page({
     commonFunctionList: [
       { icon: '../../static/my/2364.svg', title: '我的报名', url: '/pages/my/apply' },
       { icon: '../../static/my/2382.svg', title: '我的签到', url: '/pages/my/attendance' },
-      { icon: '../../static/my/2386.svg', title: '我的问卷', url: '' },
+      { icon: '../../static/my/2386.svg', title: '我的问卷', url: '/pages/my/questionnaire' },
       { icon: '../../static/my/2369.svg', title: '我的消息', url: '' },
       { icon: '../../static/my/2377.svg', title: '我的收藏', url: '' },
       { icon: '../../static/my/2375.svg', title: '邀请好友', url: '/pages/my/invite_friend' },

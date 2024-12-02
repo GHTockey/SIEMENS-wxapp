@@ -1,0 +1,47 @@
+<!--pages/my/questionnaire.wxml-->
+<nav-bar title="我的问卷" showBackIcon />
+<view class="questionnaire-container">
+    <view class="part-activity-tabs" style="padding-top: {{navHeight + 10}}px;">
+        <view class="part-activity-tab-item">
+            <text>全部活动</text>
+            <image style="width: 20rpx;" src="../../static/493.svg" mode="widthFix" />
+        </view>
+        <view class="part-activity-tab-item">
+            <text>全部日期</text>
+            <image style="width: 20rpx;" src="../../static/493.svg" mode="widthFix" />
+        </view>
+    </view>
+    <!-- 列表 -->
+    <view class="part-activity-list">
+        <view class="part-activity-item" wx:for="{{questionnaireList}}" wx:key="questionnaireList">
+            <!-- 图片 -->
+            <view class="part-activity-item-img">
+                <image style="width: 100%;" src="{{item.imgSrc}}" mode="widthFix" />
+                <!-- tag -->
+                <view class="part-activity-item-tag">
+                    <text>{{item.tag}}</text>
+                </view>
+            </view>
+            <!-- 活动信息 -->
+            <view class="part-activity-item-info">
+                <text>{{item.title}}</text>
+                <text style="font-size: 24rpx; color: #CFCFCF;">{{item.date}}</text>
+                <!-- 勾选框 -->
+                <view class="part-activity-item-checkbox" data-index="{{index}}" bind:tap="selectActivity">
+                    <image style="width: 100%;" src="../../static/my/{{item.selected ? 2480 : 2177}}.svg" mode="widthFix" />
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 底部操作：全选/删除 -->
+    <view class="bottom-container">
+        <view class="select-all" bind:tap="selectAll">
+            <image class="check" src="../../static/my/{{selectAll ? '2480' : '2177'}}.svg" mode="widthFix"></image>
+            <text>全选</text>
+        </view>
+        <view bind:tap="deleteBtnHandler" class="delete-btn">删除</view>
+    </view>
+
+    <!-- 弹窗 -->
+    <pop-tip content="删除后将无法恢复" title="你确定删除吗？" wx:if="{{showPopTip}}" bind:cancel="popTipHandler" bind:confirm="popTipHandler" />
+</view>

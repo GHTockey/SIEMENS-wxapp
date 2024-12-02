@@ -1,0 +1,15 @@
+/* pages/my/questionnaire.wxss */
+@import './footprint.scss';
+
+.questionnaire-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: #010d32;
+
+    .part-activity-tabs {
+        justify-content: space-between;
+        padding: 0 30rpx;
+        padding-bottom: 28rpx;
+        box-sizing: border-box;
+    }
+}
