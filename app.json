@@ -13,7 +13,8 @@
     "pages/my/part_activity",
     "pages/my/comment",
     "pages/my/footprint",
-    "pages/my/apply"
+    "pages/my/apply",
+    "pages/my/attendance"
   ],
   "window": {
     "navigationBarTextStyle": "black",
