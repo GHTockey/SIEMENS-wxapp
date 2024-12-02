@@ -8,30 +8,6 @@
     background-color: #031a3b;
     // padding: 0 30rpx;
 
-    .part-activity-tabs {
-        width: 100%;
-        background: linear-gradient(161deg, #000028 0%, #005464 79%, #008080 100%);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        left: 0;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding-bottom: 28rpx;
-
-        .part-activity-tab-item {
-            // padding: 28rpx;
-            padding: 8rpx 18rpx;
-            color: #00FFB5;
-            font-size: 24rpx;
-            display: flex;
-            align-items: center;
-            gap: 12rpx;
-            border: 2rpx solid #707070;
-        }
-    }
-
     .part-activity-list {
         padding: 34rpx 30rpx;
         // background-color: #031a3b;
@@ -90,6 +66,30 @@
                 }
             }
         }
+    }
+}
+
+.part-activity-tabs {
+    width: 100%;
+    background: linear-gradient(161deg, #000028 0%, #005464 79%, #008080 100%);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 28rpx;
+
+    .part-activity-tab-item {
+        // padding: 28rpx;
+        padding: 8rpx 18rpx;
+        color: #00FFB5;
+        font-size: 24rpx;
+        display: flex;
+        align-items: center;
+        gap: 12rpx;
+        border: 2rpx solid #707070;
     }
 }
 

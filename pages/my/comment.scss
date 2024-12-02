@@ -1,1 +1,51 @@
 /* pages/my/comment.wxss */
+@import "../my/part_activity.scss";
+
+.comment-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: #01193a;
+
+    .part-activity-tabs {
+        padding: 0 30rpx;
+        padding-bottom: 28rpx;
+        box-sizing: border-box;
+        justify-content: space-between;
+    }
+
+
+    .comment-list {
+        // border: 1rpx solid red;
+        padding: 30rpx;
+        box-sizing: border-box;
+        // margin-top: 40rpx;
+        display: flex;
+        flex-direction: column;
+        gap: 30rpx;
+
+        .comment-item {
+            font-size: 28rpx;
+            padding: 28rpx 30rpx;
+            background-color: #062c48;
+
+            .comment-item-header {
+                position: relative;
+
+                .comment-item-select {
+                    width: 32rpx;
+                    height: 32rpx;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+            }
+
+            .comment-item-desc {
+                color: #CFCFCF;
+                font-size: 24rpx;
+                border-top: 1rpx solid #035465;
+                padding-top: 20rpx;
+            }
+        }
+    }
+}

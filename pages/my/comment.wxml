@@ -1,2 +1,39 @@
-<!--pages/my/comment.wxml-->
-<text>pages/my/comment.wxml</text>
+<!-- pages/my/comment.wxml -->
+<nav-bar title="我的评论" showBackIcon />
+<view class="comment-container">
+    <view class="part-activity-tabs" style="padding-top: {{navHeight + 10}}px;">
+        <view class="part-activity-tab-item">
+            <text>全部活动</text>
+            <image style="width: 20rpx;" src="../../static/493.svg" mode="widthFix" />
+        </view>
+        <view class="part-activity-tab-item">
+            <text>留言日期</text>
+            <image style="width: 20rpx;" src="../../static/493.svg" mode="widthFix" />
+        </view>
+    </view>
+    <!-- 评论列表 -->
+    <view class="comment-list">
+        <view class="comment-item" wx:for="{{commentList}}" wx:key="index">
+            <view class="comment-item-header">
+                <view style="display: flex; flex-direction: column; padding-bottom: 20rpx; gap: 10rpx;">
+                    <text style="color: #00FFB5;">{{item.date}}</text>
+                    <text>{{item.title}}</text>
+                </view>
+                <!-- 勾选 -->
+                <view class="comment-item-select" bind:tap="switchCommentStatus" data-index="{{index}}">
+                    <image style="width: 100%;" src="../../static/my/{{item.selected ? '2480' : '2177'}}.svg" mode="widthFix" />
+                </view>
+            </view>
+            <view class="comment-item-desc">{{item.desc}}</view>
+        </view>
+    </view>
+
+    <!-- 底部操作：全选/删除 -->
+    <view class="bottom-container">
+        <view class="select-all" bind:tap="selectAll">
+            <image class="check" src="../../static/my/{{selectAll ? '2480' : '2177'}}.svg" mode="widthFix"></image>
+            <text>全选</text>
+        </view>
+        <view class="delete-btn">删除</view>
+    </view>
+</view>
