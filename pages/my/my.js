@@ -13,7 +13,7 @@ Page({
       { icon: '../../static/my/2382.svg', title: '我的签到', url: '/pages/my/attendance' },
       { icon: '../../static/my/2386.svg', title: '我的问卷', url: '/pages/my/questionnaire' },
       { icon: '../../static/my/2369.svg', title: '我的消息', url: '' },
-      { icon: '../../static/my/2377.svg', title: '我的收藏', url: '' },
+      { icon: '../../static/my/2377.svg', title: '我的收藏', url: '/pages/my/collect' },
       { icon: '../../static/my/2375.svg', title: '邀请好友', url: '/pages/my/invite_friend' },
       { icon: '../../static/my/2361.svg', title: '在线咨询', url: '' },
       { icon: '../../static/my/2371.svg', title: '订阅消息', url: '' }

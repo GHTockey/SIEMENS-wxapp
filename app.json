@@ -15,7 +15,8 @@
     "pages/my/footprint",
     "pages/my/apply",
     "pages/my/attendance",
-    "pages/my/questionnaire"
+    "pages/my/questionnaire",
+    "pages/my/collect"
   ],
   "window": {
     "navigationBarTextStyle": "black",
