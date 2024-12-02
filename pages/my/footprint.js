@@ -38,6 +38,10 @@ Page({
         selected: false
       }
     ],
+    // 全选
+    selectAll: false,
+    // 弹窗
+    showPopTip: false
   },
 
   selectActivity(e) {
@@ -45,6 +49,37 @@ Page({
     this.data.footprintList[index].selected = !this.data.footprintList[index].selected;
     this.setData({
       footprintList: this.data.footprintList
+    });
+  },
+  selectAll() {
+    this.data.selectAll = !this.data.selectAll;
+    this.data.footprintList.forEach(item => {
+      item.selected = this.data.selectAll;
+    });
+    this.setData({
+      footprintList: this.data.footprintList,
+      selectAll: this.data.selectAll
+    });
+  },
+
+  // 弹窗按钮事件
+  popTipHandler(e) {
+    // console.log(e);
+    if (e.type === 'cancel') {
+      this.setData({
+        showPopTip: false
+      });
+    } else {
+      console.log('确认');
+    }
+  },
+
+  // 删除按钮事件
+  deleteBtnHandler() {
+    console.log('删除');
+
+    this.setData({
+      showPopTip: true
     });
   },
 
