@@ -1,0 +1,16 @@
+/* pages/my/footprint.wxss */
+@import './part_activity.scss';
+
+.footprint-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: #041c3d;
+
+
+    .part-activity-tabs {
+        justify-content: space-between;
+        padding: 0 30rpx;
+        padding-bottom: 28rpx;
+        box-sizing: border-box;
+    }
+}

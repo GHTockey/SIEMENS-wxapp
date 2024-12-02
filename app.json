@@ -11,7 +11,8 @@
     "pages/agreement_content/agreement_content",
     "pages/my/invite_friend",
     "pages/my/part_activity",
-    "pages/my/comment"
+    "pages/my/comment",
+    "pages/my/footprint"
   ],
   "window": {
     "navigationBarTextStyle": "black",

@@ -8,62 +8,63 @@
     background-color: #031a3b;
     // padding: 0 30rpx;
 
-    .part-activity-list {
-        padding: 34rpx 30rpx;
-        // background-color: #031a3b;
+}
 
-        .part-activity-item {
-            margin-bottom: 22rpx;
+.part-activity-list {
+    padding: 34rpx 30rpx;
+    // background-color: #031a3b;
+
+    .part-activity-item {
+        margin-bottom: 22rpx;
+        display: flex;
+        gap: 30rpx;
+        align-items: center;
+        background-color: #062d48;
+        padding: 8rpx;
+        height: 240rpx;
+        box-sizing: border-box;
+
+        .part-activity-item-img {
+            width: 296rpx;
+            // height: 100%;
             display: flex;
-            gap: 30rpx;
             align-items: center;
-            background-color: #062d48;
-            padding: 8rpx;
-            height: 240rpx;
-            box-sizing: border-box;
+            position: relative;
 
-            .part-activity-item-img {
-                width: 296rpx;
-                // height: 100%;
+            .part-activity-item-tag {
+                position: absolute;
+                bottom: 12rpx;
+                right: 18rpx;
+                padding: 4rpx 12rpx;
+
+                font-size: 18rpx;
+                background: #050A23;
+                border-radius: 18rpx 18rpx 18rpx 18rpx;
+                opacity: 0.7;
                 display: flex;
                 align-items: center;
-                position: relative;
-
-                .part-activity-item-tag {
-                    position: absolute;
-                    bottom: 12rpx;
-                    right: 18rpx;
-                    padding: 4rpx 12rpx;
-
-                    font-size: 18rpx;
-                    background: #050A23;
-                    border-radius: 18rpx 18rpx 18rpx 18rpx;
-                    opacity: 0.7;
-                    display: flex;
-                    align-items: center;
-                }
             }
+        }
 
-            .part-activity-item-info {
-                flex: 1;
-                font-size: 28rpx;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                gap: 12rpx;
-                position: relative;
-                // border: 1rpx solid #00FFB5;
-                box-sizing: border-box;
-                height: 100%;
-                padding: 22rpx 0;
+        .part-activity-item-info {
+            flex: 1;
+            font-size: 28rpx;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 12rpx;
+            position: relative;
+            // border: 1rpx solid #00FFB5;
+            box-sizing: border-box;
+            height: 100%;
+            padding: 22rpx 0;
 
-                .part-activity-item-checkbox {
-                    width: 32rpx;
-                    height: 32rpx;
-                    position: absolute;
-                    right: 8rpx;
-                    bottom: 24rpx;
-                }
+            .part-activity-item-checkbox {
+                width: 32rpx;
+                height: 32rpx;
+                position: absolute;
+                right: 8rpx;
+                bottom: 24rpx;
             }
         }
     }
