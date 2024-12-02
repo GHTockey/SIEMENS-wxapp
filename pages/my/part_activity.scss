@@ -1,1 +1,135 @@
 /* pages/my/part_activity.wxss */
+// @import "../my/invite_record.scss";
+
+.part-activity-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-bottom: 100rpx;
+    background-color: #031a3b;
+    // padding: 0 30rpx;
+
+    .part-activity-tabs {
+        width: 100%;
+        background: linear-gradient(161deg, #000028 0%, #005464 79%, #008080 100%);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        left: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-bottom: 28rpx;
+
+        .part-activity-tab-item {
+            // padding: 28rpx;
+            padding: 8rpx 18rpx;
+            color: #00FFB5;
+            font-size: 24rpx;
+            display: flex;
+            align-items: center;
+            gap: 12rpx;
+            border: 2rpx solid #707070;
+        }
+    }
+
+    .part-activity-list {
+        padding: 34rpx 30rpx;
+        // background-color: #031a3b;
+
+        .part-activity-item {
+            margin-bottom: 22rpx;
+            display: flex;
+            gap: 30rpx;
+            align-items: center;
+            background-color: #062d48;
+            padding: 8rpx;
+            height: 240rpx;
+            box-sizing: border-box;
+
+            .part-activity-item-img {
+                width: 296rpx;
+                // height: 100%;
+                display: flex;
+                align-items: center;
+                position: relative;
+
+                .part-activity-item-tag {
+                    position: absolute;
+                    bottom: 12rpx;
+                    right: 18rpx;
+                    padding: 4rpx 12rpx;
+
+                    font-size: 18rpx;
+                    background: #050A23;
+                    border-radius: 18rpx 18rpx 18rpx 18rpx;
+                    opacity: 0.7;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+            .part-activity-item-info {
+                flex: 1;
+                font-size: 28rpx;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 12rpx;
+                position: relative;
+                // border: 1rpx solid #00FFB5;
+                box-sizing: border-box;
+                height: 100%;
+                padding: 22rpx 0;
+
+                .part-activity-item-checkbox {
+                    width: 32rpx;
+                    height: 32rpx;
+                    position: absolute;
+                    right: 8rpx;
+                    bottom: 24rpx;
+                }
+            }
+        }
+    }
+}
+
+.bottom-container {
+    position: absolute;
+    left: 0;
+    // background-color: red;
+    padding: 0 30rpx;
+    bottom: 40rpx;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    font-size: 28rpx;
+    // border: 1rpx solid red;
+
+
+    .select-all {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20rpx;
+
+        .check {
+            width: 32rpx;
+            height: 32rpx;
+        }
+    }
+
+    .delete-btn {
+        width: 232rpx;
+        height: 70rpx;
+        background: #0C3C53;
+        border: 2rpx solid #00E2D8;
+        // opacity: 0.7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 28rpx;
+        color: #00E2D8;
+    }
+}

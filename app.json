@@ -10,7 +10,8 @@
     "pages/my/personal_info",
     "pages/agreement_content/agreement_content",
     "pages/my/invite_friend",
-    "pages/my/part_activity"
+    "pages/my/part_activity",
+    "pages/my/comment"
   ],
   "window": {
     "navigationBarTextStyle": "black",
