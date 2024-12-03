@@ -1,0 +1,100 @@
+<!-- pages/online_consult/online_consult.wxml -->
+<nav-bar title="在线咨询" showBackIcon />
+<view class="content-container" style="padding-top: {{navHeight}}px;">
+    <!-- 头部小孩打招呼 -->
+    <view class="header-box">
+        <image style="width: 334rpx;height: 93rpx;" src="../../static/618.svg" mode="widthFix" />
+        <image style="width: 219rpx;height: 219rpx" src="../../static/xiaohai.png" mode="widthFix" />
+    </view>
+    <!-- 猜你想问 -->
+    <view class="guess-question-box">
+        <!-- 标题头 -->
+        <image style="width: 225rpx;height: 70rpx;" src="../../static/622.svg" mode="widthFix" />
+        <!-- 猜你想问 -->
+        <view class="guess-question-list">
+            <view class="guess-question-item">
+                <text>产品选型</text>
+            </view>
+            <view class="guess-question-item">
+                <text>技术支持</text>
+            </view>
+            <view class="guess-question-item">
+                <text>购买咨询</text>
+            </view>
+            <view class="guess-question-item">
+                <text>样机借用</text>
+            </view>
+            <view class="guess-question-item">
+                <text>获取联系方式</text>
+            </view>
+            <view class="guess-question-item">
+                <text>其它问题</text>
+            </view>
+        </view>
+    </view>
+    <!-- 热门活动 -->
+    <view class="hot-activity-box" style="background-image: url(../../static/404.svg);">
+        <image style="width: 225rpx;height: 70rpx;" src="../../static/2496.svg" mode="widthFix" />
+        <view class="hot-activity-list">
+            <view class="hot-activity-item">
+                <text>西门子 TIA 探厂记 全国巡回活动即将开始</text>
+                <image style="width: 15rpx;height: 19rpx;" src="../../static/360.svg" mode="widthFix" />
+            </view>
+            <view class="hot-activity-item">
+                <text>2024 CSEAC 半导体行业展会火热进行中</text>
+                <image style="width: 15rpx;height: 19rpx;" src="../../static/360.svg" mode="widthFix" />
+            </view>
+            <view class="hot-activity-item">
+                <text>西门子 TIA 探厂记 全国巡回活动即将开始</text>
+                <image style="width: 15rpx;height: 19rpx;" src="../../static/360.svg" mode="widthFix" />
+            </view>
+        </view>
+        <!-- 按钮 -->
+        <view class="hot-activity-btn">
+            <text>活动报名</text>
+        </view>
+    </view>
+    <!-- 聊天对话 -->
+    <view class="chat-dialog-box">
+        <!-- <view class="chat-dialog-item-sender">
+            <image style="width: 100rpx;height: 100rpx;" src="../../static/sender.png" mode="widthFix" />
+            <view class="chat-dialog-item-content">
+                <text>你好</text>
+            </view>
+        </view>
+        <view class="chat-dialog-item-user">
+            <image style="width: 100rpx;height: 100rpx;" src="../../static/my/2411.png" mode="widthFix" />
+            <view class="chat-dialog-item-content">
+                <text>你也好</text>
+            </view>
+        </view> -->
+        <block wx:for="{{chatDialogList}}" wx:key="id">
+            <!-- 用户 -->
+            <view class="chat-dialog-item-user" wx:if="{{item.sender === 'user'}}">
+                <image style="width:100rpx;height: 100rpx;flex-shrink: 0;" src="../../static/my/2411.png" mode="widthFix" />
+                <view class="chat-dialog-item-content">
+                    <text>{{item.message}}</text>
+                </view>
+            </view>
+            <!-- 客服 -->
+            <view class="chat-dialog-item-sender" wx:if="{{item.sender === 'support'}}">
+                <image style="width:100rpx;height: 100rpx;flex-shrink: 0;" src="../../static/sender.png" mode="widthFix" />
+                <view class="chat-dialog-item-content">
+                    <text>{{item.message}}</text>
+                    <text wx:if="{{item.type === 'link'}}" style="color: #00FFB5;">查看活动</text>
+                </view>
+            </view>
+        </block>
+    </view>
+    <!-- 底部输入框 -->
+    <view class="bottom-input-box">
+        <!-- 输入框 -->
+        <view class="bottom-input-box-input">
+            <input type="text" style="height: 100%;" value="{{inputValue}}" bind:confirm="sendEvent" confirm-type="send" />
+        </view>
+        <!-- 表情按钮 -->
+        <image class="bottom-input-box-emoji" style="width: 56rpx;height: 56rpx;" src="../../static/649.svg" mode="widthFix" />
+        <!-- 添加按钮 -->
+        <image class="bottom-input-box-add" style="width: 56rpx;height: 56rpx;" src="../../static/647.svg" mode="widthFix" />
+    </view>
+</view>

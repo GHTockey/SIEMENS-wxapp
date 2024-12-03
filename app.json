@@ -16,7 +16,8 @@
     "pages/my/apply",
     "pages/my/attendance",
     "pages/my/questionnaire",
-    "pages/my/collect"
+    "pages/my/collect",
+    "pages/online_consult/online_consult"
   ],
   "window": {
     "navigationBarTextStyle": "black",

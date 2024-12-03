@@ -20,7 +20,7 @@
                     <text>{{item.title}}</text>
                 </view>
                 <!-- 勾选 -->
-                <view class="comment-item-select" bind:tap="switchCommentStatus" data-index="{{index}}">
+                <view class="comment-item-select" bind:tap="selectActivity" data-index="{{index}}">
                     <image style="width: 100%;" src="../../static/my/{{item.selected ? '2480' : '2177'}}.svg" mode="widthFix" />
                 </view>
             </view>
@@ -36,4 +36,7 @@
         </view>
         <view class="delete-btn">删除</view>
     </view>
+
+     <!-- 弹窗 -->
+    <pop-tip content="删除后将无法恢复" title="你确定删除吗？" wx:if="{{showPopTip}}" bind:cancel="popTipHandler" bind:confirm="popTipHandler" />
 </view>

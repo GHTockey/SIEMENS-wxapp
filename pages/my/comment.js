@@ -28,14 +28,58 @@ Page({
         selected: false
       },
     ],
+    // 全选
+    selectAll: false,
+    // 弹窗
+    showPopTip: false
   },
 
-  // 切换评论状态
-  switchCommentStatus(e) {
+  selectActivity(e) {
     const index = e.currentTarget.dataset.index;
     this.data.commentList[index].selected = !this.data.commentList[index].selected;
     this.setData({
       commentList: this.data.commentList
+    });
+  },
+  selectAll() {
+    this.data.selectAll = !this.data.selectAll;
+    this.data.commentList.forEach(item => {
+      item.selected = this.data.selectAll;
+    });
+    this.setData({
+      commentList: this.data.commentList,
+      selectAll: this.data.selectAll
+    });
+  },
+
+  // 弹窗按钮事件
+  popTipHandler(e) {
+    console.log(e);
+    if (e.type === 'cancel') {
+      this.setData({
+        showPopTip: false
+      });
+    } else {
+      console.log('确认');
+    }
+  },
+
+  // 删除按钮事件
+  deleteBtnHandler() {
+    console.log('删除');
+
+    // 判断是否选择了数据
+    const selectedList = this.data.commentList.filter(item => item.selected);
+    if (selectedList.length === 0) {
+      wx.showToast({
+        title: '请选择要删除的数据',
+        icon: 'none'
+      });
+      return;
+    }
+
+    this.setData({
+      showPopTip: true
     });
   },
 

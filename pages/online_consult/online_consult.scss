@@ -1,0 +1,164 @@
+/* pages/online_consult/online_consult.wxss */
+.content-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    padding-bottom: 172rpx;
+    // border: 1rpx solid red;
+    background: linear-gradient(100deg, #000028 0%, #003B52 73%, #005464 86%, #008484 100%);
+
+    .header-box {
+        height: 278rpx;
+        // border: 1rpx solid yellow;
+        gap: 44rpx;
+        margin-top: 10rpx;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .guess-question-box {
+        background-color: #062d48;
+        padding: 24rpx 32rpx;
+        box-shadow: 2rpx 2rpx 4rpx 2rpx rgba(124, 124, 124, 0.1);
+        border-radius: 10rpx;
+
+        .guess-question-list {
+            margin-top: 24rpx;
+            margin-bottom: 24rpx;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            // column-gap: 40rpx;
+            row-gap: 32rpx;
+            // border: 1rpx solid red;
+
+            .guess-question-item {
+                width: 284rpx;
+                height: 56rpx;
+                border-radius: 28rpx 28rpx 28rpx 28rpx;
+                border: 2rpx solid #707070;
+                color: #00FFB5;
+                font-size: 24rpx;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    .hot-activity-box {
+        margin-top: 34rpx;
+        border-radius: 10rpx;
+        padding: 34rpx 44rpx;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+
+
+        .hot-activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20rpx;
+            margin-top: 36rpx;
+
+
+            .hot-activity-item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 24rpx;
+                border-bottom: 2rpx solid #7070705e;
+                padding-bottom: 20rpx;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        .hot-activity-btn {
+            margin-top: 20rpx;
+            width: 284rpx;
+            height: 56rpx;
+            background: linear-gradient(90deg, #00CFC5 0%, #00FFA2 100%);
+            border-radius: 28rpx 28rpx 28rpx 28rpx;
+            color: #000;
+            font-size: 28rpx;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // 右对齐
+            margin-left: auto;
+        }
+    }
+
+    .bottom-input-box {
+        // border: 1rpx solid red;
+        height: 172rpx;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(90deg, #0C1430 0%, #014B5E 100%);
+        box-shadow: 0rpx -4rpx 6rpx 2rpx rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 36rpx 30rpx;
+        padding-bottom: 68rpx;
+        box-sizing: border-box;
+        gap: 28rpx;
+
+        .bottom-input-box-input {
+            flex: 1;
+            height: 74rpx;
+            background-color: #e4e4e4;
+            border-radius: 8.67rpx;
+            color: #000;
+            padding: 0 20rpx;
+        }
+    }
+
+    .chat-dialog-box {
+        // margin-top: 34rpx;
+        padding: 34rpx 0;
+        // border: 1rpx solid red;
+        display: flex;
+        flex-direction: column;
+        gap: 38rpx;
+
+
+        .chat-dialog-item-sender {
+            display: flex;
+            gap: 38rpx;
+            font-size: 28rpx;
+            display: flex;
+            align-items: center;
+
+            .chat-dialog-item-content {
+                padding: 22rpx 36rpx 24rpx 36rpx;
+                background-color: #062D48;
+                border: 1.5rpx solid #707070;
+                border-radius: 20.63rpx 20.63rpx 20.63rpx 0rpx;
+            }
+        }
+
+        .chat-dialog-item-user {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 38rpx;
+            font-size: 28rpx;
+
+            .chat-dialog-item-content {
+                color: #000;
+                padding: 22rpx 36rpx 24rpx 36rpx;
+                background: linear-gradient(90deg, #00CFC5 0%, #00FFA2 100%);
+                border-radius: 21rpx 21rpx 0rpx 21rpx;
+            }
+        }
+    }
+}
