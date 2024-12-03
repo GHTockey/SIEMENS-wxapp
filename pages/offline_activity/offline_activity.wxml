@@ -1,7 +1,8 @@
-<!-- pages/live_activity/live_activity.wxml -->
-<nav-bar title="直播活动" showBackIcon></nav-bar>
-<view class="live-activity-container" style="padding-top: {{navHeight}}px;">
-    <!-- 直播状态卡片 -->
+<!--pages/offline_activity/offline_activity.wxml-->
+<nav-bar title="线下活动" showBackIcon></nav-bar>
+<view class="offline-activity-container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + 150rpx);">
+
+        <!-- 直播状态卡片 -->
     <view class="live-activity-status-card">
         <image src="../../static/z2466.png" mode="widthFix">
             <!-- 白板直播中, 没有蒙层 -->
@@ -23,25 +24,25 @@
                     <!-- <text>距活动开始：{{countDown.days}} 天 {{countDown.hours}} 时 {{countDown.minutes}} 分 {{countDown.seconds}} 秒</text> -->
                     <text>距活动开始：0 天 0 时 0 分 0 秒</text>
                     <view class="live-activity-status-card-image-mask-button">
-                        <text>直播预约</text>
+                        <text>活动报名</text>
                     </view>
                 </block>
             </view>
         </image>
         <!-- 信息 -->
         <view class="live-activity-status-card-info">
-            <text class="live-activity-status-card-info-title">西门子 TIA 探厂记</text>
-            <text class="live-activity-status-card-info-desc">走进乐惠国际共启一罐啤酒的“新鲜”之旅</text>
+            <text class="live-activity-status-card-info-title">2024 CSEAC半导体行业展会</text>
+            <!-- <text class="live-activity-status-card-info-desc">走进乐惠国际共启一罐啤酒的“新鲜”之旅</text> -->
             <text class="live-activity-status-card-info-time">2024-09-19 10:00</text>
             <!-- tag -->
             <view class="live-activity-status-card-tag" bind:tap="switchLiveRemindStatus">
-                <text>直播提醒</text>
+                <text>签到提醒</text>
                 <image style="width: 66rpx;height: 34rpx;" src="../../static/{{isOpenLiveRemind ? '459' : '2497'   }}.svg" mode="widthFix"></image>
             </view>
         </view>
     </view>
 
-    <!-- 活动简介 -->
+        <!-- 活动简介 -->
     <view class="live-activity-introduction">
         <image style="width: 175rpx;height: 78rpx" src="../../static/216.svg" mode="widthFix"></image>
 
@@ -53,7 +54,23 @@
         </view>
     </view>
 
-    <!-- 活动主办方 -->
+        <!-- 活动议程 -->
+    <view class="live-activity-introduction">
+        <image style="width: 175rpx;height: 78rpx" src="../../static/z124.svg" mode="widthFix"></image>
+
+        <!-- 议程 -->
+        <view class="live-activity-agenda-box">
+            <view class="live-activity-agenda-item" wx:for="{{5}}">
+                <text>09:00-10:00</text>
+                <!-- 进度点 -->
+                <view class="live-activity-agenda-item-progress-point">
+                </view>
+                <text>签到</text>
+            </view>
+        </view>
+    </view>
+
+        <!-- 活动主办方 -->
     <view class="live-activity-sponsor">
         <image style="width: 210rpx;height: 78rpx" src="../../static/221.svg" mode="widthFix"></image>
         <view class="live-activity-sponsor-content">
@@ -66,4 +83,6 @@
     <view class="live-activity-declaration">
         <text>活动声明：活动最终解释权归西门子（中国）有限公司所有</text>
     </view>
+
+    <activity-tab-bar activeIndex="{{0}}"></activity-tab-bar>
 </view>

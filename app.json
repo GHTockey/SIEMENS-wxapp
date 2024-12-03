@@ -18,13 +18,15 @@
     "pages/my/questionnaire",
     "pages/my/collect",
     "pages/online_consult/online_consult",
-    "pages/live_activity/live_activity"
+    "pages/live_activity/live_activity",
+    "pages/offline_activity/offline_activity"
   ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "Weixin",
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationStyle": "custom"
+    "navigationStyle": "custom",
+    "backgroundColor": "#021638"
   },
   "style": "v2",
   "componentFramework": "glass-easel",

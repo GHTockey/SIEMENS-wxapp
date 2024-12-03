@@ -66,6 +66,14 @@ Page({
     })
   },
 
+  // 跳转页面
+  myNavigateTo(e) {
+    let url = e.currentTarget.dataset.url
+    wx.navigateTo({
+      url
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

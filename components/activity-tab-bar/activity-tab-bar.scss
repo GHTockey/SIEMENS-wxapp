@@ -1,0 +1,38 @@
+/* components/activity-tab-bar/activity-tab-bar.wxss */
+.tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 146rpx;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #0C1430 0%, #014B5E 100%);
+    box-shadow: 0rpx -4rpx 6rpx 2rpx rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-around;
+    padding: 22rpx 0;
+    z-index: 9999;
+
+    .tab-bar-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .tab-bar-item-icon-container {
+            width: 70rpx;
+            height: 70rpx;
+            padding: 6rpx;
+            box-sizing: border-box;
+
+            .tab-bar-item-icon {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .tab-bar-item-text {
+            font-size: 20rpx;
+            color: #ffffffd0;
+        }
+    }
+}

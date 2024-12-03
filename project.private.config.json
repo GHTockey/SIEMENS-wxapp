@@ -8,6 +8,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "线下活动",
+          "pathName": "pages/offline_activity/offline_activity",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "直播活动",
           "pathName": "pages/live_activity/live_activity",
           "query": "",

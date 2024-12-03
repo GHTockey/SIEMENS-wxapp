@@ -1,9 +1,11 @@
-/* pages/live_activity/live_activity.wxss */
-.live-activity-container {
+/* pages/offline_activity/offline_activity.wxss */
+.offline-activity-container {
     min-height: 100vh;
     box-sizing: border-box;
     padding: 0 30rpx;
-    padding-bottom: 100rpx;
+    position: relative;
+    // background-color: white;
+    background: linear-gradient( 100deg, #000028 0%, #003B52 78%, #005464 100%);
 
     .live-activity-status-card {
         background-color: #062d48;
@@ -13,8 +15,6 @@
         >image {
             width: 100%;
             position: relative;
-            border-radius: 8rpx;
-            overflow: hidden;
 
             .live-activity-status-card-image-mask {
                 position: absolute;
@@ -104,6 +104,7 @@
         }
     }
 
+
     .live-activity-sponsor {
         margin-top: 24rpx;
 
@@ -119,7 +120,8 @@
 
     .live-activity-declaration {
         position: absolute;
-        bottom: 50rpx;
+        bottom: calc(146rpx + 50rpx);
+        // bottom: 50rpx;
         left: 0;
         width: 100%;
         font-size: 22rpx;
@@ -127,5 +129,16 @@
         color: #00AFAA;
         box-sizing: border-box;
         text-align: center;
+    }
+
+    .live-activity-agenda-box {
+        border: 1px solid red;
+
+        .live-activity-agenda-item {
+
+            .live-activity-agenda-item-progress-point {
+
+            }
+        }
     }
 }
