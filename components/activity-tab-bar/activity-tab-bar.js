@@ -26,7 +26,7 @@ Component({
     {
       "selectedIconPath": "../../static/z76.svg",
       "iconPath": "../../static/z111.svg",
-      "path": "",
+      "path": "/pages/attendance-guide/attendance-guide",
       "text": "参会指南"
     },
     {

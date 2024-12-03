@@ -1,0 +1,31 @@
+/* pages/attendance-guide/attendance-guide.wxss */
+.attendance-guide-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    position: relative;
+
+    .attendance-guide-register {
+        margin-top: 40rpx;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        .attendance-guide-register-content {
+            padding-left: 40rpx;
+            font-size: 28rpx;
+            line-height: 48rpx;
+            margin-top: 10rpx;
+        }
+    }
+
+    .attendance-guide-welcome {
+        position: absolute;
+        bottom: calc(112rpx + 146rpx); // 146rpx 是 tabbar 的高度
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+    }
+}

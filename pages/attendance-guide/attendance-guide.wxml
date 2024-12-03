@@ -1,0 +1,44 @@
+<!-- pages/attendance-guide/attendance-guide.wxml -->
+<nav-bar title="参会指南" showBackIcon></nav-bar>
+<activity-tab-bar list="{{tabBarList}}" activeIndex="{{activeIndex}}"></activity-tab-bar>
+<view class="attendance-guide-container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + 50rpx);">
+    <!-- 会议注册 -->
+    <view class="attendance-guide-register">
+        <image style="width: 175rpx; height: 78rpx;" src="../../static/z96.svg" mode=""></image>
+        <!-- 内容 -->
+        <view class="attendance-guide-register-content">
+            <text style="color: #00E2D8;">请于2024年8月19日前报名并填写参会信息，
+            </text>
+            <text>我们将根据您登记注册的信息安排会议相关事宜。</text>
+        </view>
+    </view>
+    <!-- 酒店信息 -->
+    <view class="attendance-guide-register">
+        <image style="width: 175rpx; height: 78rpx;" src="../../static/z100.svg" mode=""></image>
+        <!-- 内容 -->
+        <view class="attendance-guide-register-content">
+            <text>酒店名称： 苏州茵皇假日度假酒店</text>
+            <text>
+                酒店地点： 苏州市功州工业园区星港168号</text>
+            <text>
+                酒店电话： 0512-6761 6688</text>
+            <text>
+                签到地址： 苏州茵皇假日度假酒店，G2宴会厅</text>
+        </view>
+    </view>
+    <!-- 联系人 -->
+    <view class="attendance-guide-register">
+        <image style="width: 143rpx; height: 78rpx;" src="../../static/z104.svg" mode=""></image>
+        <!-- 内容 -->
+        <view class="attendance-guide-register-content">
+            <text>刘宁宁 18519836338</text>
+            <text>
+                ningning@siemens.com</text>
+        </view>
+    </view>
+
+    <!-- 尾部欢迎 -->
+    <view class="attendance-guide-welcome">
+        <image style="width: 314rpx;height: 42rpx;" src="../../static/z2499.svg" mode=""></image>
+    </view>
+</view>

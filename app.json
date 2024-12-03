@@ -19,7 +19,8 @@
     "pages/my/collect",
     "pages/online_consult/online_consult",
     "pages/live_activity/live_activity",
-    "pages/offline_activity/offline_activity"
+    "pages/offline_activity/offline_activity",
+    "pages/attendance-guide/attendance-guide"
   ],
   "window": {
     "navigationBarTextStyle": "black",
