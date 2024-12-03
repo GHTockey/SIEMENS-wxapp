@@ -20,7 +20,8 @@
     "pages/online_consult/online_consult",
     "pages/live_activity/live_activity",
     "pages/offline_activity/offline_activity",
-    "pages/attendance-guide/attendance-guide"
+    "pages/attendance-guide/attendance-guide",
+    "pages/activity-consultation/activity-consultation"
   ],
   "window": {
     "navigationBarTextStyle": "black",

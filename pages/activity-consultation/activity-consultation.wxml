@@ -1,0 +1,29 @@
+<!-- pages/activity-consultation/activity-consultation.wxml -->
+<nav-bar title="资料下载" showBackIcon></nav-bar>
+<activity-tab-bar activeIndex="{{2}}"></activity-tab-bar>
+<pop-tip isEmailFrom title="请输入接收的邮箱" wx:if="{{showPopTip}}" bind:cancel="popTipHandler" bind:confirm="popTipHandler" />
+<view class="activity-consultation-container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + 50rpx);">
+    <!-- 列表 -->
+    <view class="consultation-list">
+        <view class="consultation-item" wx:for="{{consultationList}}" wx:key="consultationList">
+            <image src="{{item.imgSrc}}" mode="aspectFill" />
+            <!-- 右侧内容 -->
+            <view class="consultation-item-right">
+                <text style="font-size: 24rpx;color: #FFFFFF;">{{item.title}}</text>
+                <text style="font-size: 24rpx;color: #B6B6B6;">{{item.date}}</text>
+                <!-- 勾选框 -->
+                <view class="part-activity-item-checkbox" data-index="{{index}}" bind:tap="selectActivity">
+                    <image style="width: 100%;" src="../../static/my/{{item.selected ? 2480 : 2177}}.svg" mode="widthFix" />
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 底部操作：全选/删除 -->
+    <view class="bottom-container" style="padding-bottom: calc(146rpx);">
+        <view class="select-all" bind:tap="selectAll">
+            <image class="check" src="../../static/my/{{selectAll ? '2480' : '2177'}}.svg" mode="widthFix"></image>
+            <text>全选</text>
+        </view>
+        <view bind:tap="deleteBtnHandler" class="delete-btn">下载</view>
+    </view>
+</view>

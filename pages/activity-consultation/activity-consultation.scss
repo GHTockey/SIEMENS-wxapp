@@ -1,0 +1,48 @@
+/* pages/activity-consultation/activity-consultation.wxss */
+
+@import '../my/footprint.scss';
+
+.activity-consultation-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+
+
+    .consultation-list {
+        margin-top: 28rpx;
+        display: flex;
+        flex-direction: column;
+        gap: 36rpx;
+
+        .consultation-item {
+            background-color: #083146;
+            padding: 8rpx;
+            height: calc(151rpx);
+            display: flex;
+            gap: 30rpx;
+
+            >image {
+                width: 242rpx;
+                height: 151rpx;
+                flex-shrink: 0;
+            }
+
+            .consultation-item-right {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 10rpx 0;
+                position: relative;
+                width: 100%;
+
+                .part-activity-item-checkbox {
+                    width: 32rpx;
+                    height: 32rpx;
+                    position: absolute;
+                    right: 8rpx;
+                    bottom: 24rpx;
+                }
+            }
+        }
+    }
+}

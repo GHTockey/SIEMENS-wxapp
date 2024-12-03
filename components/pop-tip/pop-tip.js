@@ -14,6 +14,11 @@ Component({
       value: ''
     },
 
+    isEmailFrom: {
+      type: Boolean,
+      value: false
+    }
+
     // show: {
     //   type: Boolean,
     //   value: true

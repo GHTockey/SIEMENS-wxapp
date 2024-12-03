@@ -1,16 +1,20 @@
 <!-- components/pop-tip/pop-tip.wxml -->
 <view class="pop-tip-container">
     <view class="pop-tip-content">
-        <view class="pop-tip-content-title">
-            <image src="../../static/2492.svg" mode="widthFix" />
+        <view class="pop-tip-content-title" style="gap: 10rpx;">
+            <image style="width: 70rpx;" wx:if="{{isEmailFrom}}" src="../../static/z2500.svg" mode="widthFix" />
+            <image wx:else src="../../static/2492.svg" mode="widthFix" />
             <text>{{title}}</text>
         </view>
-        <view class="pop-tip-content-text">
+        <view wx:if="isEmailFrom" class="pop-tip-container-email">
+          <input style="width: 100%; height: 100%;" type="text" />
+        </view>
+        <view wx:else class="pop-tip-content-text">
             <text>{{content}}</text>
         </view>
         <view class="pop-tip-content-btn">
             <view bind:tap="cancel" class="pop-tip-content-btn-item">取消</view>
-            <view bind:tap="confirm" class="pop-tip-content-btn-item">确认删除</view>
+            <view bind:tap="confirm" class="pop-tip-content-btn-item">确认下载</view>
         </view>
     </view>
 </view>

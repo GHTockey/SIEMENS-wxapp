@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "activity-tab-bar": "../../components/activity-tab-bar/activity-tab-bar",
+    "pop-tip": "../../components/pop-tip/pop-tip"
+  }
+}

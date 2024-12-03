@@ -32,7 +32,7 @@ Component({
     {
       "selectedIconPath": "../../static/z2511.svg",
       "iconPath": "../../static/z112.svg",
-      "path": "",
+      "path": "/pages/activity-consultation/activity-consultation",
       "text": "活动咨询"
     },
     {
