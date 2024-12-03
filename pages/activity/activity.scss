@@ -1,1 +1,81 @@
 /* pages/activity/activity.wxss */
+
+@import '../my/footprint.scss';
+
+.activity-calendar-switch {
+    // border: 1rpx solid red;
+    width: 100%;
+    padding: 0 40rpx;
+    margin-bottom: 40rpx;
+    display: flex;
+    justify-content: space-between;
+    // display: flex;
+    // flex-direction: column;
+}
+
+.part-activity-tabs {
+    flex-wrap: wrap;
+    background: linear-gradient( 24deg, #000028 0%, #005464 79%, #008080 100%);
+}
+
+.activity-calendar-switch-item {
+    display: flex;
+    gap: 10rpx;
+    align-items: center;
+    font-size: 28rpx;
+}
+
+
+.activity_container {
+    background-color: #021638;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-bottom: calc(146rpx);
+
+    .activity-calendar-list {
+        // 使用列布局实现瀑布流效果
+        column-count: 2; // 设置列数为2
+        column-gap: 30rpx; // 列间距
+        padding: 30rpx;
+
+        .part-activity-item {
+            // 确保每个项目在列中独立显示
+            break-inside: avoid;
+            background-color: #062d48;
+            margin-bottom: 30rpx; // 项目之间的垂直间距
+            padding: 8rpx;
+            box-sizing: border-box;
+
+            .part-activity-item-info {
+                display: flex;
+                flex-direction: column;
+                gap: 10rpx;
+                font-size: 28rpx;
+                padding: 18rpx 20rpx;
+                padding-bottom: 0;
+            }
+
+            .part-activity-item-img {
+                // width: 296rpx;
+                // height: 100%;
+                display: flex;
+                align-items: center;
+                position: relative;
+    
+                .part-activity-item-tag {
+                    position: absolute;
+                    bottom: 12rpx;
+                    right: 18rpx;
+                    padding: 4rpx 12rpx;
+    
+                    font-size: 18rpx;
+                    background: #050A23;
+                    border-radius: 18rpx 18rpx 18rpx 18rpx;
+                    opacity: 0.7;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}

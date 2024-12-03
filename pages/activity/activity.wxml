@@ -1,6 +1,74 @@
-<!--pages/activity/activity.wxml-->
+<!-- pages/activity/activity.wxml -->
+<nav-bar title="活动中心" />
 <view class="activity_container">
-  <text>pages/activity/activity.wxml</text>
-
+  <view class="part-activity-tabs" style="padding-top: {{navHeight + 10}}px;">
+    <!-- 活动订阅/日历 开关 -->
+    <view class="activity-calendar-switch">
+      <view class="activity-calendar-switch-item" bind:tap="switchSubscribeOrCalendar" data-type="Subscribe">
+        <text>活动订阅</text>
+        <image style="width: 66rpx;height: 34rpx;" src="../../static/{{ isSubscribe ? '459' : '2497' }}.svg" mode="widthFix" />
+      </view>
+      <view class="activity-calendar-switch-item" bind:tap="switchSubscribeOrCalendar" data-type="Calendar">
+        <text>活动日历</text>
+        <image style="width: 50rpx;height: 50rpx;" src="../../static/{{ isCalendar ? '466' : '464' }}.svg" mode="widthFix" />
+      </view>
+    </view>
+    <view class="part-activity-tab-item">
+      <text>全部活动</text>
+      <image style="width: 20rpx;" src="../../static/493.svg" mode="widthFix" />
+    </view>
+    <view class="part-activity-tab-item">
+      <text>举办城市</text>
+      <image style="width: 20rpx;" src="../../static/493.svg" mode="widthFix" />
+    </view>
+    <view class="part-activity-tab-item">
+      <text>全部日期</text>
+      <image style="width: 20rpx;" src="../../static/493.svg" mode="widthFix" />
+    </view>
+  </view>
+  <!-- 列表 -->
+  <view wx:if="{{!isCalendar}}" class="part-activity-list">
+    <view class="part-activity-item" wx:for="{{activityList}}" wx:key="activityList">
+      <!-- 图片 -->
+      <view class="part-activity-item-img">
+        <image style="width: 100%;" src="{{item.imgSrc}}" mode="widthFix" />
+        <!-- tag -->
+        <view class="part-activity-item-tag">
+          <text>{{item.tag}}</text>
+        </view>
+      </view>
+      <!-- 活动信息 -->
+      <view class="part-activity-item-info">
+        <text>{{item.title}}</text>
+        <text style="font-size: 24rpx; color: #CFCFCF;">{{item.date}}</text>
+        <!-- 勾选框 -->
+        <!-- <view class="part-activity-item-checkbox" data-index="{{index}}" bind:tap="selectActivity">
+                    <image style="width: 100%;" src="../../static/my/{{item.selected ? 2480 : 2177}}.svg" mode="widthFix" />
+                </view> -->
+      </view>
+    </view>
+  </view>
+  <!-- 瀑布流列表 -->
+  <view wx:else class="activity-calendar-list">
+    <view class="part-activity-item" wx:for="{{activityList}}" wx:key="activityList">
+      <!-- 图片 -->
+      <view class="part-activity-item-img">
+        <image style="width: 100%;" src="{{item.imgSrc}}" mode="widthFix" />
+        <!-- tag -->
+        <view class="part-activity-item-tag">
+          <text>{{item.tag}}</text>
+        </view>
+      </view>
+      <!-- 活动信息 -->
+      <view class="part-activity-item-info">
+        <text>{{item.title}}</text>
+        <text style="font-size: 24rpx; color: #D0D0D0;">{{item.date}}</text>
+        <!-- 勾选框 -->
+        <!-- <view class="part-activity-item-checkbox" data-index="{{index}}" bind:tap="selectActivity">
+            <image style="width: 100%;" src="../../static/my/{{item.selected ? 2480 : 2177}}.svg" mode="widthFix" />
+        </view> -->
+      </view>
+    </view>
+  </view>
   <tab-bar></tab-bar>
 </view>
