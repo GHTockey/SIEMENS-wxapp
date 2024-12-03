@@ -1,0 +1,129 @@
+/* pages/live_activity/live_activity.wxss */
+.live-activity-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    padding-bottom: 100rpx;
+
+    .live-activity-status-card {
+        background-color: #062d48;
+        padding: 20rpx;
+        margin-top: 30rpx;
+
+        >image {
+            width: 100%;
+            position: relative;
+
+            .live-activity-status-card-image-mask {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                display: flex;
+                gap: 22rpx;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-size: 24rpx;
+
+                .live-activity-status-card-image-mask-button {
+                    width: 160rpx;
+                    height: 50rpx;
+                    background: linear-gradient(90deg, #00CBC1 0%, #00FF9E 100%);
+                    border-radius: 0rpx 0rpx 0rpx 0rpx;
+                    color: #000;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 24rpx;
+                    color: #050A23;
+                }
+            }
+        }
+
+        .live-activity-status-card-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15rpx;
+            margin-top: 20rpx;
+            padding: 0 10rpx;
+            position: relative;
+
+
+            .live-activity-status-card-info-title {
+                font-size: 32rpx;
+                color: #00E2D8;
+            }
+
+            .live-activity-status-card-info-desc,
+            .live-activity-status-card-info-time {
+                font-size: 24rpx;
+                color: #D0D0D0;
+            }
+        }
+
+        .live-activity-status-card-tag {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            gap: 10rpx;
+            font-size: 24rpx;
+        }
+
+        .live-activity-status-card-image-mask-tag {
+            position: absolute;
+            top: 26rpx;
+            right: 28rpx;
+            width: 124rpx;
+            height: 50rpx;
+            background: linear-gradient(90deg, #00CBC1 0%, #00FF9E 100%);
+            border-radius: 0rpx 0rpx 0rpx 0rpx;
+            font-size: 24rpx;
+            color: #050A23;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .live-activity-introduction {
+        margin-top: 24rpx;
+
+        .live-activity-introduction-content {
+            background-color: #082f46;
+            padding: 25rpx 30rpx;
+            font-size: 28rpx;
+            color: #FFFFFF;
+            line-height: 48rpx;
+        }
+    }
+
+    .live-activity-sponsor {
+        margin-top: 24rpx;
+
+        .live-activity-sponsor-content {
+            margin-top: 15rpx;
+            padding-left: 40rpx;
+            display: flex;
+            align-items: center;
+            gap: 40rpx;
+            font-size: 28rpx;
+        }
+    }
+
+    .live-activity-declaration {
+        position: absolute;
+        bottom: 50rpx;
+        left: 0;
+        width: 100%;
+        font-size: 22rpx;
+        padding: 0 50rpx;
+        color: #00AFAA;
+        box-sizing: border-box;
+        text-align: center;
+    }
+}

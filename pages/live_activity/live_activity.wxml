@@ -1,0 +1,69 @@
+<!-- pages/live_activity/live_activity.wxml -->
+<nav-bar title="直播活动" showBackIcon></nav-bar>
+<view class="live-activity-container" style="padding-top: {{navHeight}}px;">
+    <!-- 直播状态卡片 -->
+    <view class="live-activity-status-card">
+        <image src="../../static/z2466.png" mode="widthFix">
+            <!-- 白板直播中, 没有蒙层 -->
+             <view wx:if="{{liveStatus == 0 && isOpenLiveRemind}}">
+                <view class="live-activity-status-card-image-mask-tag">
+                    <text>直播中</text>
+                </view>
+             </view>
+            <!-- 图片蒙层 -->
+            <view wx:else class="live-activity-status-card-image-mask">
+                <!-- 1 直播中 -->
+                <block wx:if="{{liveStatus == 0 && !isOpenLiveRemind}}">
+                    <text>直播中</text>
+                    <view class="live-activity-status-card-image-mask-button">
+                        <text>观看直播</text>
+                    </view>
+                </block>
+                <block wx:if="{{liveStatus == 1}}">
+                    <text>距活动开始：0 天 0 时 0 分 0 秒</text>
+                    <view class="live-activity-status-card-image-mask-button">
+                        <text>直播预约</text>
+                    </view>
+                </block>
+            </view>
+        </image>
+        <!-- 信息 -->
+        <view class="live-activity-status-card-info">
+            <text class="live-activity-status-card-info-title">西门子 TIA 探厂记</text>
+            <text class="live-activity-status-card-info-desc">走进乐惠国际共启一罐啤酒的“新鲜”之旅</text>
+            <text class="live-activity-status-card-info-time">2024-09-19 10:00</text>
+            <!-- tag -->
+            <view class="live-activity-status-card-tag" bind:tap="switchLiveRemindStatus">
+                <text>直播提醒</text>
+                <image style="width: 66rpx;height: 34rpx;" src="../../static/{{isOpenLiveRemind ? '459' : '2497'   }}.svg" mode="widthFix"></image>
+            </view>
+        </view>
+    </view>
+
+    <!-- 活动简介 -->
+    <view class="live-activity-introduction">
+        <image style="width: 175rpx;height: 78rpx" src="../../static/216.svg" mode="widthFix"></image>
+
+        <!-- 简介内容 -->
+        <view class="live-activity-introduction-content">
+            <text style="color: #00E2D8;">西门子创新日重启，9月4日崭新出发！</text>
+            <text>
+                大会将聚焦西门子11大核心技术领域，特别关注工业元宇宙、工业 AI、IT/OT 融合及可持续发展等前沿技术及融合应用，全面展示创新成果。西门子股份公司首席技术官将现场分享AI技术如何塑造工业未来。</text>
+        </view>
+    </view>
+
+    <!-- 活动主办方 -->
+    <view class="live-activity-sponsor">
+        <image style="width: 210rpx;height: 78rpx" src="../../static/221.svg" mode="widthFix"></image>
+        <view class="live-activity-sponsor-content">
+            <image style="width: 180rpx; flex-shrink: 0;" src="../../static/logo.png" mode="widthFix"></image>
+            <text>西门子（中国）有限公司</text>
+        </view>
+    </view>
+
+
+    <!-- 活动声明 -->
+    <view class="live-activity-declaration">
+        <text>活动声明：活动最终解释权归西门子（中国）有限公司所有</text>
+    </view>
+</view>

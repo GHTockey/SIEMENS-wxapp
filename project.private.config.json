@@ -8,6 +8,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "直播活动",
+          "pathName": "pages/live_activity/live_activity",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "我的评论",
           "pathName": "pages/my/comment",
           "query": "",

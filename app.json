@@ -17,7 +17,8 @@
     "pages/my/attendance",
     "pages/my/questionnaire",
     "pages/my/collect",
-    "pages/online_consult/online_consult"
+    "pages/online_consult/online_consult",
+    "pages/live_activity/live_activity"
   ],
   "window": {
     "navigationBarTextStyle": "black",
