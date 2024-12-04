@@ -28,7 +28,7 @@
   </view>
   <!-- 列表 -->
   <view wx:if="{{!isCalendar}}" class="part-activity-list">
-    <view class="part-activity-item" wx:for="{{activityList}}" wx:key="activityList">
+    <view class="part-activity-item" wx:for="{{activityList}}" wx:key="activityList" bind:tap="myNavigateTo" data-url="{{item.type === 'online' ? '/pages/live_activity/live_activity' : '/pages/offline_activity/offline_activity'}}">
       <!-- 图片 -->
       <view class="part-activity-item-img">
         <image style="width: 100%;" src="{{item.imgSrc}}" mode="widthFix" />
@@ -50,7 +50,7 @@
   </view>
   <!-- 瀑布流列表 -->
   <view wx:else class="activity-calendar-list">
-    <view class="part-activity-item" wx:for="{{activityList}}" wx:key="activityList" bind:tap="myNavigateTo" data-url="/pages/live_activity/live_activity">
+    <view class="part-activity-item" wx:for="{{activityList}}" wx:key="activityList" bind:tap="myNavigateTo" data-url="{{item.type === 'online' ? '/pages/live_activity/live_activity' : '/pages/offline_activity/offline_activity'}}">
       <!-- 图片 -->
       <view class="part-activity-item-img">
         <image style="width: 100%;" src="{{item.imgSrc}}" mode="widthFix" />

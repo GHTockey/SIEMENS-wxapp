@@ -52,6 +52,12 @@ Component({
       // this.setData({
       //   activeIndex: index
       // })
+      
+      // 判断是否是当前页面
+      if (index === this.data.activeIndex) {
+        return
+      }
+
       this.updateActiveIndex(index)
       wx.redirectTo({
         url: this.data.list[index].path

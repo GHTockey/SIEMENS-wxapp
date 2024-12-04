@@ -21,7 +21,8 @@
     "pages/live_activity/live_activity",
     "pages/offline_activity/offline_activity",
     "pages/attendance-guide/attendance-guide",
-    "pages/activity-consultation/activity-consultation"
+    "pages/activity-consultation/activity-consultation",
+    "pages/related_data/related_data"
   ],
   "window": {
     "navigationBarTextStyle": "black",

@@ -1,4 +1,4 @@
-// pages/activity-consultation/activity-consultation.js
+// pages/related_data/related_data.js
 Page({
 
   /**

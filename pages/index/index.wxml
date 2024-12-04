@@ -1,5 +1,75 @@
-<view class="index_container">
+<nav-bar showTitle="{{false}}" showLogo></nav-bar>
+<tab-bar></tab-bar>
+<view class="index_container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + 50rpx);">
 
+  <view class="index_container_1">
+    <!-- 头部海报 -->
+    <view class="index_container_1_header">
+      <image style="width: 100%; height: 100%" src="../../static/bg1.png" mode="aspectFill" />
+    </view>
 
-  <tab-bar></tab-bar>
+    <!-- 按钮列表 -->
+    <view class="index_container_1_button_list">
+      <view class="index_container_1_button_list_item">
+        <image style="width: 82rpx;height: 82rpx;" src="../../static/z2112.png" mode="widthFix" />
+        <text>PLC</text>
+      </view>
+      <view class="index_container_1_button_list_item">
+        <image style="width: 82rpx;height: 82rpx;" src="../../static/z2112.png" mode="widthFix" />
+        <text>产品</text>
+      </view>
+      <view class="index_container_1_button_list_item">
+        <image style="width: 82rpx;height: 82rpx;" src="../../static/z2112.png" mode="widthFix" />
+        <text>产品</text>
+      </view>
+      <view class="index_container_1_button_list_item">
+        <image style="width: 82rpx;height: 82rpx;" src="../../static/z2112.png" mode="widthFix" />
+        <text>产品</text>
+      </view>
+      <view class="index_container_1_button_list_item">
+        <image style="width: 82rpx;height: 82rpx;" src="../../static/z2112.png" mode="widthFix" />
+        <text>产品</text>
+      </view>
+    </view>
+
+    <!-- 海报 -->
+    <view class="index_container_1_poster">
+      <image style="width: 100%; height: 100%" src="../../static/hb1.png" mode="aspectFill" />
+    </view>
+
+    <!-- 精彩推荐 -->
+    <view class="index_container_1_recommend">
+      <view class="index_container_1_recommend_header">精彩推荐</view>
+
+      <!-- 列表 -->
+      <view class="index_container_1_recommend_list">
+        <view class="index_container_1_recommend_list_item">
+          <image src="../../static/hb2.png" mode="aspectFill" />
+          <!-- 右侧内容 -->
+          <view class="index_container_1_recommend_list_item_right">
+              <text>新版本EMS 正式发布</text>
+              <text>SIMATLC ENERGY MANAGER V7.5新增项功能特性</text>
+          </view>
+        </view>
+        <view class="index_container_1_recommend_list_item">
+          <image src="../../static/hb2.png" mode="aspectFill" />
+          <!-- 右侧内容 -->
+          <view class="index_container_1_recommend_list_item_right">
+              <text>新版本EMS 正式发布</text>
+              <text>SIMATLC ENERGY MANAGER V7.5新增项功能特性</text>
+          </view>
+        </view>
+        <view class="index_container_1_recommend_list_item">
+          <image src="../../static/hb2.png" mode="aspectFill" />
+          <!-- 右侧内容 -->
+          <view class="index_container_1_recommend_list_item_right">
+              <text>新版本EMS 正式发布</text>
+              <text>SIMATLC ENERGY MANAGER V7.5新增项功能特性</text>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
 </view>

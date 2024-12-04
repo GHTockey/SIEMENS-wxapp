@@ -38,7 +38,7 @@ Component({
     {
       "selectedIconPath": "../../static/z50.svg",
       "iconPath": "../../static/z2513.svg",
-      "path": "",
+      "path": "/pages/related_data/related_data",
       "text": "相关资料"
     }]
   },

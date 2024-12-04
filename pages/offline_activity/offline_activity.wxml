@@ -58,16 +58,26 @@
     <view class="live-activity-introduction">
         <image style="width: 175rpx;height: 78rpx" src="../../static/z124.svg" mode="widthFix"></image>
 
-        <!-- 议程 -->
-        <view class="live-activity-agenda-box">
-            <view class="live-activity-agenda-item" wx:for="{{5}}">
-                <text>09:00-10:00</text>
-                <!-- 进度点 -->
-                <view class="live-activity-agenda-item-progress-point">
-                </view>
-                <text>签到</text>
-            </view>
-        </view>
+        <!-- 议程时间轴 -->
+        <!-- <view class="timeline">
+          <view class="event">
+            <view class="time">8:30 - 9:30</view>
+            <view class="description">签到</view>
+          </view>
+          <view class="event">
+            <view class="time">9:30 - 12:00</view>
+            <view class="description">开场致辞 TIA-HMI 产品家族发展</view>
+          </view>
+          <view class="event">
+            <view class="time">12:00 - 13:30</view>
+            <view class="description">自助午餐</view>
+          </view>
+          <view class="event">
+            <view class="time">12:00 - 13:30</view>
+            <view class="description">Q&A</view>
+          </view>
+        </view> -->
+
     </view>
 
         <!-- 活动主办方 -->
