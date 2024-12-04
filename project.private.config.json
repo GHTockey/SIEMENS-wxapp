@@ -8,6 +8,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "海报详情",
+          "pathName": "pages/poster_detail/poster_detail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "线下活动",
           "pathName": "pages/offline_activity/offline_activity",
           "query": "",

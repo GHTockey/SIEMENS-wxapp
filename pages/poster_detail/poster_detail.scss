@@ -1,0 +1,39 @@
+/* pages/poster_detail/poster_detail.wxss */
+.poster_detail_container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    padding-bottom: 50rpx;
+    background: linear-gradient( 98deg, #000028 0%, #003B52 78%, #005464 100%);
+
+    .poster_detail_container_img {
+        margin-top: 20rpx;
+    }
+
+    .poster_detail_container_product_intro {
+        margin-top: 20rpx;
+
+        .poster_detail_container_product_intro_text {
+            background-color: #000;
+            padding: 32rpx;
+            font-size: 28rpx;
+            background-color: #082F46;
+            line-height: 48rpx;
+        }
+    }
+
+    .poster_detail_container_other_info {
+        background-color: #082F46;
+        padding: 32rpx;
+
+        .poster_detail_container_other_info_item {
+            margin-top: 28rpx;
+            line-height: 54rpx;
+            font-size: 28rpx;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+}

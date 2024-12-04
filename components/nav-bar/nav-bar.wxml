@@ -1,8 +1,8 @@
 <!-- components/nav-bar/nav-bar.wxml -->
 <view class="customNavigation"
  style="padding-top:{{statusBarHeight}}px;height:{{navHeight}}px;background:{{background}};">
-    <!-- 标题 -->
-    <text wx:if="{{showTitle}}" class="title-{{titlePosition}}" style="color: {{textColor}};">{{title}}</text>
+    <!-- 标题 [如果同时显示左对齐的标题和返回图标的话，标题来刘出40rpx的左间距隔开] -->
+    <text wx:if="{{showTitle}}" class="title-{{titlePosition}}" style="color: {{textColor}}; margin-left: {{showBackIcon && titlePosition === 'left' ? '40rpx' : '0'}};">{{title}}</text>
     <!-- 返回图标 -->
     <view wx:if="{{showBackIcon}}" class="back-icon" bind:tap="back">
         <image style="width: 100%;height: 100%;" src="../../static/back.svg" mode="widthFix"></image>

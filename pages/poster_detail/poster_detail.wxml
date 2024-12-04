@@ -1,0 +1,49 @@
+<!--pages/poster_detail/poster_detail.wxml-->
+<nav-bar title="TIA全集成自动化解决方案" showBackIcon titlePosition="left"></nav-bar>
+<view class="poster_detail_container" style="padding-top: {{navHeight}}px; ">
+    <!-- 海报图片 -->
+  <image class="poster_detail_container_img" style="width: 100%; height: 386rpx;" src="../../static/z2466.png" mode="widthFix" />
+  <!-- 产品简介 -->
+  <view class="poster_detail_container_product_intro">
+    <image style="width: 177rpx; height: 78rpx;" src="../../static/z2454.svg" mode="widthFix" />
+    <view class="poster_detail_container_product_intro_text">
+        <view>
+            <text style="color: #00E2D8;">全集成自动化(TIA)是西门子公司自1996年以来提出的全球领先的自动化概念。</text>
+        </view>
+        <view>
+            <text>
+                当前，全球制造商都致力于能够以与规模生产相媲美的价格提供个性化产品，能够快速适应新的市场需求灵活生产，能够在同一设备上生产多样化的最终产品，同时生产率高，又能节约资源。
+            </text>
+        </view>
+        <view>
+            <text>
+西门子工厂自动化致力于支持客户不断提升其可持续竞争力。通过自动化、数字化和智能化利用生产数据，减少能源和资源消耗，减少二氧化碳排放大幅降低成本。通过全集成自动化，协调所有系统组件和功能，提高数据的横向和纵向透明度，实现现实世界与数字世界、OT环境与IT环境的融合。            </text>
+        </view>
+        <view>
+            <text>
+我们矢志创新，不断探索，携手客户，共同开发、测试、优化面向未来的自动化解决方案，引领未来自动化。</text>
+        </view>
+    </view>
+  </view>
+  <!-- 海报2 -->
+  <image style="width: 100%; height: 380rpx; margin: 40rpx 0;" src="../../static/z2453.png" mode="widthFix" />
+  <!-- 其它信息 -->
+  <view class="poster_detail_container_other_info">
+    <view class="poster_detail_container_other_info_item">
+        <text style="color: #00E2D8;">集成工程</text>
+        <text>
+            TIA实现了从机械设计到电气布局和自动化的端到端工程，从而降低了经济成本、时间成本和人力成本。
+        </text>
+    </view>
+    <view class="poster_detail_container_other_info_item">
+        <text style="color: #00E2D8;">数据智能</text>
+        <text>
+        TIA创建了数据记录、数据分析和数据处理的基础，并通过人工智能等新兴技术将数据转化为知识。</text>
+    </view>
+    <view class="poster_detail_container_other_info_item">
+        <text style="color: #00E2D8;">工业通讯</text>
+        <text>
+        TIA依赖于端到端的一致性和强大的通信网络,通过云实现水平和垂直通讯。</text>
+    </view>
+  </view>
+</view>
