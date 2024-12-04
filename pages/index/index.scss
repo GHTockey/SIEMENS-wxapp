@@ -89,4 +89,153 @@
       }
     }
   }
+
+
+  .index_container_2{
+
+    .index_container_2_search {
+      margin-top: 20rpx;
+      // border: 1rpx solid red;
+      height: 60rpx;
+      display: flex;
+      align-items: center;
+
+      .index_container_2_search_left {
+        background-color: white;
+        height: 100%;
+        border-radius: 50rpx;
+        display: flex;
+        align-items: center;
+        padding: 0 30rpx;
+        box-sizing: border-box;
+        color: #898989;
+        font-size: 28rpx;
+        flex: 1;
+      }
+      .index_container_2_search_right {
+        padding-left: 40rpx;
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .index_container_2_tabs {
+      margin-top: 43rpx;
+      text-align: center;
+      position: relative;
+      // border: 1rpx solid red;
+      height: 135rpx;
+      box-sizing: border-box;
+
+      .index_container_2_tabs_item {
+        background-color: #023d4e;
+        // background-color: #004c55; // active
+        width: 260rpx;
+        height: 135rpx;
+        // border-top: 4rpx solid #00da9c; // active
+        border-top: 4rpx solid transparent;
+        border-bottom: 4rpx solid #149d82;
+        box-sizing: border-box;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        display: inline-block;
+        position: relative;
+
+        .index_container_2_tabs_item_top {
+          font-size: 28rpx;
+          // font-weight: 700; // active
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -100%);
+        }
+
+        .index_container_2_tabs_item_bottom {
+          font-size: 24rpx;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, 0);
+        }
+
+        &.active {
+          border-top: 4rpx solid #00da9c;
+          background-color: #004c55;
+
+          .index_container_2_tabs_item_top {
+            font-weight: 700;
+          }
+        }
+      }
+
+      .index_container_2_tabs_more {
+        // border: 1rpx solid red;
+        width: calc(100% - 260rpx * 2); // 减去两个item的宽度
+        height: calc(100% - 4rpx); // 减去下border
+        position: absolute;
+        right: 0;
+        top: 0;
+        box-sizing: border-box;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // 左侧阴影
+        box-shadow: 0 0 18rpx 0 rgba(0, 0, 0, 0.8);
+      }
+    }
+
+    .index_container_2_banner {
+      height: 760rpx;
+      // border: 1rpx solid red;
+      position: relative;
+
+      .index_container_2_banner_indicator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 23rpx;
+        position: absolute;
+        bottom: 20rpx;
+        left: 0;
+        right: 0;
+
+        .index_container_2_banner_indicator_item {
+          width: 8rpx;
+          height: 8rpx;
+          border-radius: 50%;
+          background-color: #00d7a0;
+
+          &.active {
+            background-color: transparent;
+            width: 20rpx;
+            height: 20rpx;
+            border: 2rpx solid #00d7a0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    .index_container_2_poster_list {
+      margin-top: 48rpx;
+      display: flex;
+      flex-direction: column;
+      gap: 40rpx;
+
+      .index_container_2_poster_list_item {
+        height: 265rpx;
+        border: 1rpx solid #1bbe9e;
+      }
+    }
+  }
+}
+
+.scroll-view_H{
+  white-space: nowrap;
 }

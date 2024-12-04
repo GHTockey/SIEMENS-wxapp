@@ -1,13 +1,72 @@
 <nav-bar showTitle="{{false}}" showLogo></nav-bar>
 <tab-bar></tab-bar>
 <view class="index_container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + 50rpx);">
+  <view class="index_container_2">
+    <!-- 搜索栏 -->
+    <view class="index_container_2_search">
+      <view class="index_container_2_search_left">
+        <image style="width: 27rpx;height: 27rpx;margin-right: 10rpx;" src="../../static/fdj.png" mode="widthFix" />
+        <input style="flex: 1;" placeholder-style="color: #898989;font-size: 28rpx;" placeholder="搜索关键词" />
+      </view>
+      <view class="index_container_2_search_right">
+        <image style="width: 33rpx;height: 40rpx;" src="../../static/xx.png" mode="widthFix" />
+      </view>
+    </view>
+    <!-- tabs -->
+    <view class="index_container_2_tabs">
+      <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+        <view class="index_container_2_tabs_item {{currentTab === index ? 'active' : ''}}" wx:for="{{tabsList}}" wx:key="title" bind:tap="handleTabClick" data-index="{{index}}">
+          <view class="index_container_2_tabs_item_top">
+            <text>{{item.title}}</text>
+          </view>
+          <view class="index_container_2_tabs_item_bottom">
+            <text style="color: #00da9c;">{{item.date}}</text>
+            <text>{{item.place}}</text>
+          </view>
+        </view>
+      </scroll-view>
+      <!-- 更多内容蒙层 -->
+      <view class="index_container_2_tabs_more">
+        <image style="width: 91rpx;height: 25rpx;" src="../../static/more.png" mode="widthFix" />
+      </view>
+    </view>
+    <!-- 轮播图 -->
+    <view class="index_container_2_banner">
+      <swiper style="height: 100%;" 
+       indicator-dots="{{false}}" autoplay="{{false}}" 
+       indicator-color="#00d7a0"
+       indicator-active-color="red"
+       interval="{{2000}}" duration="{{500}}"
+       bindchange="updateBannerIndex">
+        <swiper-item wx:for="{{bannerList}}" wx:key="banner" bind:tap="handleBannerClick" data-index="{{index}}">
+          <image style="width: 100%; height: 100%;" src="{{item}}" mode="aspectFill" />
+        </swiper-item>
+      </swiper>
+      <!-- 自定义轮播图指示器 -->
+      <view class="index_container_2_banner_indicator">
+        <block wx:for="{{bannerList}}" wx:key="banner">
+          <view wx:if="{{index == bannerIndex}}" class="index_container_2_banner_indicator_item active" 
+          data-index="{{index}}">
+            <view style="width: 9rpx;height: 9rpx;border-radius: 50%;background-color: #00d7a0;"></view>
+          </view>
+          <view wx:else class="index_container_2_banner_indicator_item" 
+          data-index="{{index}}"></view>
+        </block>
+      </view>
+    </view>
 
-  <view class="index_container_1">
+    <!-- 海报列表 -->
+    <view class="index_container_2_poster_list">
+      <view class="index_container_2_poster_list_item" wx:for="{{2}}">
+        <image style="width: 100%; height: 100%;" src="../../static/hb3.png" mode="aspectFill" />
+      </view>
+    </view>
+  </view>
+  <view class="index_container_1" wx:if="{{1}}">
     <!-- 头部海报 -->
     <view class="index_container_1_header">
       <image style="width: 100%; height: 100%" src="../../static/bg1.png" mode="aspectFill" />
     </view>
-
     <!-- 按钮列表 -->
     <view class="index_container_1_button_list">
       <view class="index_container_1_button_list_item">
@@ -15,61 +74,60 @@
         <text>PLC</text>
       </view>
       <view class="index_container_1_button_list_item">
-        <image style="width: 82rpx;height: 82rpx;" src="../../static/z2112.png" mode="widthFix" />
-        <text>产品</text>
+        <image style="width: 82rpx;height: 82rpx;" src="../../static/z211.png" mode="widthFix" />
+        <text>HMI</text>
       </view>
       <view class="index_container_1_button_list_item">
-        <image style="width: 82rpx;height: 82rpx;" src="../../static/z2112.png" mode="widthFix" />
-        <text>产品</text>
+        <image style="width: 82rpx;height: 82rpx;" src="../../static/z2122.png" mode="widthFix" />
+        <text>SMART</text>
       </view>
       <view class="index_container_1_button_list_item">
-        <image style="width: 82rpx;height: 82rpx;" src="../../static/z2112.png" mode="widthFix" />
-        <text>产品</text>
+        <image style="width: 82rpx;height: 82rpx;" src="../../static/z213.png" mode="widthFix" />
+        <text>PROFINET</text>
       </view>
       <view class="index_container_1_button_list_item">
-        <image style="width: 82rpx;height: 82rpx;" src="../../static/z2112.png" mode="widthFix" />
-        <text>产品</text>
+        <image style="width: 82rpx;height: 82rpx;" src="../../static/z212.png" mode="widthFix" />
+        <text>IPC</text>
+      </view>
+      <view class="index_container_1_button_list_item">
+        <image style="width: 82rpx;height: 82rpx;" src="../../static/z21.png" mode="widthFix" />
+        <text>DIGTALIZATION</text>
       </view>
     </view>
-
     <!-- 海报 -->
     <view class="index_container_1_poster">
       <image style="width: 100%; height: 100%" src="../../static/hb1.png" mode="aspectFill" />
     </view>
-
     <!-- 精彩推荐 -->
     <view class="index_container_1_recommend">
       <view class="index_container_1_recommend_header">精彩推荐</view>
-
       <!-- 列表 -->
       <view class="index_container_1_recommend_list">
         <view class="index_container_1_recommend_list_item">
           <image src="../../static/hb2.png" mode="aspectFill" />
           <!-- 右侧内容 -->
           <view class="index_container_1_recommend_list_item_right">
-              <text>新版本EMS 正式发布</text>
-              <text>SIMATLC ENERGY MANAGER V7.5新增项功能特性</text>
+            <text>新版本EMS 正式发布</text>
+            <text>SIMATLC ENERGY MANAGER V7.5新增项功能特性</text>
           </view>
         </view>
         <view class="index_container_1_recommend_list_item">
           <image src="../../static/hb2.png" mode="aspectFill" />
           <!-- 右侧内容 -->
           <view class="index_container_1_recommend_list_item_right">
-              <text>新版本EMS 正式发布</text>
-              <text>SIMATLC ENERGY MANAGER V7.5新增项功能特性</text>
+            <text>新版本EMS 正式发布</text>
+            <text>SIMATLC ENERGY MANAGER V7.5新增项功能特性</text>
           </view>
         </view>
         <view class="index_container_1_recommend_list_item">
           <image src="../../static/hb2.png" mode="aspectFill" />
           <!-- 右侧内容 -->
           <view class="index_container_1_recommend_list_item_right">
-              <text>新版本EMS 正式发布</text>
-              <text>SIMATLC ENERGY MANAGER V7.5新增项功能特性</text>
+            <text>新版本EMS 正式发布</text>
+            <text>SIMATLC ENERGY MANAGER V7.5新增项功能特性</text>
           </view>
         </view>
       </view>
-
     </view>
   </view>
-
 </view>

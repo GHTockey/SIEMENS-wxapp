@@ -30,6 +30,7 @@ Component({
       "selectedIconPath": "../../static/zixun-active.svg",
       "iconPath": "../../static/zixun.svg",
       "path": "/pages/consult/consult",
+      // "path": "/pages/online_consult/online_consult",
       "text": "咨询"
     },
     {
