@@ -16,6 +16,11 @@ Component({
       type: String,
       value: '#fff'
     },
+    // 向上滚动后的背景色
+    scrollBackground: {
+      type: String,
+      value: '#011638'
+    },
 
     // 是否显示搜索图标
     showFindIcon: { type: Boolean, value: false },
@@ -27,6 +32,8 @@ Component({
     titlePosition: { type: String, value: 'center' },
     // 是否显示logo
     showLogo: { type: Boolean, value: false },
+    // 是否开启上拉后背景色变化
+    showScrollBackground: { type: Boolean, value: false },
   },
 
   /**
@@ -35,6 +42,8 @@ Component({
   data: {
     statusBarHeight: wx.getSystemInfoSync()['statusBarHeight'],
     navHeight: wx.getSystemInfoSync()['statusBarHeight'],
+    // 上拉的高度
+    pullUpHeight: 0,
   },
 
   lifetimes: {
@@ -47,6 +56,16 @@ Component({
       this.setData({
         navHeight
       })
+
+      // 获取当前页面
+      const pages = getCurrentPages();
+      const currentPage = pages[pages.length - 1];
+      currentPage.onPageScroll = (e)=>{
+        // console.log(e);
+        this.setData({
+          pullUpHeight: e.scrollTop
+        })
+      }
     },
     moved: function () { },
     detached: function () { },

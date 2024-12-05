@@ -7,6 +7,7 @@
     width: 100%;
     display: flex;
     align-items: center;
+    transition: background 0.3s;
 
     .title-center {
         position: absolute;
@@ -30,7 +31,7 @@
 
     .find-icon {
         position: absolute;
-        left: 28rpx;
+        left: 58rpx;
         width: 35rpx;
         height: 35rpx;
     }

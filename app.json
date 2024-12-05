@@ -27,7 +27,7 @@
     "pages/consult/detail"
   ],
   "window": {
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "Weixin",
     "navigationBarBackgroundColor": "#ffffff",
     "navigationStyle": "custom",

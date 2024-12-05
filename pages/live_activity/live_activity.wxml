@@ -1,5 +1,5 @@
 <!-- pages/live_activity/live_activity.wxml -->
-<nav-bar title="直播活动" showBackIcon></nav-bar>
+<nav-bar title="直播活动" showBackIcon showScrollBackground></nav-bar>
 <view class="live-activity-container" style="padding-top: {{navHeight}}px;">
     <!-- 直播状态卡片 -->
     <view class="live-activity-status-card">

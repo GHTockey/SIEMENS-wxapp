@@ -1,6 +1,6 @@
 <!-- pages/my/my.wxml -->
+    <nav-bar showTitle="{{false}}" showFindIcon showScrollBackground></nav-bar>
 <view class="my_container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + env(safe-area-inset-bottom)); background-image: url(../../static/my/2346.png);">
-    <nav-bar showTitle="{{false}}" showFindIcon></nav-bar>
     <!-- <nav-bar showTitle="{{false}}" showLogo></nav-bar> -->
     <tab-bar></tab-bar>
     <!-- 用户头像/昵称/设置 -->
@@ -21,15 +21,15 @@
     <!-- 足迹/互动/邀请记录按钮 -->
     <view class="user-record">
         <view class="record-item" bind:tap="myNavigateTo" data-url="/pages/my/footprint">
-            <image style="width:80rpx;height:80rpx;" src="../../static/my/2407.png" mode="widthFix"></image>
+            <image style="width:80rpx;height:80rpx;" src="../../static/my/2407.svg" mode="widthFix"></image>
             <text>足迹</text>
         </view>
         <view class="record-item" bind:tap="myNavigateTo" data-url="/pages/my/comment">
-            <image style="width:80rpx;height:80rpx;" src="../../static/my/2401.png" mode="widthFix"></image>
+            <image style="width:80rpx;height:80rpx;" src="../../static/my/2401.svg" mode="widthFix"></image>
             <text>互动</text>
         </view>
         <view class="record-item" bind:tap="myNavigateTo" data-url="/pages/my/invite_record">
-            <image style="width:80rpx;height:80rpx;" src="../../static/my/2404.png" mode="widthFix"></image>
+            <image style="width:80rpx;height:80rpx;" src="../../static/my/2404.svg" mode="widthFix"></image>
             <text>邀请记录</text>
         </view>
     </view>
@@ -48,7 +48,7 @@
         <view class="participated-activities" bind:tap="myNavigateTo" data-url="/pages/my/part_activity">
             <scroll-view scroll-x style="height: 100%;">
                 <view class="activity-item" wx:for="{{5}}" wx:key="index">
-                    <image style="width: 263rpx;height: 147rpx;" src="../../static/def.png" mode="aspectFill" />
+                    <image style="width: 263rpx;height: 147rpx;" src="../../static/socroll-img.png" mode="aspectFill" />
                     <view class="activity-item-title">
                         <text style="width: 100%;">Industrial Operation-sX 数字化解决方案</text>
                     </view>

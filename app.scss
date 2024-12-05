@@ -1,0 +1,265 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+page {
+  /* padding-bottom: 100rpx; */
+  background: linear-gradient(105deg, #000028 0%, #005464 100%);
+  color: white;
+}
+
+
+
+.part-activity-tab-item {
+  position: relative;
+
+  .all-activity-pop-tip {
+      width: 486rpx;
+      position: absolute;
+      left: 0;
+      top: calc(100% + 20rpx);
+      padding: 25rpx;
+      box-sizing: border-box;
+      width: 486rpx;
+      // height: 176rpx;
+      background: #062D48;
+      border-radius: 0rpx 0rpx 0rpx 0rpx;
+      border: 2rpx solid #00646E;
+      display: flex;
+      // gap: 20rpx;
+      row-gap: 40rpx;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+
+      .all-activity-pop-tip-item {
+          width: 136rpx;
+          height: 40rpx;
+          background: #124A59;
+          border-radius: 4rpx 4rpx 4rpx 4rpx;
+          color: #D3D3D3;
+          font-size: 20rpx;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-sizing: border-box;
+      }
+
+      .all-activity-pop-tip-item.active {
+          background: #062D48;
+          border-radius: 4rpx 4rpx 4rpx 4rpx;
+          border: 1rpx solid #00E2D8;
+          color: #00E2D8;
+      }
+
+      .all-activity-pop-tip-btns {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+
+          .all-activity-pop-tip-btn-cancel {
+              box-sizing: border-box;
+              width: 154rpx;
+              height: 46rpx;
+              background: #062D48;
+              border: 2rpx solid #00646E;
+              font-size: 20rpx;
+              color: #B9B9B9;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+          }
+
+          .all-activity-pop-tip-btn-confirm {
+              box-sizing: border-box;
+              width: 154rpx;
+              height: 46rpx;
+              background: #00E2D8;
+              font-size: 20rpx;
+              color: #050A23;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+          }
+      }
+  }
+
+  // 城市弹窗
+  .all-activity-pop-tip.city-pop-tip {
+      left: 50%;
+      transform: translateX(-50%);
+      width: 482rpx;
+      background: #062D48;
+      border-radius: 0rpx 0rpx 0rpx 0rpx;
+      border: 2rpx solid #00646E;
+      row-gap: 10rpx;
+
+      .all-activity-pop-tip-item {
+          // 文字不换行 超出显示省略号
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+      }
+  }
+
+  // 图片旋转
+  .rotate-img {
+      transform: rotate(-180deg);
+  }
+
+  >image {
+      transition: all 0.2s ease;
+  }
+
+  .date-pop-tip {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 20rpx);
+      width: 478rpx;
+      background: #062D48;
+      border: 2rpx solid #00646E;
+      box-sizing: border-box;
+      padding: 25rpx 34rpx;
+
+      .date-pop-tip-year-month-box {
+          display: flex;
+          justify-content: space-between;
+          gap: 34rpx;
+          // background-color: #00E2D8;
+
+          .date-pop-tip-year-item,
+          .date-pop-tip-month-item {
+              // border: 1rpx solid blue;
+              border: 2rpx solid #00646E;
+              width: 126rpx;
+              height: 41rpx;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              padding: 10rpx 16rpx;
+              box-sizing: border-box;
+              font-size: 20rpx;
+              color: #FFFFFF;
+          }
+
+          .date-pop-tip-month-item {
+              // border: 1rpx solid green;
+          }
+
+          .date-pop-tip-arrow-down {
+              width: 16rpx;
+          }
+
+          .date-pop-tip-arrow-lr-box {
+              display: flex;
+              flex: 1;
+              justify-content: space-between;
+              align-items: center;
+              // border: 1rpx solid red;
+
+              >image {
+                  width: 15rpx;
+                  height: 15rpx;
+              }
+          }
+      }
+
+      .date-pop-tip-calendar-box {
+          // display: flex;
+          margin-top: 30rpx;
+
+
+          .date-pop-tip-week-box {
+              display: flex;
+              justify-content: space-between;
+              font-size: 20rpx;
+              color: #00E2D8;
+              padding: 0 10rpx;
+              padding-bottom: 10rpx;
+              border-bottom: 1rpx solid #1a3a4f;
+
+              .date-pop-tip-week-item {
+                  width: 37rpx;
+                  height: 37rpx;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+              }
+          }
+
+          .date-pop-tip-calendar-days-box {
+              display: flex;
+              padding: 0 10rpx;
+              box-sizing: border-box;
+              margin-top: 20rpx;
+              justify-content: space-between;
+
+              .date-pop-tip-calendar-days-item {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  font-size: 20rpx;
+                  color: #FFFFFF;
+                  gap: 10rpx;
+                  box-sizing: border-box;
+                  // justify-content: space-between;
+                  // border: 1rpx solid red;
+
+                  .date-pop-tip-calendar-days-item-day {
+                      width: 37rpx;
+                      height: 37rpx;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      box-sizing: border-box;
+                  }
+
+                  .date-pop-tip-calendar-days-item-day.active {
+                      background: #00E2D8;
+                      border-radius: 50%;
+                      color: #050A23;
+                  }
+              }
+          }
+
+          .date-pop-tip-btns {
+              display: flex;
+              justify-content: space-between;
+              margin-top: 20rpx;
+
+              .date-pop-tip-btn-cancel,
+              .date-pop-tip-btn-confirm {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+              }
+
+              .date-pop-tip-btn-cancel {
+                  width: 154rpx;
+                  height: 46rpx;
+                  background: #062D48;
+                  border: 2rpx solid #00646E;
+                  font-size: 20rpx;
+                  color: #B9B9B9;
+              }
+
+              .date-pop-tip-btn-confirm {
+                  width: 154rpx;
+                  height: 46rpx;
+                  background: #00E2D8;
+                  font-size: 20rpx;
+                  color: #050A23;
+              }
+          }
+
+      }
+
+  }
+}

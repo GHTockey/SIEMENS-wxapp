@@ -1,5 +1,5 @@
 <!-- pages/online_consult/online_consult.wxml -->
-<nav-bar title="在线咨询" showBackIcon />
+<nav-bar title="在线咨询" showBackIcon showScrollBackground />
 <view class="content-container" style="padding-top: {{navHeight}}px;">
     <!-- 头部小孩打招呼 -->
     <view class="header-box">

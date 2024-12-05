@@ -32,6 +32,36 @@ Page({
         date: '2023-01-01',
         selected: false
       },
+      {
+        imgSrc: '../../static/z2466.png',
+        title: 'IM60 一体机 I/O 正式上市',
+        date: '2023-01-01',
+        selected: false
+      },
+      {
+        imgSrc: '../../static/z2466.png',
+        title: 'IM60 一体机 I/O 正式上市',
+        date: '2023-01-01',
+        selected: false
+      },
+      {
+        imgSrc: '../../static/z2466.png',
+        title: 'IM60 一体机 I/O 正式上市',
+        date: '2023-01-01',
+        selected: false
+      },
+      {
+        imgSrc: '../../static/z2466.png',
+        title: 'IM60 一体机 I/O 正式上市',
+        date: '2023-01-01',
+        selected: false
+      },
+      {
+        imgSrc: '../../static/z2466.png',
+        title: 'IM60 一体机 I/O 正式上市',
+        date: '2023-01-01',
+        selected: false
+      },
     ],
     // 全选
     selectAll: false

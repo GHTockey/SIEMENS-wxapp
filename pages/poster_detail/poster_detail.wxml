@@ -1,5 +1,5 @@
 <!--pages/poster_detail/poster_detail.wxml-->
-<nav-bar title="TIA全集成自动化解决方案" showBackIcon titlePosition="left"></nav-bar>
+<nav-bar title="TIA全集成自动化解决方案" showBackIcon titlePosition="left" showScrollBackground></nav-bar>
 <view class="poster_detail_container" style="padding-top: {{navHeight}}px; ">
     <!-- 海报图片 -->
   <image class="poster_detail_container_img" style="width: 100%; height: 386rpx;" src="../../static/z2466.png" mode="widthFix" />

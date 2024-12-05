@@ -1,5 +1,5 @@
 <!--pages/consult/detail.wxml-->
-<nav-bar title="资讯详情" showBackIcon></nav-bar>
+<nav-bar title="资讯详情" showBackIcon showScrollBackground></nav-bar>
 <view class="consult_detail_container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + env(safe-area-inset-bottom));">
     <!-- 海报卡片 -->
     <view class="consult_detail_container_poster_card">

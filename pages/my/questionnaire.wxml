@@ -1,14 +1,101 @@
 <!--pages/my/questionnaire.wxml-->
 <nav-bar title="我的问卷" showBackIcon />
 <view class="questionnaire-container">
+    <!-- tabs -->
     <view class="part-activity-tabs" style="padding-top: {{navHeight + 10}}px;">
+        <!-- 活动类型选择 -->
         <view class="part-activity-tab-item">
-            <text>全部活动</text>
-            <image style="width: 20rpx;" src="../../static/493.svg" mode="widthFix" />
+            <view catchtap="selectAllActivityType" data-type="{{!allActivitySelected ? 'open' : 'cancel'}}">
+                {{ allActivityData[allActivityTypeIndex] || '全部活动'}}
+            </view>
+            <image catchtap="selectAllActivityType" data-type="{{!allActivitySelected ? 'open' : 'cancel'}}" style="width: 20rpx; height: 20rpx;" class="{{allActivitySelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
+            <!-- 弹窗 -->
+            <view wx:if="{{allActivitySelected}}" class="all-activity-pop-tip">
+                <view catchtap="selectAllActivityType" data-type="{{index}}" wx:for="{{allActivityData}}" wx:key="index" class="all-activity-pop-tip-item {{allActivityTypeIndex == index ? 'active' : ''}}">
+                    {{item}}
+                </view>
+                <view class="all-activity-pop-tip-btns">
+                    <view catchtap="selectAllActivityType" data-type="cancel" class="all-activity-pop-tip-btn-cancel">
+                        取消
+                    </view>
+                    <view catchtap="selectAllActivityType" data-type="confirm" class="all-activity-pop-tip-btn-confirm">
+                        确定
+                    </view>
+                </view>
+            </view>
         </view>
+        <!-- 举办城市 -->
+        <view class="part-activity-tab-item" wx:if="{{0}}">
+            <view catchtap="selectCityType" data-type="{{!cityPopTipSelected ? 'open' : 'cancel'}}">{{ cityData[cityIndex] || '举办城市'}}</view>
+            <image catchtap="selectCityType" data-type="{{!cityPopTipSelected ? 'open' : 'cancel'}}" style="width: 20rpx; height: 20rpx;" class="{{cityPopTipSelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
+            <!-- 弹窗 -->
+            <view wx:if="{{cityPopTipSelected}}" class="all-activity-pop-tip city-pop-tip">
+                <view catchtap="selectCityType" data-type="{{index}}" wx:for="{{cityData}}"
+                 wx:key="index" class="all-activity-pop-tip-item {{cityIndex == index ? 'active' : ''}}">
+                    <text>{{item}}</text>
+                </view>
+                <view class="all-activity-pop-tip-btns">
+                    <view catchtap="selectCityType" data-type="cancel" class="all-activity-pop-tip-btn-cancel">
+                        取消
+                    </view>
+                    <view catchtap="selectCityType" data-type="confirm" class="all-activity-pop-tip-btn-confirm">
+                        确定
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- 日期选择 -->
         <view class="part-activity-tab-item">
-            <text>全部日期</text>
-            <image style="width: 20rpx;" src="../../static/493.svg" mode="widthFix" />
+            <view catchtap="selectDate" data-type="{{!datePickerSelected ? 'open' : 'cancel'}}">
+                {{selectedDate || '全部日期'}}
+            </view>
+            <image catchtap="selectDate" data-type="{{!datePickerSelected ? 'open' : 'cancel'}}" style="width: 20rpx; height: 20rpx;" class="{{datePickerSelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
+            <!-- 弹窗 -->
+            <view wx:if="{{datePickerSelected}}" class="date-pop-tip">
+                <!-- 年月选择/左右选择 -->
+                <view class="date-pop-tip-year-month-box">
+                    <view class="date-pop-tip-year-item">
+                        <text>{{currentYear}}</text>
+                        <image class="date-pop-tip-arrow-down" src="../../static/sjx.svg" mode="widthFix" />
+                    </view>
+                    <view class="date-pop-tip-month-item">
+                        <text>{{currentMonth}}月</text>
+                        <image class="date-pop-tip-arrow-down" src="../../static/sjx.svg" mode="widthFix" />
+                    </view>
+                    <view class="date-pop-tip-arrow-lr-box">
+                        <image catchtap="selectDate" data-type="prev" class="date-pop-tip-arrow-right" src="../../static/right.svg" mode="widthFix" />
+                        <image catchtap="selectDate" data-type="next" class="date-pop-tip-arrow-left" src="../../static/left.svg" mode="widthFix" />
+                    </view>
+                </view>
+                <!-- 日历表: 周日~周六 -->
+                <view class="date-pop-tip-calendar-box">
+                    <!-- 周日~周六 -->
+                    <view class="date-pop-tip-week-box">
+                        <block wx:for="{{adjustedWeekDays}}" wx:key="*this">
+                            <view class="date-pop-tip-week-item">{{item}}</view>
+                        </block>
+                    </view>
+                    <!-- 日历表 -->
+                    <view class="date-pop-tip-calendar-days-box">
+                        <block wx:for="{{adjustedWeekDays}}" wx:key="*this">
+                            <view class="date-pop-tip-calendar-days-item">
+                                <view catchtap="selectDate" data-type="updDay" data-day="{{item}}" class="date-pop-tip-calendar-days-item-day {{currentDay == item ? 'active' : ''}}" wx:for="{{currentMonthDays[item]}}" wx:key="index">
+                                    {{item}}
+                                </view>
+                            </view>
+                        </block>
+                    </view>
+                    <!-- 按钮：取消/确定 -->
+                    <view class="date-pop-tip-btns">
+                        <view catchtap="selectDate" data-type="cancel" class="date-pop-tip-btn-cancel">
+                            取消
+                        </view>
+                        <view catchtap="selectDate" data-type="confirm" class="date-pop-tip-btn-confirm">
+                            确定
+                        </view>
+                    </view>
+                </view>
+            </view>
         </view>
     </view>
     <!-- 列表 -->

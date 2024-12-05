@@ -6,7 +6,7 @@
         <!-- 活动类型选择 -->
         <view class="part-activity-tab-item">
             <view catchtap="selectAllActivityType" data-type="{{!allActivitySelected ? 'open' : 'cancel'}}">
-                {{allActivityTypeIndex == 0 ? '全部活动' : allActivityData[allActivityTypeIndex]}}
+                {{ allActivityData[allActivityTypeIndex] || '全部活动'}}
             </view>
             <image catchtap="selectAllActivityType" data-type="{{!allActivitySelected ? 'open' : 'cancel'}}" style="width: 20rpx; height: 20rpx;" class="{{allActivitySelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
             <!-- 弹窗 -->
@@ -25,7 +25,7 @@
             </view>
         </view>
         <!-- 举办城市 -->
-        <view class="part-activity-tab-item">
+        <view class="part-activity-tab-item" wx:if="{{0}}">
             <view catchtap="selectCityType" data-type="{{!cityPopTipSelected ? 'open' : 'cancel'}}">{{ cityData[cityIndex] || '举办城市'}}</view>
             <image catchtap="selectCityType" data-type="{{!cityPopTipSelected ? 'open' : 'cancel'}}" style="width: 20rpx; height: 20rpx;" class="{{cityPopTipSelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
             <!-- 弹窗 -->

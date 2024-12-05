@@ -1,5 +1,5 @@
 <!--pages/offline_activity/offline_activity.wxml-->
-<nav-bar title="线下活动" showBackIcon></nav-bar>
+<nav-bar title="线下活动" showBackIcon showScrollBackground></nav-bar>
 <view class="offline-activity-container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + env(safe-area-inset-bottom) + 150rpx);">
 
         <!-- 直播状态卡片 -->
@@ -68,7 +68,7 @@
             <view class="description">签到</view>
           </view>
           <view class="event-item">
-            <view class="time">8:30 - 12:30</view>
+            <view class="time">9:30 - 12:00</view>
             <view class="dot">
               <image style="width: 24rpx;height: 24rpx;" src="../../static/active.svg" mode="widthFix"></image>
             </view>
@@ -79,12 +79,21 @@
             </view>
           </view>
           <view class="event-item">
-            <view class="time">8:30 - 12:30</view>
+            <view class="time">12:00 - 12:30</view>
             <view class="dot">
               <image style="width: 24rpx;height: 24rpx;" src="../../static/active.svg" mode="widthFix"></image>
             </view>
             <view class="description">
               <text>自助午餐</text>
+            </view>
+          </view>
+          <view class="event-item">
+            <view class="time">12:00 - 13:30</view>
+            <view class="dot">
+              <image style="width: 24rpx;height: 24rpx;" src="../../static/active.svg" mode="widthFix"></image>
+            </view>
+            <view class="description">
+              <text>Q&A</text>
             </view>
           </view>
         </view>

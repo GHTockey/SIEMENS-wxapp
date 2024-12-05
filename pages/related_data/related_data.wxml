@@ -1,5 +1,5 @@
 <!-- pages/activity-consultation/activity-consultation.wxml -->
-<nav-bar title="资料下载" showBackIcon></nav-bar>
+<nav-bar title="资料下载" showBackIcon showScrollBackground></nav-bar>
 <activity-tab-bar activeIndex="{{3}}"></activity-tab-bar>
 <pop-tip isEmailFrom title="请输入接收的邮箱" wx:if="{{showPopTip}}" bind:cancel="popTipHandler" bind:confirm="popTipHandler" />
 <view class="activity-consultation-container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + env(safe-area-inset-bottom));">

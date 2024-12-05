@@ -38,7 +38,7 @@ Page({
     // tab-全部活动是否开启
     allActivitySelected: false,
     // 当前选择的全部活动类型
-    allActivityTypeIndex: 0,
+    allActivityTypeIndex: null,
     // tab-日期选择器是否开启
     datePickerSelected: false,
     // 当前选择的年
@@ -100,6 +100,14 @@ Page({
   },
   // 生成 currentMonthDays 数据
   generateCurrentMonthDays(year, month) {
+    // 没有传值就 new 一个
+    if (!year) {
+      year = new Date().getFullYear();
+    }
+    if (!month) {
+      month = new Date().getMonth() + 1;
+    }
+
     let daysInMonth = new Date(year, month, 0).getDate(); // 获取当前月份的天数
     let firstDayOfWeek = new Date(year, month - 1, 1).getDay(); // 获取当前月份第一天是星期几
     let weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
@@ -172,26 +180,6 @@ Page({
 
     this.generateCurrentMonthDays(this.data.currentYear, this.data.currentMonth);
   },
-
-  selectActivity(e) {
-    const index = e.currentTarget.dataset.index;
-    this.data.commentList[index].selected = !this.data.commentList[index].selected;
-    this.setData({
-      commentList: this.data.commentList
-    });
-  },
-  selectAll() {
-    this.data.selectAll = !this.data.selectAll;
-    this.data.commentList.forEach(item => {
-      item.selected = this.data.selectAll;
-    });
-    this.setData({
-      commentList: this.data.commentList,
-      selectAll: this.data.selectAll
-    });
-  },
-
-
   // 选择城市
   selectCityType(e){
     let type = e.currentTarget.dataset.type;
@@ -216,6 +204,24 @@ Page({
         cityIndex: this.data.cityIndex
       });
     }
+  },
+
+  selectActivity(e) {
+    const index = e.currentTarget.dataset.index;
+    this.data.commentList[index].selected = !this.data.commentList[index].selected;
+    this.setData({
+      commentList: this.data.commentList
+    });
+  },
+  selectAll() {
+    this.data.selectAll = !this.data.selectAll;
+    this.data.commentList.forEach(item => {
+      item.selected = this.data.selectAll;
+    });
+    this.setData({
+      commentList: this.data.commentList,
+      selectAll: this.data.selectAll
+    });
   },
 
   // 弹窗按钮事件
@@ -253,7 +259,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.generateCurrentMonthDays(2024, 9);
+    this.generateCurrentMonthDays();
+    // 更新 day
+    this.selectDate({
+      currentTarget: {
+        dataset: { type: 'updDay', day: new Date().getDate() }
+      }
+    });
   },
 
   /**
