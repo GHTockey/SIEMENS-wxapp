@@ -23,7 +23,8 @@
     "pages/attendance-guide/attendance-guide",
     "pages/activity-consultation/activity-consultation",
     "pages/related_data/related_data",
-    "pages/poster_detail/poster_detail"
+    "pages/poster_detail/poster_detail",
+    "pages/consult/detail"
   ],
   "window": {
     "navigationBarTextStyle": "black",

@@ -32,7 +32,7 @@
     <view class="poster_detail_container_other_info_item">
         <text style="color: #00E2D8;">集成工程</text>
         <text>
-            TIA实现了从机械设计到电气布局和自动化的端到端工程，从而降低了经济成本、时间成本和人力成本。
+        TIA实现了从机械设计到电气布局和自动化的端到端工程，从而降低了经济成本、时间成本和人力成本。
         </text>
     </view>
     <view class="poster_detail_container_other_info_item">

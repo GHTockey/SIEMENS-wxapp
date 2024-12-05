@@ -106,6 +106,56 @@
         }
     }
 
+    // 活动议程
+    .live-activity-agenda {
+        margin-top: 24rpx;
+
+        .timeline {
+            // border: 1px solid red;
+
+            .event-item {
+                display: flex;
+                justify-content: center;
+                gap: 10rpx;
+                height: 100rpx;
+                font-size: 24rpx;
+
+                .time {
+                    // border: 1px solid blue;
+                    flex: 1;
+                    text-align: right;
+                    color: #00E2D8;
+                }
+
+                .dot {
+                    width: 1rpx;
+                    height: calc(100% - 24rpx);
+                    margin: 0 20rpx;
+                    background-color: #00FF9E;
+                    transform: translateY(24rpx);
+                    // border: 1px solid red;
+
+                    > image {
+                        transform: translate(-50%, -24rpx);
+                    }
+                }
+
+                .description {
+                    // border: 1px solid green;
+                    flex: 1;
+                }
+
+
+                // 最后一个不显示背景
+                &:last-child {
+                    .dot {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+
 
     .live-activity-sponsor {
         margin-top: 24rpx;
@@ -122,7 +172,7 @@
 
     .live-activity-declaration {
         position: absolute;
-        bottom: calc(146rpx + 50rpx);
+        bottom: calc(146rpx + env(safe-area-inset-bottom) + 20rpx);
         // bottom: 50rpx;
         left: 0;
         width: 100%;

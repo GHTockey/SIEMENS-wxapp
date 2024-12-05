@@ -49,3 +49,87 @@
         }
     }
 }
+
+
+.part-activity-tab-item {
+    position: relative;
+
+    .all-activity-pop-tip {
+        width: 486rpx;
+        position: absolute;
+        left: 0;
+        top: calc(100% + 20rpx);
+        padding: 25rpx;
+        box-sizing: border-box;
+        width: 486rpx;
+        // height: 176rpx;
+        background: #062D48;
+        border-radius: 0rpx 0rpx 0rpx 0rpx;
+        border: 2rpx solid #00646E;
+        display: flex;
+        // gap: 20rpx;
+        row-gap: 40rpx;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .all-activity-pop-tip-item {
+            width: 136rpx;
+            height: 40rpx;
+            background: #124A59;
+            border-radius: 4rpx 4rpx 4rpx 4rpx;
+            color: #D3D3D3;
+            font-size: 20rpx;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .all-activity-pop-tip-item.active {
+            background: #062D48;
+            border-radius: 4rpx 4rpx 4rpx 4rpx;
+            border: 1rpx solid #00E2D8;
+            color: #00E2D8;
+        }
+
+        .all-activity-pop-tip-btns {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            
+            .all-activity-pop-tip-btn-cancel {
+                box-sizing: border-box;
+                width: 154rpx;
+                height: 46rpx;
+                background: #062D48;
+                border: 2rpx solid #00646E;
+                font-size: 20rpx;
+                color: #B9B9B9;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .all-activity-pop-tip-btn-confirm {
+                box-sizing: border-box;
+                width: 154rpx;
+                height: 46rpx;
+                background: #00E2D8;
+                font-size: 20rpx;
+                color: #050A23;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    // 图片旋转
+    .rotate-img {
+        transform: rotate(-180deg);
+    }
+
+    >image {
+        transition: all 0.3s ease;
+    }
+}

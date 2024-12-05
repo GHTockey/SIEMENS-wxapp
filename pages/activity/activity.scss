@@ -30,7 +30,7 @@
     background-color: #021638;
     min-height: 100vh;
     box-sizing: border-box;
-    padding-bottom: calc(146rpx);
+    padding-bottom: calc(146rpx + env(safe-area-inset-bottom));
 
     .activity-calendar-list {
         // 使用列布局实现瀑布流效果

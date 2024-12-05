@@ -31,8 +31,47 @@ Page({
     // 全选
     selectAll: false,
     // 弹窗
-    showPopTip: false
+    showPopTip: false,
+
+    // 活动类型数据
+    allActivityData: ['全部类型', '线上活动', '线下活动'],
+    // tab-全部活动是否开启
+    allActivitySelected: false,
+    // 当前选择的全部活动类型
+    allActivityTypeIndex: 0,
+    // tab-留言日期是否开启
+    dateSelected: false
   },
+  
+  // 选择活动类型
+  selectAllActivityType(e) {
+    // 阻止冒泡
+     
+
+    let type = e.currentTarget.dataset.type;
+    if (type === 'open') { // 打开
+      this.setData({
+        allActivitySelected: true
+      });
+    } else if (type === 'cancel') { // 取消
+      this.setData({
+        allActivitySelected: false,
+        allActivityTypeIndex: 0
+      });
+    } else if (type === 'confirm') { // 确定
+      this.setData({
+        allActivitySelected: false
+      });
+      // 确定后调接口
+      // ...
+    } else {
+      this.data.allActivityTypeIndex = type;
+      this.setData({
+        allActivityTypeIndex: this.data.allActivityTypeIndex
+      });
+    }
+  },
+
 
   selectActivity(e) {
     const index = e.currentTarget.dataset.index;

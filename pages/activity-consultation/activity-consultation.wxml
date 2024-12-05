@@ -2,7 +2,7 @@
 <nav-bar title="活动咨询" showBackIcon></nav-bar>
 <activity-tab-bar activeIndex="{{2}}"></activity-tab-bar>
 <pop-tip isEmailFrom title="请输入接收的邮箱" wx:if="{{showPopTip}}" bind:cancel="popTipHandler" bind:confirm="popTipHandler" />
-<view class="activity-consultation-container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + 50rpx);">
+<view class="activity-consultation-container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + 50rpx + env(safe-area-inset-bottom));">
     <!-- 列表 -->
     <!-- <view class="consultation-list">
         <view class="consultation-item" wx:for="{{consultationList}}" wx:key="consultationList">

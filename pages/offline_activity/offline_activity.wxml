@@ -1,6 +1,6 @@
 <!--pages/offline_activity/offline_activity.wxml-->
 <nav-bar title="线下活动" showBackIcon></nav-bar>
-<view class="offline-activity-container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + 150rpx);">
+<view class="offline-activity-container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + env(safe-area-inset-bottom) + 150rpx);">
 
         <!-- 直播状态卡片 -->
     <view class="live-activity-status-card">
@@ -55,28 +55,39 @@
     </view>
 
         <!-- 活动议程 -->
-    <view class="live-activity-introduction">
+    <view class="live-activity-agenda">
         <image style="width: 175rpx;height: 78rpx" src="../../static/z124.svg" mode="widthFix"></image>
 
         <!-- 议程时间轴 -->
-        <!-- <view class="timeline">
-          <view class="event">
+        <view class="timeline">
+          <view class="event-item">
             <view class="time">8:30 - 9:30</view>
+            <view class="dot">
+              <image style="width: 24rpx;height: 24rpx;" src="../../static/active.svg" mode="widthFix"></image>
+            </view>
             <view class="description">签到</view>
           </view>
-          <view class="event">
-            <view class="time">9:30 - 12:00</view>
-            <view class="description">开场致辞 TIA-HMI 产品家族发展</view>
+          <view class="event-item">
+            <view class="time">8:30 - 12:30</view>
+            <view class="dot">
+              <image style="width: 24rpx;height: 24rpx;" src="../../static/active.svg" mode="widthFix"></image>
+            </view>
+            <view class="description">
+              <text>开场致词</text>
+              <text>
+                TIA-HMI 产品家族发展</text>
+            </view>
           </view>
-          <view class="event">
-            <view class="time">12:00 - 13:30</view>
-            <view class="description">自助午餐</view>
+          <view class="event-item">
+            <view class="time">8:30 - 12:30</view>
+            <view class="dot">
+              <image style="width: 24rpx;height: 24rpx;" src="../../static/active.svg" mode="widthFix"></image>
+            </view>
+            <view class="description">
+              <text>自助午餐</text>
+            </view>
           </view>
-          <view class="event">
-            <view class="time">12:00 - 13:30</view>
-            <view class="description">Q&A</view>
-          </view>
-        </view> -->
+        </view>
 
     </view>
 

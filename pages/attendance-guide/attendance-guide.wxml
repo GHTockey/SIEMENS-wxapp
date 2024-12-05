@@ -1,7 +1,7 @@
 <!-- pages/attendance-guide/attendance-guide.wxml -->
 <nav-bar title="参会指南" showBackIcon></nav-bar>
 <activity-tab-bar activeIndex="{{1}}"></activity-tab-bar>
-<view class="attendance-guide-container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + 50rpx);">
+<view class="attendance-guide-container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + 50rpx + env(safe-area-inset-bottom));">
     <!-- 会议注册 -->
     <view class="attendance-guide-register">
         <image style="width: 175rpx; height: 78rpx;" src="../../static/z96.svg" mode=""></image>

@@ -1,0 +1,51 @@
+<!--pages/consult/detail.wxml-->
+<nav-bar title="资讯详情" showBackIcon></nav-bar>
+<view class="consult_detail_container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + env(safe-area-inset-bottom));">
+    <!-- 海报卡片 -->
+    <view class="consult_detail_container_poster_card">
+        <image class="consult_detail_container_poster_card_img" src="../../static/hb2.png" mode="widthFix"></image>
+        <!-- 文字内容 -->
+        <view class="consult_detail_container_poster_card_text">
+            <view style="font-size: 32rpx;color: #00E2D8;"><text>新版本 EMS 正式发布</text></view>
+            <view style="font-size: 24rpx;color: #D0D0D0;"><text>发布时间： 2024-05-09</text></view>
+            <view style="font-size: 28rpx;"><text>从2024年5月9日开始，新版本能源管理系统 —— <text style="color: #00E2D8;">SIMATIC Energy Manager V7.5</text> 将可以订货。</text></view>
+        </view>
+    </view>
+    <!-- 产品简介 -->
+    <view class="poster_detail_container_product_intro">
+        <image style="width: 177rpx; height: 78rpx;" src="../../static/z2454.svg" mode="widthFix" />
+        <view class="poster_detail_container_product_intro_text">
+            <view>
+                <text>SIMATIC Energy Manager 产品是用于全厂或企业集团级别的能源管理软件，通过简单的组态方式即可实现工厂的能源（包括水，电，压缩空气等）数据可视化，以及专业的能源报表与能源消耗分析及预测等高级功能。</text>
+            </view>
+            <view>
+                <text style="color: #00E2D8; ">
+                    新版本Energy Manager V7.5新增诸如特性，如：
+                </text>
+            </view>
+            <view>
+                <text>· 新设计了"资产模型"来方便浏览各项信息；
+                    · "目标驾驶舱"用来定义能耗KPI目标及跟踪目标的完成情况；
+                    · 现代化风格的仪表板和能源图表与矩阵图以获得强大的能耗数据分析能力；
+                    · 计算碳排放数据并交互到 SiGREEN 系统等。
+                </text>
+            </view>
+        </view>
+    </view>
+    <!-- 底部tabbar 收藏/点赞 -->
+    <view class="consult_detail_container_tabbar">
+        <view class="consult_detail_container_tabbar_item" data-type="Collected" bind:tap="handleLikeOrCollect">
+            <image style="width: 50rpx; height: 50rpx;" src="../../static/{{ isCollected ? 'sca' : 'sc' }}.svg" mode="widthFix"></image>
+            <text>收藏</text>
+        </view>
+        <!-- 间隔线 -->
+        <view class="consult_detail_container_tabbar_line"></view>
+        <view class="consult_detail_container_tabbar_item" data-type="Liked" bind:tap="handleLikeOrCollect">
+            <image style="width: 50rpx; height: 50rpx;" src="../../static/{{ isLiked ? 'dza' : 'dz' }}.svg" mode="widthFix"></image>
+            <text>点赞</text>
+        </view>
+        <!-- 安全区 -->
+        <view class="consult_detail_container_tabbar_safe_area"></view>
+    </view>
+</view>
+

@@ -34,8 +34,9 @@
                     <text style="color: #E28080;">*</text>
                     <text>省/市</text>
                 </view>
-                <picker mode="region">
-                    <!-- <view class="picker">当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}</view> -->
+                <picker mode="region" bind:change="bindRegionChange" fields="provinceCity" value="{{region}}">
+                    <view wx:if="{{region.length == 0}}">请选择</view>
+                    <view wx:else>{{region[0]}}-{{region[1]}}</view>
                 </picker>
             </view>
             <view class="form-item">

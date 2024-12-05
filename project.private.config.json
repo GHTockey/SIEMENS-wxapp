@@ -8,6 +8,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "咨询详情",
+          "pathName": "pages/consult/detail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "海报详情",
           "pathName": "pages/poster_detail/poster_detail",
           "query": "",

@@ -1,0 +1,76 @@
+/* pages/consult/detail.wxss */
+.consult_detail_container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    background: linear-gradient(100deg, #000028 0%, #003B52 78%, #005464 100%);
+
+    .consult_detail_container_poster_card {
+        width: 100%;
+        // height: 380rpx;
+        background-color: #062d48;
+        padding: 16rpx 18rpx;
+        box-sizing: border-box;
+        border: 1.5rpx solid #596166;
+        margin-top: 28rpx;
+
+        .consult_detail_container_poster_card_img {
+            width: 100%;
+            height: 330rpx;
+        }
+
+        .consult_detail_container_poster_card_text {
+            // border: 1px solid red;
+            padding: 8rpx 16rpx;
+            line-height: 54rpx;
+        }
+    }
+
+    .poster_detail_container_product_intro {
+        margin-top: 20rpx;
+
+        .poster_detail_container_product_intro_text {
+            margin-top: 20rpx;
+            background-color: #000;
+            padding: 32rpx;
+            font-size: 28rpx;
+            background-color: #082F46;
+            line-height: 54rpx;
+        }
+    }
+
+    .consult_detail_container_tabbar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 146rpx;
+        background: linear-gradient(90deg, #0C1430 0%, #014B5E 100%);
+        box-shadow: 0rpx -4rpx 6rpx 2rpx rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-top: 20rpx;
+
+
+        .consult_detail_container_tabbar_item {
+            display: flex;
+            align-items: center;
+            gap: 15rpx;
+            font-size: 28rpx;
+            // justify-content: center;
+        }
+
+        .consult_detail_container_tabbar_line {
+            width: 1rpx;
+            height: 50rpx;
+            background-color: #02727a;
+        }
+
+        .consult_detail_container_tabbar_safe_area {
+            width: 100%;
+            height: env(safe-area-inset-bottom);
+        }
+    }
+}

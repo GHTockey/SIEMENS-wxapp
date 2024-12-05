@@ -26,6 +26,7 @@ Page({
     positionArray: [
       '管理人员', '技术', '市场', '采购', '其他'
     ],
+    region: [],
   },
 
   updateRadio(e) {
@@ -66,6 +67,13 @@ Page({
         selectedPosition: this.data.positionArray[value],
       });
     }
+  },
+
+  bindRegionChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
+    })
   },
 
   /**

@@ -1,5 +1,5 @@
 <!-- pages/my/my.wxml -->
-<view class="my_container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + 50rpx); background-image: url(../../static/my/2346.png);">
+<view class="my_container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + env(safe-area-inset-bottom)); background-image: url(../../static/my/2346.png);">
     <nav-bar showTitle="{{false}}" showFindIcon></nav-bar>
     <!-- <nav-bar showTitle="{{false}}" showLogo></nav-bar> -->
     <tab-bar></tab-bar>
