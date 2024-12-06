@@ -7,5 +7,5 @@
     <text class="tab-bar-item-text">{{item.text}}</text>
   </view>
   <!-- 部分手机的指示条 安全区 -->
-  <view class="tab-bar-item-safe-area"></view>
+  <!-- <view class="tab-bar-item-safe-area"></view> -->
 </view>

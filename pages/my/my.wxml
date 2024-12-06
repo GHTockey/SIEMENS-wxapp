@@ -2,7 +2,7 @@
     <nav-bar showTitle="{{false}}" showFindIcon showScrollBackground></nav-bar>
 <view class="my_container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + env(safe-area-inset-bottom)); background-image: url(../../static/my/2346.png);">
     <!-- <nav-bar showTitle="{{false}}" showLogo></nav-bar> -->
-    <tab-bar></tab-bar>
+    <tab-bar activeIndex="{{3}}"></tab-bar>
     <!-- 用户头像/昵称/设置 -->
     <view class="user-info">
         <view class="user-avatar">
@@ -43,7 +43,8 @@
     <view class="participated-activities-box">
         <view class="participated-activities-title">
             <image style="width: 209rpx" src="../../static/my/2334.svg" mode="widthFix"></image>
-            <!-- <image src="../../static/my/2476.svg" mode="widthFix"></image> -->
+            <!-- 更多 -->
+            <image style="width: 78rpx;height: 34rpx;" src="../../static/my/2476.svg" mode="widthFix"></image>
         </view>
         <view class="participated-activities" bind:tap="myNavigateTo" data-url="/pages/my/part_activity">
             <scroll-view scroll-x style="height: 100%;">

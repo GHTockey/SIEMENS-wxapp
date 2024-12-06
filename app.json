@@ -40,5 +40,34 @@
   "usingComponents": {
     "tab-bar": "./components/tab-bar/tab-bar",
     "nav-bar": "./components/nav-bar/nav-bar"
+  },
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "./static/home.png",
+      "selectedIconPath": "./static/home-active.png"
+    },
+    {
+      "selectedIconPath": "./static/huodong-active.png",
+      "iconPath": "./static/huodong.png",
+      "pagePath": "pages/activity/activity",
+      "text": "活动"
+    },
+    {
+      "selectedIconPath": "./static/zixun-active.png",
+      "iconPath": "./static/zixun.png",
+      "pagePath": "pages/online_consult/online_consult",
+      "text": "咨询"
+    },
+    {
+      "selectedIconPath": "./static/my-active.png",
+      "iconPath": "./static/my.png",
+      "pagePath": "pages/my/my",
+      "text": "我的"
+    }
+  ]
   }
 }

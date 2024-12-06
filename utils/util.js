@@ -22,7 +22,29 @@ function myNavigateTo(url) {
   })
 }
 
+/**
+ * 取代系统自带的后退wx.navigateBack
+ * @param string jump 后退跳过的路径
+ */
+const navigateBack = (jump) => {
+    if (jump) {
+      jump && (jump = jump.replace(/^\/|\/$/gm, ''));
+    }
+  
+    var pagse = getCurrentPages()
+    if (pagse.length == 1 || (jump && pagse.length == 2 && pagse[pagse.length - 2].route == jump)) {
+      wx.reLaunch({
+        url:'/pages/index/index',
+      })
+    } else {
+      wx.navigateBack({
+        delta: (jump && pagse.length == 2 && pagse[pagse.length - 2].route == jump) ? 2 : 1
+      })
+    }
+  }
+
 module.exports = {
   formatTime,
-  myNavigateTo
+  myNavigateTo,
+  navigateBack
 }

@@ -4,15 +4,20 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 146rpx;
+    min-height: calc(146rpx - 44rpx);
     // box-sizing: border-box;
     background: linear-gradient(90deg, #0C1430 0%, #014B5E 100%);
     box-shadow: 0rpx -4rpx 6rpx 2rpx rgba(0, 0, 0, 0.5);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
     padding: 22rpx 0;
+    // padding-top: 22rpx;
+    // padding-bottom: calc(env(safe-area-inset-bottom) + 22rpx);
+    padding-bottom: max(22rpx, calc(env(safe-area-inset-bottom)));
     z-index: 9999;
+    // border: 1px solid red;
 
     .tab-bar-item {
         display: flex;

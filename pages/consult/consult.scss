@@ -1,1 +1,12 @@
 /* pages/consult/consult.wxss */
+@import '../online_consult/online_consult.scss';
+
+.consult_container {
+
+
+
+
+    .bottom-input-box {
+        bottom: calc(146rpx + env(safe-area-inset-bottom) - 30rpx);
+    }
+}

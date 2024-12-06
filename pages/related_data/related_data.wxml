@@ -2,7 +2,7 @@
 <nav-bar title="资料下载" showBackIcon showScrollBackground></nav-bar>
 <activity-tab-bar activeIndex="{{3}}"></activity-tab-bar>
 <pop-tip isEmailFrom title="请输入接收的邮箱" wx:if="{{showPopTip}}" bind:cancel="popTipHandler" bind:confirm="popTipHandler" />
-<view class="activity-consultation-container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + env(safe-area-inset-bottom));">
+<view class="activity-consultation-container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + 150rpx + max(30rpx, env(safe-area-inset-bottom)));">
     <!-- 列表 -->
     <view class="consultation-list">
         <view class="consultation-item" wx:for="{{consultationList}}" wx:key="consultationList">
@@ -19,7 +19,7 @@
         </view>
     </view>
     <!-- 底部操作：全选/删除 -->
-    <view class="bottom-container" style="padding-bottom: calc(146rpx + env(safe-area-inset-bottom));">
+    <view class="bottom-container" style="padding-bottom: calc(146rpx + env(safe-area-inset-bottom) - 30rpx);">
         <view class="select-all" bind:tap="selectAll">
             <image class="check" src="../../static/my/{{selectAll ? '2480' : '2177'}}.svg" mode="widthFix"></image>
             <text>全选</text>

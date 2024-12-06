@@ -6,6 +6,7 @@
     min-height: 100vh;
     box-sizing: border-box;
     padding: 0 30rpx;
+    background: linear-gradient( 111deg, #000028 0%, #003B52 78%, #005464 100%);
 
 
     .consultation-list {
@@ -48,5 +49,9 @@
 
     .bottom-container {
       position:fixed;
+      // background: linear-gradient(90deg, #0C1430 0%, #014B5E 100%);
+      padding-top: 30rpx;
+      // border: 1px solid red;
+      // box-shadow: 0rpx -4rpx 6rpx 2rpx rgba(0, 0, 0, 0.5);
     }
 }

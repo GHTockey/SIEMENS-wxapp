@@ -83,6 +83,10 @@
 
         .participated-activities-title {
             margin-bottom: 10rpx;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            // border: 1px solid red;
         }
 
         .participated-activities {
@@ -158,10 +162,27 @@
                 align-items: center;
                 justify-content: center;
 
+                &:nth-child(1) {
+
+                    .function-item-icon {
+                        // width: 80rpx;
+                        // height: 80rpx;
+
+                        >image {
+                            // width: 54rpx !important;
+                            // height: 40rpx !important;
+                            margin-top: 20rpx;
+                            margin-left: 15rpx;
+                            // border: 1px solid rgb(255, 0, 0);
+                        }
+                    }
+                }
+
                 .function-item-icon {
                     width: 80rpx;
                     height: 80rpx;
                 }
+
                 .function-item-title {
                     color: white;
                     font-size: 24rpx;

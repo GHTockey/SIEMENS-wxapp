@@ -1,6 +1,6 @@
 <nav-bar showTitle="{{false}}" showLogo showScrollBackground></nav-bar>
-<tab-bar></tab-bar>
-<view class="index_container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + 50rpx + env(safe-area-inset-bottom));">
+<tab-bar activeIndex="{{0}}"></tab-bar>
+<view class="index_container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + max(30rpx, env(safe-area-inset-bottom)));">
   <view class="index_container_2">
     <!-- 搜索栏 -->
     <view class="index_container_2_search">

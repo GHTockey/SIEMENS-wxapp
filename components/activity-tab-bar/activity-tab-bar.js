@@ -32,7 +32,8 @@ Component({
     {
       "selectedIconPath": "../../static/z2511.svg",
       "iconPath": "../../static/z112.svg",
-      "path": "/pages/activity-consultation/activity-consultation",
+      // "path": "/pages/activity-consultation/activity-consultation",
+      "path": "/pages/online_consult/online_consult?isFromTabBar=true",
       "text": "活动咨询"
     },
     {
@@ -58,6 +59,13 @@ Component({
 
       // 判断是否是当前页面
       if (this.data.list[index].path === this.data.list[this.properties.activeIndex].path) {
+        return
+      }
+      // 判断是否是咨询页面
+      if (this.data.list[index].path.includes('online_consult')) {
+        wx.navigateTo({
+          url: this.data.list[index].path
+        })
         return
       }
 

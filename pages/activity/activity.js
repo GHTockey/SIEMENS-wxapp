@@ -74,7 +74,7 @@ Page({
      // 当前选择的年
      currentYear: 2024,
      // 当前选择的月
-     currentMonth: 12,
+     currentMonth: 11,
      // 当前选择的 日 [高亮]
      currentDay: 1, // currentDate 每次变化，都要更新
      // 当前月份的天数 ({ Su：[1,8,15,22,29], Mo：[2,9,16,23,30], ... })
@@ -83,7 +83,13 @@ Page({
      adjustedWeekDays: [],
      // 确定选择的日期
      selectedDate: '',
- 
+     // 是否打开年份选择框
+     isOpenYearSelectBox: false,
+     // 是否打开月份选择框
+     isOpenMonthSelectBox: false,
+     // 年份数据
+     yearData: [],
+
      // 城市类型数据
      cityData: [
        '全部城市', '北京市', '天津市', 
@@ -104,7 +110,7 @@ Page({
   },
 
 
-   // 选择活动类型
+  // 选择活动类型
    selectAllActivityType(e) {
     let type = e.currentTarget.dataset.type;
     if (type === 'open') { // 打开
@@ -134,9 +140,11 @@ Page({
     // 没有传值就 new 一个
     if (!year) {
       year = new Date().getFullYear();
+      this.setData({currentYear: year});
     }
     if (!month) {
       month = new Date().getMonth() + 1;
+      this.setData({currentMonth: month});
     }
 
     let daysInMonth = new Date(year, month, 0).getDate(); // 获取当前月份的天数
@@ -207,8 +215,19 @@ Page({
         selectedDate: `${this.data.currentYear}-${this.data.currentMonth < 10 ? '0' + this.data.currentMonth : this.data.currentMonth}-${this.data.currentDay < 10 ? '0' + this.data.currentDay : this.data.currentDay}`,
         datePickerSelected: false
       });
+    } else if (type === 'updYear') {
+      this.setData({
+        currentYear: e.currentTarget.dataset.year,
+        isOpenYearSelectBox: false
+      });
+    } else if (type === 'updMonth') {
+      this.setData({
+        currentMonth: e.currentTarget.dataset.month,
+        isOpenMonthSelectBox: false
+      });
     }
 
+    // 更新日历
     this.generateCurrentMonthDays(this.data.currentYear, this.data.currentMonth);
   },
   // 选择城市
@@ -235,6 +254,25 @@ Page({
         cityIndex: this.data.cityIndex
       });
     }
+  },
+  // 打开/关闭年月下拉选择框
+  openOrCloseYearMonthSelectBox(e) {
+    let type = e.currentTarget.dataset.type;
+    // 生成年份数据 当前年份前后10年
+    if (type === 'Year') {
+      // 根据 currentYear 生成数据
+      let yearData = [];
+      for (let i = -10; i <= 10; i++) {
+        yearData.push(this.data.currentYear + i);
+      }
+      this.setData({
+        yearData: yearData
+      });
+    }
+
+    this.setData({
+      [`isOpen${type}SelectBox`]: !this.data[`isOpen${type}SelectBox`]
+    });
   },
 
   // 切换订阅/日历

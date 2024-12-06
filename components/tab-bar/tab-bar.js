@@ -6,14 +6,17 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    activeIndex: {
+      type: Number,
+      value: 0
+    }
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    activeIndex: 0,
+    // activeIndex: 0,
     list: [{
       "selectedIconPath": "../../static/home-active.svg",
       "iconPath": "../../static/home.svg",
@@ -29,8 +32,8 @@ Component({
     {
       "selectedIconPath": "../../static/zixun-active.svg",
       "iconPath": "../../static/zixun.svg",
-      "path": "/pages/consult/consult",
-      // "path": "/pages/online_consult/online_consult",
+      // "path": "/pages/consult/consult",
+      "path": "/pages/online_consult/online_consult?isFromTabBar=true",
       "text": "咨询"
     },
     {
@@ -55,12 +58,22 @@ Component({
       // })
       
       // 判断是否是当前页面
-      if (index === this.data.activeIndex) {
-        return
-      }
+      // if (index === this.data.activeIndex) {
+      //   return
+      // }
+      // 判断是否是咨询页面
+      // if (this.data.list[index].path.includes('online_consult')) {
+      //   wx.navigateTo({
+      //     url: this.data.list[index].path
+      //   })
+      //   return
+      // }
 
-      this.updateActiveIndex(index)
-      wx.redirectTo({
+      // this.updateActiveIndex(index)
+      // wx.redirectTo({
+      //   url: this.data.list[index].path
+      // })
+      wx.switchTab({
         url: this.data.list[index].path
       })
     },
@@ -92,7 +105,7 @@ Component({
       // this.setData({
       //   activeIndex: appData.activeIndex
       // })
-      this.updateActiveIndex()
+      // this.updateActiveIndex()
     }
   },
   // 组件所在页面的生命周期对象 [show: 页面被展示] [hide] [resize:页面尺寸变化]

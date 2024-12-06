@@ -1,3 +1,5 @@
+const { navigateBack } = require("../../utils/util")
+
 // component/customNavigation.js
 Component({
   /**
@@ -60,7 +62,7 @@ Component({
       // 获取当前页面
       const pages = getCurrentPages();
       const currentPage = pages[pages.length - 1];
-      currentPage.onPageScroll = (e)=>{
+      currentPage.onPageScroll = (e) => {
         // console.log(e);
         this.setData({
           pullUpHeight: e.scrollTop
@@ -75,10 +77,8 @@ Component({
    */
   methods: {
     back() {
-      wx.navigateBack()
-      // wx.navigateBack({
-      //   delta: 1
-      // });
+      // wx.navigateBack()
+      navigateBack()
     },
     find() {
       console.log('find')

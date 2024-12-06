@@ -9,7 +9,7 @@
     </view>
     <!-- 搜索图标 -->
     <view wx:if="{{showFindIcon}}" class="find-icon" bind:tap="find">
-        <image style="width: 100%;height: 100%;" src="../../static/find.svg" mode="widthFix"></image>
+        <image style="width: 100%;height: 100%;" src="../../static/z2419.svg" mode="widthFix"></image>
     </view>
     <!-- logo -->
     <view wx:if="{{showLogo}}" class="logo">
