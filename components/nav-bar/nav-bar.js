@@ -21,7 +21,9 @@ Component({
     // 向上滚动后的背景色
     scrollBackground: {
       type: String,
-      value: '#011638'
+      // value: '#011638'
+      // value: 'linear-gradient( 161deg, #000028 0%, #005464 79%, #008080 100%)'
+      value: 'linear-gradient( 24deg, #000028 0%, #005464 86%, #008080 100%)'
     },
 
     // 是否显示搜索图标

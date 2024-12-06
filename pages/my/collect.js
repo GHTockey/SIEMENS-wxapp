@@ -18,6 +18,13 @@ Page({
       },
       {
         imgSrc: '../../static/1346.png',
+        tag: '线上直播',
+        title: '西门子 TIA 探厂记 —— 走进乐惠国际，共启一罐啤酒的“新鲜”之旅',
+        date: '2023-01-01',
+        selected: false
+      },
+      {
+        imgSrc: '../../static/1346.png',
         tag: '线下活动',
         title: '2024 CSEAC 半导体行业展会',
         date: '2023-02-01',
@@ -49,6 +56,12 @@ Page({
  adjustedWeekDays: [],
  // 确定选择的日期
  selectedDate: '',
+  // 是否打开年份选择框
+  isOpenYearSelectBox: false,
+  // 是否打开月份选择框
+  isOpenMonthSelectBox: false,
+  // 年份数据
+  yearData: [],
 
  // 城市类型数据
  cityData: [
@@ -100,9 +113,11 @@ Page({
     // 没有传值就 new 一个
     if (!year) {
       year = new Date().getFullYear();
+      this.setData({currentYear: year});
     }
     if (!month) {
       month = new Date().getMonth() + 1;
+      this.setData({currentMonth: month});
     }
 
     let daysInMonth = new Date(year, month, 0).getDate(); // 获取当前月份的天数
@@ -173,8 +188,19 @@ Page({
         selectedDate: `${this.data.currentYear}-${this.data.currentMonth < 10 ? '0' + this.data.currentMonth : this.data.currentMonth}-${this.data.currentDay < 10 ? '0' + this.data.currentDay : this.data.currentDay}`,
         datePickerSelected: false
       });
+    } else if (type === 'updYear') {
+      this.setData({
+        currentYear: e.currentTarget.dataset.year,
+        isOpenYearSelectBox: false
+      });
+    } else if (type === 'updMonth') {
+      this.setData({
+        currentMonth: e.currentTarget.dataset.month,
+        isOpenMonthSelectBox: false
+      });
     }
 
+    // 更新日历
     this.generateCurrentMonthDays(this.data.currentYear, this.data.currentMonth);
   },
   // 选择城市
@@ -201,6 +227,25 @@ Page({
         cityIndex: this.data.cityIndex
       });
     }
+  },
+  // 打开/关闭年月下拉选择框
+  openOrCloseYearMonthSelectBox(e) {
+    let type = e.currentTarget.dataset.type;
+    // 生成年份数据 当前年份前后10年
+    if (type === 'Year') {
+      // 根据 currentYear 生成数据
+      let yearData = [];
+      for (let i = -10; i <= 10; i++) {
+        yearData.push(this.data.currentYear + i);
+      }
+      this.setData({
+        yearData: yearData
+      });
+    }
+
+    this.setData({
+      [`isOpen${type}SelectBox`]: !this.data[`isOpen${type}SelectBox`]
+    });
   },
 
 

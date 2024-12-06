@@ -20,7 +20,7 @@
                     <text style="color: #E28080;">*</text>
                     <text>手机</text>
                 </view>
-                <input class="form-item-input" type="text" placeholder="请输入手机号" name="phone" />
+                <input class="form-item-input" type="number" placeholder="请输入手机号" name="phone" />
             </view>
             <view class="form-item">
                 <view class="form-item-label">
@@ -34,7 +34,7 @@
                     <text style="color: #E28080;">*</text>
                     <text>省/市</text>
                 </view>
-                <picker mode="region" bind:change="bindRegionChange" fields="provinceCity" value="{{region}}">
+                <picker level="city" mode="region" bind:change="bindRegionChange" fields="provinceCity" value="{{region}}">
                     <view wx:if="{{region.length == 0}}">请选择</view>
                     <view wx:else>{{region[0]}}-{{region[1]}}</view>
                 </picker>

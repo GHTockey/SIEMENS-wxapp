@@ -17,9 +17,26 @@ const formatNumber = n => {
 
 // 跳转页面
 function myNavigateTo(url) {
+  // 判断是否是 tabbar 页面
+  const tabbarPages = [
+    '/pages/index/index',
+    '/pages/online_consult/online_consult', 
+    '/pages/activity/activity', 
+    '/pages/my/my',
+    '/pages/offline_activity/offline_activity',
+    '/pages/attendance_guide/attendance_guide',
+    '/pages/related_data/related_data',
+  ]
+
+  if (tabbarPages.includes(url)) {
+    wx.switchTab({
+      url
+    })
+  } else {
   wx.navigateTo({
-    url
-  })
+      url
+    })
+  }
 }
 
 /**

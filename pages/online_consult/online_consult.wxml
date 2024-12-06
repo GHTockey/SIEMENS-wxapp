@@ -33,7 +33,8 @@
         </view>
     </view>
     <!-- 热门活动 -->
-    <view class="hot-activity-box" style="background-image: url(../../static/404.svg);">
+    <view class="hot-activity-box" style="background-image: url(https://pic.imgdb.cn/item/6752b7a1d0e0a243d4dea0e2.png);">
+    <!-- <view class="hot-activity-box" style="background-image: url(../../static/404.svg);"> -->
         <image style="width: 225rpx;height: 70rpx;" src="../../static/2496.svg" mode="widthFix" />
         <view class="hot-activity-list">
             <view class="hot-activity-item">

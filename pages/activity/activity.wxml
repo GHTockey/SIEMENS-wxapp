@@ -65,7 +65,7 @@
         <view class="date-pop-tip-year-month-box">
           <!-- 年选择 -->
           <view class="date-pop-tip-year-item">
-            <text catchtap="openOrCloseYearMonthSelectBox" data-type="Year">{{currentYear}}</text>
+            <view catchtap="openOrCloseYearMonthSelectBox" data-type="Year">{{currentYear}}</view>
             <image catchtap="openOrCloseYearMonthSelectBox" data-type="Year" class="date-pop-tip-arrow-down {{isOpenYearSelectBox ? 'rotate-img' : ''}}" src="../../static/sjx.svg" mode="widthFix" />
             <!-- 下拉选择框 -->
             <view wx:if="{{isOpenYearSelectBox}}" class="date-pop-tip-year-select-box">
@@ -74,7 +74,7 @@
           </view>
           <!-- 月选择 -->
           <view class="date-pop-tip-month-item">
-            <text catchtap="openOrCloseYearMonthSelectBox" data-type="Month">{{currentMonth}} 月</text>
+            <view catchtap="openOrCloseYearMonthSelectBox" data-type="Month">{{currentMonth}} 月</view>
             <image catchtap="openOrCloseYearMonthSelectBox" data-type="Month" class="date-pop-tip-arrow-down {{isOpenMonthSelectBox ? 'rotate-img' : ''}}" src="../../static/sjx.svg" mode="widthFix" />
             <!-- 下拉选择框 -->
             <view wx:if="{{isOpenMonthSelectBox}}" class="date-pop-tip-month-select-box">
@@ -120,7 +120,7 @@
   </view>
   <!-- 列表 -->
   <view wx:if="{{!isCalendar}}" class="part-activity-list">
-    <view class="part-activity-item" wx:for="{{activityList}}" wx:key="activityList" bind:tap="myNavigateTo" data-url="{{item.type === 'online' ? '/pages/live_activity/live_activity' : '/pages/offline_activity/offline_activity'}}">
+    <view class="part-activity-item" wx:for="{{activityList}}" wx:key="activityList" bind:tap="myNavigateTo" data-url="{{item.type === 'online' ? '/pages/live_activity/live_activity' : '/pages/offline_activity/offline_activity?typp=666'}}">
       <!-- 图片 -->
       <view class="part-activity-item-img">
         <image style="width: 100%; height: auto;" src="{{item.imgSrc}}" mode="widthFix" />

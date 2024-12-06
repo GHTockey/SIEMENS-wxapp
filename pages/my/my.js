@@ -21,9 +21,16 @@ Page({
   },
 
   myNavigateTo(e) {
-    wx.navigateTo({
-      url: e.currentTarget.dataset.url
-    })
+    // online_consult 是tabbar页面，需要单独处理
+    if (e.currentTarget.dataset.url === '/pages/online_consult/online_consult') {
+      wx.switchTab({
+        url: '/pages/online_consult/online_consult'
+      })
+    } else {
+      wx.navigateTo({
+        url: e.currentTarget.dataset.url
+      })
+    }
   },
 
   /**

@@ -1,11 +1,13 @@
 /* pages/my/invite_record.wxss */
 .invite-record-container {
-    min-height: 100vh;
+    height: 100vh;
     box-sizing: border-box;
     padding: 0 30rpx;
     // border: 1rpx solid red;
     position: relative;
     padding-bottom: 150rpx;
+    background: linear-gradient( 105deg, #000028 0%, #005464 100%);
+    // border: 1px solid gold;
 
     .tabs-container {
         // border: 1rpx solid red;
@@ -49,7 +51,9 @@
     .content-container {
         // border: 1rpx solid red;
         // min-height: 1088rpx;
-        height: 1100rpx;
+        // border: 1px solid red;
+        height: calc(100% - 150rpx);
+        // height: calc(1100rpx - 200rpx);
         overflow: auto;
         // margin-top: -80rpx;
         padding: 20rpx 26rpx;
@@ -119,7 +123,8 @@
     position: absolute;
     left: 0;
     padding: 0 30rpx;
-    bottom: 40rpx;
+    bottom: calc(146rpx + max(30rpx, env(safe-area-inset-bottom)) + 20rpx);
+    // bottom: 40rpx;
     width: 100%;
     box-sizing: border-box;
     display: flex;

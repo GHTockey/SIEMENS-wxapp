@@ -26,12 +26,13 @@
         </view>
         <!-- 举办城市 -->
         <view class="part-activity-tab-item">
-            <view catchtap="selectCityType" data-type="{{!cityPopTipSelected ? 'open' : 'cancel'}}">{{ cityData[cityIndex] || '举办城市'}}</view>
+            <view catchtap="selectCityType" data-type="{{!cityPopTipSelected ? 'open' : 'cancel'}}">
+                {{ cityData[cityIndex] || '举办城市'}}
+            </view>
             <image catchtap="selectCityType" data-type="{{!cityPopTipSelected ? 'open' : 'cancel'}}" style="width: 20rpx; height: 20rpx;" class="{{cityPopTipSelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
             <!-- 弹窗 -->
             <view wx:if="{{cityPopTipSelected}}" class="all-activity-pop-tip city-pop-tip">
-                <view catchtap="selectCityType" data-type="{{index}}" wx:for="{{cityData}}"
-                 wx:key="index" class="all-activity-pop-tip-item {{cityIndex == index ? 'active' : ''}}">
+                <view catchtap="selectCityType" data-type="{{index}}" wx:for="{{cityData}}" wx:key="index" class="all-activity-pop-tip-item {{cityIndex == index ? 'active' : ''}}">
                     <text>{{item}}</text>
                 </view>
                 <view class="all-activity-pop-tip-btns">
@@ -47,21 +48,40 @@
         <!-- 日期选择 -->
         <view class="part-activity-tab-item">
             <view catchtap="selectDate" data-type="{{!datePickerSelected ? 'open' : 'cancel'}}">
-                {{selectedDate || '留言日期'}}
+                {{selectedDate || '全部日期'}}
             </view>
             <image catchtap="selectDate" data-type="{{!datePickerSelected ? 'open' : 'cancel'}}" style="width: 20rpx; height: 20rpx;" class="{{datePickerSelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
             <!-- 弹窗 -->
             <view wx:if="{{datePickerSelected}}" class="date-pop-tip">
                 <!-- 年月选择/左右选择 -->
                 <view class="date-pop-tip-year-month-box">
+                    <!-- 年选择 -->
                     <view class="date-pop-tip-year-item">
-                        <text>{{currentYear}}</text>
-                        <image class="date-pop-tip-arrow-down" src="../../static/sjx.svg" mode="widthFix" />
+                        <view catchtap="openOrCloseYearMonthSelectBox" data-type="Year">
+                            {{currentYear}}
+                        </view>
+                        <image catchtap="openOrCloseYearMonthSelectBox" data-type="Year" class="date-pop-tip-arrow-down {{isOpenYearSelectBox ? 'rotate-img' : ''}}" src="../../static/sjx.svg" mode="widthFix" />
+                        <!-- 下拉选择框 -->
+                        <view wx:if="{{isOpenYearSelectBox}}" class="date-pop-tip-year-select-box">
+                            <view catchtap="selectDate" data-type="updYear" data-year="{{item}}" class="date-pop-tip-year-select-item {{currentYear == item ? 'active' : ''}}" wx:for="{{yearData}}" wx:key="index">
+                                {{item}}
+                            </view>
+                        </view>
                     </view>
+                    <!-- 月选择 -->
                     <view class="date-pop-tip-month-item">
-                        <text>{{currentMonth}}月</text>
-                        <image class="date-pop-tip-arrow-down" src="../../static/sjx.svg" mode="widthFix" />
+                        <view catchtap="openOrCloseYearMonthSelectBox" data-type="Month">
+                            {{currentMonth}} 月
+                        </view>
+                        <image catchtap="openOrCloseYearMonthSelectBox" data-type="Month" class="date-pop-tip-arrow-down {{isOpenMonthSelectBox ? 'rotate-img' : ''}}" src="../../static/sjx.svg" mode="widthFix" />
+                        <!-- 下拉选择框 -->
+                        <view wx:if="{{isOpenMonthSelectBox}}" class="date-pop-tip-month-select-box">
+                            <view catchtap="selectDate" data-type="updMonth" data-month="{{item+1}}" class="date-pop-tip-month-select-item {{currentMonth == item+1 ? 'active' : ''}}" wx:for="{{12}}" wx:key="index">
+                                {{item+1}} 月
+                            </view>
+                        </view>
                     </view>
+                    <!-- 左右箭头 -->
                     <view class="date-pop-tip-arrow-lr-box">
                         <image catchtap="selectDate" data-type="prev" class="date-pop-tip-arrow-right" src="../../static/right.svg" mode="widthFix" />
                         <image catchtap="selectDate" data-type="next" class="date-pop-tip-arrow-left" src="../../static/left.svg" mode="widthFix" />
@@ -120,8 +140,6 @@
             </view>
         </view>
     </view>
-
-
     <!-- 底部操作：全选/删除 -->
     <view class="bottom-container">
         <view class="select-all" bind:tap="selectAll">

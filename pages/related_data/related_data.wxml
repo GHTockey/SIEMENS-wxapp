@@ -19,7 +19,7 @@
         </view>
     </view>
     <!-- 底部操作：全选/删除 -->
-    <view class="bottom-container" style="padding-bottom: calc(146rpx + env(safe-area-inset-bottom) - 30rpx);">
+    <view class="bottom-container" style="padding-bottom: calc(146rpx + max(20rpx, env(safe-area-inset-bottom)) + 10rpx); background-color: transparent;">
         <view class="select-all" bind:tap="selectAll">
             <image class="check" src="../../static/my/{{selectAll ? '2480' : '2177'}}.svg" mode="widthFix"></image>
             <text>全选</text>

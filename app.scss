@@ -150,11 +150,45 @@ page {
                 font-size: 24rpx;
                 color: #DFDFDF;
                 position: relative;
+
+
+                .date-pop-tip-year-select-box,
+                .date-pop-tip-month-select-box {
+                    position: absolute;
+                    left: -2rpx;
+                    top: 100%;
+                    width: 104%;
+                    height: 289rpx;
+                    border: 2rpx solid #00646E;
+                    box-sizing: border-box;
+                    padding: 20rpx;
+                    background: rgba(6,45,72,0.8);
+                    overflow-y: auto;
+                    padding: 18rpx;
+                    padding-top: 10rpx;
+            
+                    .date-pop-tip-year-select-item {
+                        font-size: 24rpx;
+                        color: #DFDFDF;
+                        line-height: 32rpx;
+                        // text-align: center;
+            
+                        // 奇偶行样式
+                        &:nth-child(odd) {
+                            // background-color: #00646E;
+                        }
+                    }
+            
+                    .date-pop-tip-year-select-item.active,
+                    .date-pop-tip-month-select-item.active {
+                        color: #02DAAE;
+                    }
+                }
             }
 
-            .date-pop-tip-month-item {
-                // border: 1rpx solid green;
-            }
+            // .date-pop-tip-month-item {
+            //     // border: 1rpx solid green;
+            // }
 
             .date-pop-tip-arrow-down {
                 width: 16rpx;

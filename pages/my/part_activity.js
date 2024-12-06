@@ -30,13 +30,27 @@ Page({
         date: "2022-08-20 14:00",
         selected: false,
       },
-      // {
-      //   imgSrc: "../../static/1346.png",
-      //   tag: "线下活动",
-      //   title: "西门子智能制造体验日",
-      //   date: "2022-09-10 10:00",
-      //   selected: false,
-      // }
+      {
+        imgSrc: "../../static/1346.png",
+        tag: "线上直播",
+        title: "西门子数字化转型论坛",
+        date: "2022-08-20 14:00",
+        selected: false,
+      },
+      {
+        imgSrc: "../../static/1346.png",
+        tag: "线上直播",
+        title: "西门子数字化转型论坛",
+        date: "2022-08-20 14:00",
+        selected: false,
+      },
+      {
+        imgSrc: "../../static/1346.png",
+        tag: "线上直播",
+        title: "西门子数字化转型论坛",
+        date: "2022-08-20 14:00",
+        selected: false,
+      },
     ],
     selectAll: false,
 
@@ -80,8 +94,8 @@ Page({
      cityPopTipSelected: false,
   },
 
-   // 选择活动类型
-   selectAllActivityType(e) {
+  // 选择活动类型
+  selectAllActivityType(e) {
     let type = e.currentTarget.dataset.type;
     if (type === 'open') { // 打开
       this.setData({
@@ -110,9 +124,11 @@ Page({
     // 没有传值就 new 一个
     if (!year) {
       year = new Date().getFullYear();
+      this.setData({currentYear: year});
     }
     if (!month) {
       month = new Date().getMonth() + 1;
+      this.setData({currentMonth: month});
     }
 
     let daysInMonth = new Date(year, month, 0).getDate(); // 获取当前月份的天数
@@ -183,8 +199,19 @@ Page({
         selectedDate: `${this.data.currentYear}-${this.data.currentMonth < 10 ? '0' + this.data.currentMonth : this.data.currentMonth}-${this.data.currentDay < 10 ? '0' + this.data.currentDay : this.data.currentDay}`,
         datePickerSelected: false
       });
+    } else if (type === 'updYear') {
+      this.setData({
+        currentYear: e.currentTarget.dataset.year,
+        isOpenYearSelectBox: false
+      });
+    } else if (type === 'updMonth') {
+      this.setData({
+        currentMonth: e.currentTarget.dataset.month,
+        isOpenMonthSelectBox: false
+      });
     }
 
+    // 更新日历
     this.generateCurrentMonthDays(this.data.currentYear, this.data.currentMonth);
   },
   // 选择城市
@@ -211,6 +238,25 @@ Page({
         cityIndex: this.data.cityIndex
       });
     }
+  },
+  // 打开/关闭年月下拉选择框
+  openOrCloseYearMonthSelectBox(e) {
+    let type = e.currentTarget.dataset.type;
+    // 生成年份数据 当前年份前后10年
+    if (type === 'Year') {
+      // 根据 currentYear 生成数据
+      let yearData = [];
+      for (let i = -10; i <= 10; i++) {
+        yearData.push(this.data.currentYear + i);
+      }
+      this.setData({
+        yearData: yearData
+      });
+    }
+
+    this.setData({
+      [`isOpen${type}SelectBox`]: !this.data[`isOpen${type}SelectBox`]
+    });
   },
 
   selectActivity(e) {

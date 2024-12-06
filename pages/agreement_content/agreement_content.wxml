@@ -3,8 +3,8 @@
 <view class="agreement-content-container" style="padding-top: {{navHeight}}px;">
     <!-- 头部 -->
     <view class="agreement-content-title">
-        <image wx:if="{{type == 'privacy'}}" style="width: 184rpx;" src="../../static/1580.svg" mode="widthFix"></image>
-        <image wx:else style="width: 520rpx;" src="../../static/1602.svg" mode="widthFix"></image>
+        <image wx:if="{{type == 'privacy'}}" style="width: 184rpx; height: auto;" src="../../static/1580.svg" mode="widthFix"></image>
+        <image wx:else style="width: 520rpx; height: auto;" src="../../static/1602.svg" mode="widthFix"></image>
         <!-- 最后更新日期 -->
         <view class="agreement-content-update-date">
             <text>最后更新日期 [ 2024-12-02 ]</text>

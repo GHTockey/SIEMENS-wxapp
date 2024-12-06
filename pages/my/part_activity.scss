@@ -96,18 +96,19 @@
 }
 
 .bottom-container {
-    position: absolute;
+  // 按钮70rpx + 上下40 padding = 150rpx
+    position: fixed;
     left: 0;
-    // background-color: red;
-    padding: 0 30rpx;
-    bottom: 40rpx;
+    // bottom: 40rpx;
+    bottom: 0;
+    padding: 40rpx 30rpx;
+    background-color: #041c3d;
     width: 100%;
     box-sizing: border-box;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     font-size: 28rpx;
-    // border: 1rpx solid red;
 
 
     .select-all {

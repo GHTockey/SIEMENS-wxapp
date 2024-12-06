@@ -1,3 +1,5 @@
+const { myNavigateTo } = require("../../utils/util");
+
 // pages/activity/activity.js
 Page({
 
@@ -286,9 +288,10 @@ Page({
   // 跳转页面
   myNavigateTo(e) {
     let url = e.currentTarget.dataset.url
-    wx.navigateTo({
-      url
-    })
+    myNavigateTo(url)
+    // wx.navigateTo({
+    //   url
+    // })
   },
 
   /**

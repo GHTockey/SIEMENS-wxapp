@@ -1,7 +1,6 @@
 <!-- pages/my/my.wxml -->
-    <nav-bar showTitle="{{false}}" showFindIcon showScrollBackground></nav-bar>
-<view class="my_container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + env(safe-area-inset-bottom)); background-image: url(../../static/my/2346.png);">
-    <!-- <nav-bar showTitle="{{false}}" showLogo></nav-bar> -->
+<nav-bar showTitle="{{false}}" showFindIcon showScrollBackground></nav-bar>
+<view class="my_container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + max(30rpx, env(safe-area-inset-bottom))); background-image: url(https://pic.imgdb.cn/item/6752b733d0e0a243d4de9f82.png);">
     <tab-bar activeIndex="{{3}}"></tab-bar>
     <!-- 用户头像/昵称/设置 -->
     <view class="user-info">
@@ -44,11 +43,11 @@
         <view class="participated-activities-title">
             <image style="width: 209rpx" src="../../static/my/2334.svg" mode="widthFix"></image>
             <!-- 更多 -->
-            <image style="width: 78rpx;height: 34rpx;" src="../../static/my/2476.svg" mode="widthFix"></image>
+            <image bind:tap="myNavigateTo" data-url="/pages/my/part_activity" style="width: 78rpx;height: 34rpx;" src="../../static/my/2476.svg" mode="widthFix"></image>
         </view>
-        <view class="participated-activities" bind:tap="myNavigateTo" data-url="/pages/my/part_activity">
+        <view class="participated-activities">
             <scroll-view scroll-x style="height: 100%;">
-                <view class="activity-item" wx:for="{{5}}" wx:key="index">
+                <view class="activity-item" wx:for="{{5}}" wx:key="index" bind:tap="myNavigateTo" data-url="/pages/offline_activity/offline_activity">
                     <image style="width: 263rpx;height: 147rpx;" src="../../static/socroll-img.png" mode="aspectFill" />
                     <view class="activity-item-title">
                         <text style="width: 100%;">Industrial Operation-sX 数字化解决方案</text>

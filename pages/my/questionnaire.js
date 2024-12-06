@@ -28,48 +28,54 @@ Page({
     selectAll: false,
     // 弹窗
     showPopTip: false,
-     // 活动类型数据
-     allActivityData: ['全部类型', '线上活动', '线下活动'],
-     // tab-全部活动是否开启
-     allActivitySelected: false,
-     // 当前选择的全部活动类型
-     allActivityTypeIndex: null,
-     // tab-日期选择器是否开启
-     datePickerSelected: false,
-     // 当前选择的年
-     currentYear: 2024,
-     // 当前选择的月
-     currentMonth: 12,
-     // 当前选择的 日 [高亮]
-     currentDay: 1, // currentDate 每次变化，都要更新
-     // 当前月份的天数 ({ Su：[1,8,15,22,29], Mo：[2,9,16,23,30], ... })
-     currentMonthDays: {},
-     // 调整后的星期顺序  按照顺序来排序，如：2025-1-1是周三(We)，那么We应该是在date-pop-tip-week-box排第一列
-     adjustedWeekDays: [],
-     // 确定选择的日期
-     selectedDate: '',
- 
-     // 城市类型数据
-     cityData: [
-       '全部城市', '北京市', '天津市', 
-       '河北省', '山东省', '江苏省', 
-       '浙江省', '上海市', '内蒙古自治区', 
-       '福建省', '江西省', '河南省', 
-       '湖北省', '湖南省', '广东省', 
-       // '广西壮族自治区', '海南省', '四川省', 
-       // '贵州省', '云南省', '陕西省', 
-       // '甘肃省', '青海省', '台湾省', 
-       // '安徽省', '西藏自治区', '宁夏回族自治区', 
-       // '新疆维吾尔自治区', '香港特别行政区', '澳门特别行政区'
-     ],
-     // 当前选择的城市
-     cityIndex: null,
-     // 城市弹窗是否开启
-     cityPopTipSelected: false
+    // 活动类型数据
+    allActivityData: ['全部类型', '线上活动', '线下活动'],
+    // tab-全部活动是否开启
+    allActivitySelected: false,
+    // 当前选择的全部活动类型
+    allActivityTypeIndex: null,
+    // tab-日期选择器是否开启
+    datePickerSelected: false,
+    // 当前选择的年
+    currentYear: 2024,
+    // 当前选择的月
+    currentMonth: 12,
+    // 当前选择的 日 [高亮]
+    currentDay: 1, // currentDate 每次变化，都要更新
+    // 当前月份的天数 ({ Su：[1,8,15,22,29], Mo：[2,9,16,23,30], ... })
+    currentMonthDays: {},
+    // 调整后的星期顺序  按照顺序来排序，如：2025-1-1是周三(We)，那么We应该是在date-pop-tip-week-box排第一列
+    adjustedWeekDays: [],
+    // 确定选择的日期
+    selectedDate: '',
+    // 是否打开年份选择框
+    isOpenYearSelectBox: false,
+    // 是否打开月份选择框
+    isOpenMonthSelectBox: false,
+    // 年份数据
+    yearData: [],
+
+    // 城市类型数据
+    cityData: [
+      '全部城市', '北京市', '天津市',
+      '河北省', '山东省', '江苏省',
+      '浙江省', '上海市', '内蒙古自治区',
+      '福建省', '江西省', '河南省',
+      '湖北省', '湖南省', '广东省',
+      // '广西壮族自治区', '海南省', '四川省', 
+      // '贵州省', '云南省', '陕西省', 
+      // '甘肃省', '青海省', '台湾省', 
+      // '安徽省', '西藏自治区', '宁夏回族自治区', 
+      // '新疆维吾尔自治区', '香港特别行政区', '澳门特别行政区'
+    ],
+    // 当前选择的城市
+    cityIndex: null,
+    // 城市弹窗是否开启
+    cityPopTipSelected: false
   },
 
 
-   
+
   // 选择活动类型
   selectAllActivityType(e) {
     let type = e.currentTarget.dataset.type;
@@ -100,9 +106,11 @@ Page({
     // 没有传值就 new 一个
     if (!year) {
       year = new Date().getFullYear();
+      this.setData({currentYear: year});
     }
     if (!month) {
       month = new Date().getMonth() + 1;
+      this.setData({currentMonth: month});
     }
 
     let daysInMonth = new Date(year, month, 0).getDate(); // 获取当前月份的天数
@@ -173,8 +181,19 @@ Page({
         selectedDate: `${this.data.currentYear}-${this.data.currentMonth < 10 ? '0' + this.data.currentMonth : this.data.currentMonth}-${this.data.currentDay < 10 ? '0' + this.data.currentDay : this.data.currentDay}`,
         datePickerSelected: false
       });
+    } else if (type === 'updYear') {
+      this.setData({
+        currentYear: e.currentTarget.dataset.year,
+        isOpenYearSelectBox: false
+      });
+    } else if (type === 'updMonth') {
+      this.setData({
+        currentMonth: e.currentTarget.dataset.month,
+        isOpenMonthSelectBox: false
+      });
     }
 
+    // 更新日历
     this.generateCurrentMonthDays(this.data.currentYear, this.data.currentMonth);
   },
   // 选择城市
@@ -201,6 +220,25 @@ Page({
         cityIndex: this.data.cityIndex
       });
     }
+  },
+  // 打开/关闭年月下拉选择框
+  openOrCloseYearMonthSelectBox(e) {
+    let type = e.currentTarget.dataset.type;
+    // 生成年份数据 当前年份前后10年
+    if (type === 'Year') {
+      // 根据 currentYear 生成数据
+      let yearData = [];
+      for (let i = -10; i <= 10; i++) {
+        yearData.push(this.data.currentYear + i);
+      }
+      this.setData({
+        yearData: yearData
+      });
+    }
+
+    this.setData({
+      [`isOpen${type}SelectBox`]: !this.data[`isOpen${type}SelectBox`]
+    });
   },
 
 

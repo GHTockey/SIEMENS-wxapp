@@ -1,6 +1,6 @@
 <!--pages/my/collect.wxml-->
 <nav-bar title="我的收藏" showBackIcon />
-<view class="collect-container">
+<view class="collect-container" style="padding-bottom: 150rpx;">
     <!-- tabs -->
     <view class="part-activity-tabs" style="padding-top: {{navHeight + 10}}px;">
         <!-- 活动类型选择 -->
@@ -46,56 +46,67 @@
         </view>
         <!-- 日期选择 -->
         <view class="part-activity-tab-item">
-            <view catchtap="selectDate" data-type="{{!datePickerSelected ? 'open' : 'cancel'}}">
-                {{selectedDate || '全部日期'}}
-            </view>
-            <image catchtap="selectDate" data-type="{{!datePickerSelected ? 'open' : 'cancel'}}" style="width: 20rpx; height: 20rpx;" class="{{datePickerSelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
-            <!-- 弹窗 -->
-            <view wx:if="{{datePickerSelected}}" class="date-pop-tip">
-                <!-- 年月选择/左右选择 -->
-                <view class="date-pop-tip-year-month-box">
-                    <view class="date-pop-tip-year-item">
-                        <text>{{currentYear}}</text>
-                        <image class="date-pop-tip-arrow-down" src="../../static/sjx.svg" mode="widthFix" />
-                    </view>
-                    <view class="date-pop-tip-month-item">
-                        <text>{{currentMonth}}月</text>
-                        <image class="date-pop-tip-arrow-down" src="../../static/sjx.svg" mode="widthFix" />
-                    </view>
-                    <view class="date-pop-tip-arrow-lr-box">
-                        <image catchtap="selectDate" data-type="prev" class="date-pop-tip-arrow-right" src="../../static/right.svg" mode="widthFix" />
-                        <image catchtap="selectDate" data-type="next" class="date-pop-tip-arrow-left" src="../../static/left.svg" mode="widthFix" />
-                    </view>
-                </view>
-                <!-- 日历表: 周日~周六 -->
-                <view class="date-pop-tip-calendar-box">
-                    <!-- 周日~周六 -->
-                    <view class="date-pop-tip-week-box">
-                        <block wx:for="{{adjustedWeekDays}}" wx:key="*this">
-                            <view class="date-pop-tip-week-item">{{item}}</view>
-                        </block>
-                    </view>
-                    <!-- 日历表 -->
-                    <view class="date-pop-tip-calendar-days-box">
-                        <block wx:for="{{adjustedWeekDays}}" wx:key="*this">
-                            <view class="date-pop-tip-calendar-days-item">
-                                <view catchtap="selectDate" data-type="updDay" data-day="{{item}}" class="date-pop-tip-calendar-days-item-day {{currentDay == item ? 'active' : ''}}" wx:for="{{currentMonthDays[item]}}" wx:key="index">
-                                    {{item}}
-                                </view>
-                            </view>
-                        </block>
-                    </view>
-                    <!-- 按钮：取消/确定 -->
-                    <view class="date-pop-tip-btns">
-                        <view catchtap="selectDate" data-type="cancel" class="date-pop-tip-btn-cancel">
-                            取消
-                        </view>
-                        <view catchtap="selectDate" data-type="confirm" class="date-pop-tip-btn-confirm">
-                            确定
-                        </view>
-                    </view>
+        <view catchtap="selectDate" data-type="{{!datePickerSelected ? 'open' : 'cancel'}}">
+            {{selectedDate || '全部日期'}}
+        </view>
+        <image catchtap="selectDate" data-type="{{!datePickerSelected ? 'open' : 'cancel'}}" style="width: 20rpx; height: 20rpx;" class="{{datePickerSelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
+        <!-- 弹窗 -->
+        <view wx:if="{{datePickerSelected}}" class="date-pop-tip">
+            <!-- 年月选择/左右选择 -->
+            <view class="date-pop-tip-year-month-box">
+            <!-- 年选择 -->
+            <view class="date-pop-tip-year-item">
+                <view catchtap="openOrCloseYearMonthSelectBox" data-type="Year">{{currentYear}}</view>
+                <image catchtap="openOrCloseYearMonthSelectBox" data-type="Year" class="date-pop-tip-arrow-down {{isOpenYearSelectBox ? 'rotate-img' : ''}}" src="../../static/sjx.svg" mode="widthFix" />
+                <!-- 下拉选择框 -->
+                <view wx:if="{{isOpenYearSelectBox}}" class="date-pop-tip-year-select-box">
+                <view catchtap="selectDate" data-type="updYear" data-year="{{item}}" class="date-pop-tip-year-select-item {{currentYear == item ? 'active' : ''}}" wx:for="{{yearData}}" wx:key="index">{{item}}</view>
                 </view>
             </view>
+            <!-- 月选择 -->
+            <view class="date-pop-tip-month-item">
+                <view catchtap="openOrCloseYearMonthSelectBox" data-type="Month">{{currentMonth}} 月</view>
+                <image catchtap="openOrCloseYearMonthSelectBox" data-type="Month" class="date-pop-tip-arrow-down {{isOpenMonthSelectBox ? 'rotate-img' : ''}}" src="../../static/sjx.svg" mode="widthFix" />
+                <!-- 下拉选择框 -->
+                <view wx:if="{{isOpenMonthSelectBox}}" class="date-pop-tip-month-select-box">
+                <view catchtap="selectDate" data-type="updMonth" data-month="{{item+1}}" class="date-pop-tip-month-select-item {{currentMonth == item+1 ? 'active' : ''}}" wx:for="{{12}}" wx:key="index">{{item+1}} 月</view>
+                </view>
+            </view>
+            <!-- 左右箭头 -->
+            <view class="date-pop-tip-arrow-lr-box">
+                <image catchtap="selectDate" data-type="prev" class="date-pop-tip-arrow-right" src="../../static/right.svg" mode="widthFix" />
+                <image catchtap="selectDate" data-type="next" class="date-pop-tip-arrow-left" src="../../static/left.svg" mode="widthFix" />
+            </view>
+            </view>
+            <!-- 日历表: 周日~周六 -->
+            <view class="date-pop-tip-calendar-box">
+            <!-- 周日~周六 -->
+            <view class="date-pop-tip-week-box">
+                <block wx:for="{{adjustedWeekDays}}" wx:key="*this">
+                <view class="date-pop-tip-week-item">{{item}}</view>
+                </block>
+            </view>
+            <!-- 日历表 -->
+            <view class="date-pop-tip-calendar-days-box">
+                <block wx:for="{{adjustedWeekDays}}" wx:key="*this">
+                <view class="date-pop-tip-calendar-days-item">
+                    <view catchtap="selectDate" data-type="updDay" data-day="{{item}}" class="date-pop-tip-calendar-days-item-day {{currentDay == item ? 'active' : ''}}" wx:for="{{currentMonthDays[item]}}" wx:key="index">
+                    {{item}}
+                    </view>
+                </view>
+                </block>
+            </view>
+            <!-- 按钮：取消/确定 -->
+            <view class="date-pop-tip-btns">
+                <view catchtap="selectDate" data-type="cancel" class="date-pop-tip-btn-cancel">
+                取消
+                </view>
+                <view catchtap="selectDate" data-type="confirm" class="date-pop-tip-btn-confirm">
+                确定
+                </view>
+            </view>
+            </view>
+        </view>
         </view>
     </view>
     <!-- 列表 -->

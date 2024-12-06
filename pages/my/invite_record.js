@@ -37,7 +37,9 @@ Page({
       }
     ],
     // 全选
-    selectAll: false
+    selectAll: false,
+    // 弹窗
+    showPopTip: false,
   },
 
   // 切换tab
@@ -69,6 +71,37 @@ Page({
       contentList: this.data.contentList
     })
   },
+
+    // 弹窗按钮事件
+    popTipHandler(e) {
+      // console.log(e);
+      if (e.type === 'cancel') {
+        this.setData({
+          showPopTip: false
+        });
+      } else {
+        console.log('确认');
+      }
+    },
+  
+    // 删除按钮事件
+    deleteBtnHandler() {
+      console.log('删除');
+  
+      // 判断是否选择了数据
+      const selectedList = this.data.contentList.filter(item => item.check);
+      if (selectedList.length === 0) {
+        wx.showToast({
+          title: '请选择要删除的数据',
+          icon: 'none'
+        });
+        return;
+      }
+  
+      this.setData({
+        showPopTip: true
+      });
+    },
 
   /**
    * 生命周期函数--监听页面加载

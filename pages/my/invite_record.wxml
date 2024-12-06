@@ -1,6 +1,7 @@
 <!-- pages/my/invite_record.wxml -->
-<nav-bar title="我的邀请记录" showBackIcon></nav-bar>
-<view class="invite-record-container" style="padding-top: {{navHeight}}px;">
+<nav-bar title="我的邀请记录" showBackIcon showScrollBackground></nav-bar>
+<tab-bar activeIndex="{{3}}"></tab-bar>
+<view class="invite-record-container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + 150rpx + max(30rpx, env(safe-area-inset-bottom)));">
     <view class="tabs-container">
         <view wx:for="{{tabsList}}" wx:key="index" wx:for-item="item" class="tab-item {{tabsIndex === index ? 'active' : ''}}" bind:tap="changeTabs" data-index="{{index}}">
             {{item}}
@@ -38,6 +39,8 @@
             <image class="check" src="../../static/my/{{selectAll ? '2480' : '2177'}}.svg" mode="widthFix"></image>
             <text>全选</text>
         </view>
-        <view class="delete-btn">删除</view>
+        <view bind:tap="deleteBtnHandler" class="delete-btn">删除</view>
     </view>
 </view>
+<!-- 弹窗 -->
+<pop-tip content="删除后将无法恢复" title="你确定删除吗？" wx:if="{{showPopTip}}" bind:cancel="popTipHandler" bind:confirm="popTipHandler" />

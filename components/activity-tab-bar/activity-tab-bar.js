@@ -63,14 +63,20 @@ Component({
       }
       // 判断是否是咨询页面
       if (this.data.list[index].path.includes('online_consult')) {
-        wx.navigateTo({
+        // wx.navigateTo({
+        //   url: this.data.list[index].path
+        // })
+        wx.switchTab({
           url: this.data.list[index].path
         })
         return
       }
 
-      this.updateActiveIndex(index)
-      wx.redirectTo({
+      // this.updateActiveIndex(index)
+      // wx.redirectTo({
+      //   url: this.data.list[index].path
+      // })
+      wx.switchTab({
         url: this.data.list[index].path
       })
     },
@@ -102,7 +108,7 @@ Component({
       // this.setData({
       //   activeIndex: appData.activeIndex
       // })
-      this.updateActiveIndex()
+      // this.updateActiveIndex()
     }
   },
   // 组件所在页面的生命周期对象 [show: 页面被展示] [hide] [resize:页面尺寸变化]
