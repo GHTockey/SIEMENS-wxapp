@@ -1,2 +1,129 @@
-<!--pages/activity_calendar/activity_calendar.wxml-->
-<text>pages/activity_calendar/activity_calendar.wxml</text>
+<!-- pages/activity_calendar/activity_calendar.wxml -->
+<!-- 封装一个 wxs 判断是否显示日历小绿点 -->
+<wxs module="myWxs">
+    module.exports.showDot = function (itemDate, activityList) {
+        // 遍历 activityList 里的date 是否和 itemDate 相等  (itemDate 是 2024-01-01 格式， activityList 里的 date 是 2024-01-01 10:00 这种格式  都要去掉时间)
+        // 月份和日如果小于10 要补0
+        for (var i = 0; i < activityList.length; i++) {
+            if (getDate(activityList[i].date.split(' ')[0]).getMonth() == getDate(itemDate).getMonth() &&
+             getDate(activityList[i].date.split(' ')[0]).getDate() == getDate(itemDate).getDate()) {
+                return true
+            }
+        }
+        return false
+    }
+</wxs>
+<nav-bar title="活动日历" showBackIcon showScrollBackground scrollBackground="#021135" />
+<tab-bar activeIndex="{{1}}"></tab-bar>
+<view class="activity-calendar-container" style="padding-top: {{navHeight}}px; padding-bottom: calc(146rpx + max(30rpx, env(safe-area-inset-bottom)));">
+    <view class="part-activity-tab-item">
+        <!-- 弹窗 -->
+        <view class="date-pop-tip">
+            <!-- 年月选择/左右选择 -->
+            <view class="date-pop-tip-year-month-box">
+                <!-- 年选择 -->
+                <view class="date-pop-tip-year-item">
+                    <!-- 扩大点击区域 -->
+                    <view catchtap="openOrCloseYearMonthSelectBox" data-type="Year" class="expand-click-area">
+                        <view>{{currentYear}}</view>
+                        <image class="date-pop-tip-arrow-down {{isOpenYearSelectBox ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
+                    </view>
+                    <!-- 下拉选择框 -->
+                    <view wx:if="{{isOpenYearSelectBox}}" class="date-pop-tip-year-select-box">
+                        <view catchtap="selectDate" data-type="updYear" data-year="{{item}}" class="date-pop-tip-year-select-item {{currentYear == item ? 'active' : ''}}" wx:for="{{yearData}}" wx:key="index">
+                            {{item}}
+                        </view>
+                    </view>
+                </view>
+                <!-- 月选择 -->
+                <view class="date-pop-tip-month-item">
+                    <!-- 扩大点击区域 -->
+                    <view catchtap="openOrCloseYearMonthSelectBox" data-type="Month" class="expand-click-area">
+                        <view>{{currentMonth}}</view>
+                        <image class="date-pop-tip-arrow-down {{isOpenMonthSelectBox ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
+                    </view>
+                    <!-- 下拉选择框 -->
+                    <view wx:if="{{isOpenMonthSelectBox}}" class="date-pop-tip-month-select-box">
+                        <view catchtap="selectDate" data-type="updMonth" data-month="{{item+1}}" class="date-pop-tip-month-select-item {{currentMonth == item+1 ? 'active' : ''}}" wx:for="{{12}}" wx:key="index">
+                            {{item+1}} 月
+                        </view>
+                    </view>
+                </view>
+                <!-- 左右箭头 -->
+                <view class="date-pop-tip-arrow-lr-box">
+                    <view catchtap="selectDate" data-type="prev" class="expand-click-area-img">
+                        <image style="width: 30rpx;height: 23rpx;" src="../../static/right.svg" mode="widthFix" />
+                    </view>
+                    <view catchtap="selectDate" data-type="next" class="expand-click-area-img">
+                        <image style="width: 30rpx;height: 23rpx;" src="../../static/left.svg" mode="widthFix" />
+                    </view>
+                </view>
+            </view>
+            <!-- 日历表: 周日~周六 -->
+            <view class="date-pop-tip-calendar-box">
+                <!-- 周日~周六 -->
+                <view class="date-pop-tip-week-box">
+                    <block wx:for="{{adjustedWeekDays}}" wx:key="*this">
+                        <view class="date-pop-tip-week-item">{{item}}</view>
+                    </block>
+                </view>
+                <!-- 日历表 -->
+                <view class="date-pop-tip-calendar-days-box">
+                    <block wx:for="{{adjustedWeekDays}}" wx:key="*this">
+                        <view class="date-pop-tip-calendar-days-item">
+                            <view catchtap="selectDate" data-type="updDay" data-day="{{item}}" class="date-pop-tip-calendar-days-item-day {{currentDay == item ? 'active' : ''}}" wx:for="{{currentMonthDays[item]}}" wx:key="index">
+                                {{item}}
+                                <!-- 有活动小绿点 -->
+                                <view wx:if="{{myWxs.showDot(currentYear+'-'+currentMonth+'-'+item, activityList)}}" class="date-pop-tip-calendar-days-item-day-dot"></view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 列表 -->
+    <view wx:if="{{!isCalendar}}" class="part-activity-list">
+        <view class="part-activity-item" wx:for="{{activityList}}" wx:key="activityList" bind:tap="myNavigateTo" data-url="{{item.type === 'online' ? '/pages/live_activity/live_activity' : '/pages/offline_activity/offline_activity'}}">
+            <!-- 图片 -->
+            <view class="part-activity-item-img">
+                <image style="width: 100%; height: auto;" src="{{item.imgSrc}}" mode="widthFix" />
+                <!-- tag -->
+                <view class="part-activity-item-tag">
+                    <text>{{item.tag}}</text>
+                </view>
+            </view>
+            <!-- 活动信息 -->
+            <view class="part-activity-item-info">
+                <text>{{item.title}}</text>
+                <text style="font-size: 24rpx; color: #CFCFCF;">{{item.date}}</text>
+                <!-- 勾选框 -->
+                <!-- <view class="part-activity-item-checkbox" data-index="{{index}}" bind:tap="selectActivity">
+                    <image style="width: 100%;" src="../../static/my/{{item.selected ? 2480 : 2177}}.svg" mode="widthFix" />
+                </view> -->
+            </view>
+        </view>
+    </view>
+    <!-- 瀑布流列表 -->
+    <view wx:else class="activity-calendar-list">
+        <view class="part-activity-item" wx:for="{{activityList}}" wx:key="activityList" bind:tap="myNavigateTo" data-url="{{item.type === 'online' ? '/pages/live_activity/live_activity' : '/pages/offline_activity/offline_activity'}}">
+            <!-- 图片 -->
+            <view class="part-activity-item-img">
+                <image style="width: 100%;" src="{{item.imgSrc}}" mode="widthFix" />
+                <!-- tag -->
+                <view class="part-activity-item-tag">
+                    <text>{{item.tag}}</text>
+                </view>
+            </view>
+            <!-- 活动信息 -->
+            <view class="part-activity-item-info">
+                <text>{{item.title}}</text>
+                <text style="font-size: 24rpx; color: #D0D0D0;">{{item.date}}</text>
+                <!-- 勾选框 -->
+                <!-- <view class="part-activity-item-checkbox" data-index="{{index}}" bind:tap="selectActivity">
+            <image style="width: 100%;" src="../../static/my/{{item.selected ? 2480 : 2177}}.svg" mode="widthFix" />
+        </view> -->
+            </view>
+        </view>
+    </view>
+</view>

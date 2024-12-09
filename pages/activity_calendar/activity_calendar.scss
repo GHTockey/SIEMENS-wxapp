@@ -1,1 +1,114 @@
 /* pages/activity_calendar/activity_calendar.wxss */
+
+@import "../activity/activity.scss";
+
+.activity-calendar-container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    // padding: 0 30rpx;
+    background-color: #021135;
+
+    .date-pop-tip {
+        position: inherit;
+        width: 100%;
+        padding: 0 30rpx;
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        margin-top: 20rpx;
+
+
+        .date-pop-tip-arrow-lr-box {
+            flex: none !important;
+            margin-left: auto;
+            gap: 94rpx;
+        }
+
+        .date-pop-tip-year-item,
+        .date-pop-tip-month-item {
+            width: 160rpx !important;
+            height: 56rpx !important;
+            border: 2rpx solid #707070 !important;
+            font-size: 32rpx !important;
+            color: #00FFB5 !important;
+
+            .expand-click-area {
+                padding: 0 28rpx;
+                padding-right: 20rpx;
+
+            }
+
+        }
+        .date-pop-tip-year-select-box,
+        .date-pop-tip-month-select-box {
+            // border: 1px solid red !important;
+            width: calc(100% + 4rpx) !important;
+            border: 2rpx solid #707070 !important;
+            border-top: 2rpx solid #70707042 !important;
+        }
+        .date-pop-tip-year-select-item,
+        .date-pop-tip-month-select-item {
+            color: white !important;
+            font-size: 28rpx !important;
+        }
+
+
+
+        .date-pop-tip-calendar-box {
+            background-color: #062d48 !important;
+            padding: 20rpx 20rpx;
+            border: 2rpx solid #707070;
+
+
+
+            .date-pop-tip-week-box {
+                font-size: 28rpx !important;
+
+                .date-pop-tip-week-item {
+                    width: 65rpx !important;
+                    height: 65rpx !important;
+                }
+            }
+
+            .date-pop-tip-calendar-days-box {
+
+                // font-size: 31rpx !important;
+                .date-pop-tip-calendar-days-item-day {
+                    font-size: 31rpx !important;
+                }
+
+                .date-pop-tip-calendar-days-item {
+                    row-gap: 20rpx;
+                }
+
+                .date-pop-tip-calendar-days-item-day {
+                    width: 65rpx !important;
+                    height: 65rpx !important;
+                    position: relative;
+                }
+
+                .date-pop-tip-calendar-days-item-day.active {
+                    background: linear-gradient(-90deg, #00CBC1 0%, #00FF9E 100%);
+                    font-size: 31rpx;
+                    color: #050A23;
+                    // width: 65rpx;
+                    // height: 65rpx;
+                }
+            }
+        }
+    }
+}
+
+// 日历有活动小绿点
+.date-pop-tip-calendar-days-item-day-dot {
+    width: 8rpx;
+    height: 8rpx;
+    background-color: #00e2d8;
+    // background-color: #05F6A3;
+    border-radius: 50%;
+    position: absolute;
+    // 文字下方水平居中
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}

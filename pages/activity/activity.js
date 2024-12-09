@@ -11,7 +11,7 @@ Page({
     navHeight: wx.getSystemInfoSync().statusBarHeight + 44,
     // 是否订阅
     isSubscribe: false,
-    // 日历
+    // 日历 [瀑布流]
     isCalendar: false,
     // 活动列表
     activityList: [

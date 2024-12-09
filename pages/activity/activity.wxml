@@ -8,9 +8,9 @@
         <text>活动订阅</text>
         <image style="width: 66rpx;height: 34rpx;" src="../../static/{{ isSubscribe ? '459' : '2497' }}.svg" mode="widthFix" />
       </view>
-      <view class="activity-calendar-switch-item" bind:tap="switchSubscribeOrCalendar" data-type="Calendar">
-        <text>活动日历</text>
-        <image style="width: 50rpx;height: 50rpx;" src="../../static/{{ isCalendar ? '466' : '464' }}.svg" mode="widthFix" />
+      <view class="activity-calendar-switch-item" >
+        <text bind:tap="myNavigateTo" data-url="/pages/activity_calendar/activity_calendar?listLayout={{isCalendar ? 'calendar' : 'list'}}">活动日历</text>
+        <image bind:tap="switchSubscribeOrCalendar" data-type="Calendar" style="width: 50rpx;height: 50rpx;" src="../../static/{{ isCalendar ? '466' : '464' }}.svg" mode="widthFix" />
       </view>
     </view>
     <!-- 活动类型选择 -->
