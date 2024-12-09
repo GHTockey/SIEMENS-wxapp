@@ -114,6 +114,7 @@
       }
       .index_container_2_search_right {
         padding-left: 40rpx;
+        margin-right: 10rpx;
         height: 100%;
         display: flex;
         align-items: center;
@@ -125,14 +126,14 @@
       text-align: center;
       position: relative;
       // border: 1rpx solid red;
-      height: 135rpx;
+      height: 145rpx;
       box-sizing: border-box;
 
       .index_container_2_tabs_item {
         background-color: #023d4e;
         // background-color: #004c55; // active
         width: 260rpx;
-        height: 135rpx;
+        height: 145rpx;
         // border-top: 4rpx solid #00da9c; // active
         border-top: 4rpx solid transparent;
         border-bottom: 4rpx solid #149d82;
@@ -144,19 +145,31 @@
         display: inline-block;
         position: relative;
 
+
         .index_container_2_tabs_item_top {
           font-size: 28rpx;
           // font-weight: 700; // active
           position: absolute;
-          top: 50%;
+          // top: 50%;
+          top: calc(50% + 10rpx);
           left: 50%;
           transform: translate(-50%, -100%);
+
+          .index_container_2_tabs_item_top_left-pop {
+            position: absolute;
+            top: -50%;
+            left: 0;
+            transform: translate(-80%, 20%);
+            width: 40rpx;
+            height: 40rpx;
+          }
         }
 
         .index_container_2_tabs_item_bottom {
           font-size: 24rpx;
           position: absolute;
-          top: 50%;
+          // top: 50%;
+          top: calc(50% + 10rpx);
           left: 50%;
           transform: translate(-50%, 0);
         }

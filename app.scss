@@ -127,11 +127,14 @@ page {
         border: 2rpx solid #00646E;
         box-sizing: border-box;
         padding: 25rpx 34rpx;
+        // 不响应点击
+        // pointer-events: none;
 
         .date-pop-tip-year-month-box {
             display: flex;
             justify-content: space-between;
             gap: 34rpx;
+            // pointer-events: auto;
             // background-color: #00E2D8;
 
             .date-pop-tip-year-item,
@@ -143,7 +146,7 @@ page {
                 align-items: center;
                 justify-content: space-between;
                 //   flex-wrap: wrap;
-                padding: 10rpx 16rpx;
+                // padding: 10rpx 16rpx;
                 box-sizing: border-box;
                 //   font-size: 20rpx;
                 //   color: #FFFFFF;
@@ -151,6 +154,16 @@ page {
                 color: #DFDFDF;
                 position: relative;
 
+                // 扩大点击区域
+                .expand-click-area {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    padding: 10rpx 16rpx;
+                    justify-content: space-between;
+                    align-items: center;
+                    // border: 1rpx solid red;
+                }
 
                 .date-pop-tip-year-select-box,
                 .date-pop-tip-month-select-box {
@@ -166,6 +179,7 @@ page {
                     overflow-y: auto;
                     padding: 18rpx;
                     padding-top: 10rpx;
+                    border-top: 2rpx solid #273e4f;
             
                     .date-pop-tip-year-select-item {
                         font-size: 24rpx;
@@ -195,6 +209,7 @@ page {
                 transition: all 0.2s ease;
             }
 
+            
             .date-pop-tip-arrow-lr-box {
                 display: flex;
                 flex: 1;
@@ -202,9 +217,22 @@ page {
                 align-items: center;
                 // border: 1rpx solid red;
 
-                >image {
-                    width: 15rpx;
-                    height: 15rpx;
+                .expand-click-area-img {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    // padding: 10rpx; // 增加内边距以扩大点击区域
+                    // border: 1rpx solid red;
+
+                    &:nth-child(1) {
+                        justify-content: flex-start;
+                    }
+
+                    &:nth-child(2) {
+                        justify-content: flex-end;
+                    }
                 }
             }
         }
@@ -212,7 +240,7 @@ page {
         .date-pop-tip-calendar-box {
             // display: flex;
             margin-top: 30rpx;
-
+            // pointer-events: auto;
 
             .date-pop-tip-week-box {
                 display: flex;

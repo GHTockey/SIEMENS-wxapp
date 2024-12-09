@@ -24,7 +24,8 @@
     "pages/activity-consultation/activity-consultation",
     "pages/related_data/related_data",
     "pages/poster_detail/poster_detail",
-    "pages/consult/detail"
+    "pages/consult/detail",
+    "pages/activity_calendar/activity_calendar"
   ],
   "window": {
     "navigationBarTextStyle": "white",
@@ -45,47 +46,47 @@
     "custom": true,
     "list": [
       {
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "./static/home.png",
-      "selectedIconPath": "./static/home-active.png"
-    },
-    {
-      "selectedIconPath": "./static/huodong-active.png",
-      "iconPath": "./static/huodong.png",
-      "pagePath": "pages/activity/activity",
-      "text": "活动"
-    },
-    {
-      "selectedIconPath": "./static/zixun-active.png",
-      "iconPath": "./static/zixun.png",
-      "pagePath": "pages/online_consult/online_consult",
-      "text": "咨询"
-    },
-    {
-      "selectedIconPath": "./static/my-active.png",
-      "iconPath": "./static/my.png",
-      "pagePath": "pages/my/my",
-      "text": "我的"
-    },
-
-    {
-      "selectedIconPath": "./static/z108.png",
-      "iconPath": "./static/z80.png",
-      "pagePath": "pages/offline_activity/offline_activity",
-      "text": "活动介绍"
-    },
-    {
-      "selectedIconPath": "./static/z76.png",
-      "iconPath": "./static/z111.png",
-      "pagePath": "pages/attendance-guide/attendance-guide",
-      "text": "参会指南"
-    },
-    {
-      "selectedIconPath": "./static/z50.png",
-      "iconPath": "./static/z2513.png",
-      "pagePath": "pages/related_data/related_data",
-      "text": "相关资料"
-    }]
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./static/home.png",
+        "selectedIconPath": "./static/home-active.png"
+      },
+      {
+        "selectedIconPath": "./static/huodong-active.png",
+        "iconPath": "./static/huodong.png",
+        "pagePath": "pages/activity/activity",
+        "text": "活动"
+      },
+      {
+        "selectedIconPath": "./static/zixun-active.png",
+        "iconPath": "./static/zixun.png",
+        "pagePath": "pages/online_consult/online_consult",
+        "text": "咨询"
+      },
+      {
+        "selectedIconPath": "./static/my-active.png",
+        "iconPath": "./static/my.png",
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      },
+      {
+        "selectedIconPath": "./static/z108.png",
+        "iconPath": "./static/z80.png",
+        "pagePath": "pages/offline_activity/offline_activity",
+        "text": "活动介绍"
+      },
+      {
+        "selectedIconPath": "./static/z76.png",
+        "iconPath": "./static/z111.png",
+        "pagePath": "pages/attendance-guide/attendance-guide",
+        "text": "参会指南"
+      },
+      {
+        "selectedIconPath": "./static/z50.png",
+        "iconPath": "./static/z2513.png",
+        "pagePath": "pages/related_data/related_data",
+        "text": "相关资料"
+      }
+    ]
   }
 }

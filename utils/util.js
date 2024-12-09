@@ -17,6 +17,7 @@ const formatNumber = n => {
 
 // 跳转页面
 function myNavigateTo(url) {
+  console.log('myNavigateTo', url);
   // 判断是否是 tabbar 页面
   const tabbarPages = [
     '/pages/index/index',

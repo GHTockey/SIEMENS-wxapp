@@ -18,6 +18,8 @@
         <view class="index_container_2_tabs_item {{currentTab === index ? 'active' : ''}}" wx:for="{{tabsList}}" wx:key="title" bind:tap="handleTabClick" data-index="{{index}}">
           <view class="index_container_2_tabs_item_top">
             <text>{{item.title}}</text>
+            <!-- 左上角图标装饰 -->
+            <image class="index_container_2_tabs_item_top_left-pop" src="../../static/left-pop.png" mode="widthFix" />
           </view>
           <view class="index_container_2_tabs_item_bottom">
             <text style="color: #00da9c;">{{item.date}}</text>

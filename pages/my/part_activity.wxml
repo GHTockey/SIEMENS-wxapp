@@ -57,10 +57,11 @@
                 <view class="date-pop-tip-year-month-box">
                     <!-- 年选择 -->
                     <view class="date-pop-tip-year-item">
-                        <view catchtap="openOrCloseYearMonthSelectBox" data-type="Year">
-                            {{currentYear}}
+                        <!-- 扩大点击区域 -->
+                        <view catchtap="openOrCloseYearMonthSelectBox" data-type="Year" class="expand-click-area">
+                            <view>{{currentYear}}</view>
+                            <image class="date-pop-tip-arrow-down {{isOpenYearSelectBox ? 'rotate-img' : ''}}" src="../../static/sjx.svg" mode="widthFix" />
                         </view>
-                        <image catchtap="openOrCloseYearMonthSelectBox" data-type="Year" class="date-pop-tip-arrow-down {{isOpenYearSelectBox ? 'rotate-img' : ''}}" src="../../static/sjx.svg" mode="widthFix" />
                         <!-- 下拉选择框 -->
                         <view wx:if="{{isOpenYearSelectBox}}" class="date-pop-tip-year-select-box">
                             <view catchtap="selectDate" data-type="updYear" data-year="{{item}}" class="date-pop-tip-year-select-item {{currentYear == item ? 'active' : ''}}" wx:for="{{yearData}}" wx:key="index">
@@ -70,10 +71,11 @@
                     </view>
                     <!-- 月选择 -->
                     <view class="date-pop-tip-month-item">
-                        <view catchtap="openOrCloseYearMonthSelectBox" data-type="Month">
-                            {{currentMonth}} 月
+                        <!-- 扩大点击区域 -->
+                        <view catchtap="openOrCloseYearMonthSelectBox" data-type="Month" class="expand-click-area">
+                            <view>{{currentMonth}} 月</view>
+                            <image class="date-pop-tip-arrow-down {{isOpenMonthSelectBox ? 'rotate-img' : ''}}" src="../../static/sjx.svg" mode="widthFix" />
                         </view>
-                        <image catchtap="openOrCloseYearMonthSelectBox" data-type="Month" class="date-pop-tip-arrow-down {{isOpenMonthSelectBox ? 'rotate-img' : ''}}" src="../../static/sjx.svg" mode="widthFix" />
                         <!-- 下拉选择框 -->
                         <view wx:if="{{isOpenMonthSelectBox}}" class="date-pop-tip-month-select-box">
                             <view catchtap="selectDate" data-type="updMonth" data-month="{{item+1}}" class="date-pop-tip-month-select-item {{currentMonth == item+1 ? 'active' : ''}}" wx:for="{{12}}" wx:key="index">
@@ -83,8 +85,12 @@
                     </view>
                     <!-- 左右箭头 -->
                     <view class="date-pop-tip-arrow-lr-box">
-                        <image catchtap="selectDate" data-type="prev" class="date-pop-tip-arrow-right" src="../../static/right.svg" mode="widthFix" />
-                        <image catchtap="selectDate" data-type="next" class="date-pop-tip-arrow-left" src="../../static/left.svg" mode="widthFix" />
+                        <view catchtap="selectDate" data-type="prev" class="expand-click-area-img">
+                            <image style="width: 15rpx;height: 15rpx;" src="../../static/right.svg" mode="widthFix" />
+                        </view>
+                        <view catchtap="selectDate" data-type="next" class="expand-click-area-img">
+                            <image style="width: 15rpx;height: 15rpx;" src="../../static/left.svg" mode="widthFix" />
+                        </view>
                     </view>
                 </view>
                 <!-- 日历表: 周日~周六 -->
