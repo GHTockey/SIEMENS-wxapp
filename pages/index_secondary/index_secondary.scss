@@ -1,0 +1,94 @@
+/* pages/index_secondary/index_secondary.wxss */
+.index_secondary_container {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    background: linear-gradient( 100deg, #000028 0%, #003B52 78%, #005464 100%);
+    padding-bottom: 30rpx;
+
+
+    .index_container_1 {
+        margin-top: 30rpx;
+
+        .index_container_1_header {
+            height: 396rpx;
+            background: #021235;
+            border-radius: 0rpx 0rpx 0rpx 0rpx;
+            border: 1rpx solid #00ab8c;
+            // border: 1rpx solid #00FFB9;
+        }
+
+        .index_container_1_button_list {
+            margin-top: 53rpx;
+            // border: 1rpx solid red;
+            display: flex;
+            gap: 20rpx;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            .index_container_1_button_list_item {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                background: #053b52;
+                flex: 1 1 calc(33.333% - 20rpx);
+                // margin-bottom: 20rpx;
+                padding: 15rpx 0;
+                gap: 17rpx;
+                font-size: 24rpx;
+            }
+        }
+
+        .index_container_1_poster {
+            margin-top: 53rpx;
+            width: 691rpx;
+            height: 212rpx;
+        }
+
+        .index_container_1_recommend {
+            margin-top: 53rpx;
+
+            .index_container_1_recommend_header {
+                font-size: 30rpx;
+            }
+
+            .index_container_1_recommend_list {
+                margin-top: 28rpx;
+                display: flex;
+                flex-direction: column;
+                gap: 26rpx;
+
+                .index_container_1_recommend_list_item {
+                    background-color: #00ffb719;
+                    height: 161rpx;
+                    display: flex;
+                    gap: 16rpx;
+
+                    image {
+                        width: 242rpx;
+                        height: 161rpx;
+                        flex-shrink: 0;
+                    }
+
+                    .index_container_1_recommend_list_item_right {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        padding: 0 16rpx;
+                        gap: 16rpx;
+
+                        text {
+                            font-size: 24rpx;
+
+                            &:nth-child(1) {
+                                font-size: 30rpx;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

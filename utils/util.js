@@ -21,8 +21,8 @@ function myNavigateTo(url) {
   // 判断是否是 tabbar 页面
   const tabbarPages = [
     '/pages/index/index',
-    '/pages/online_consult/online_consult', 
-    '/pages/activity/activity', 
+    '/pages/online_consult/online_consult',
+    '/pages/activity/activity',
     '/pages/my/my',
     '/pages/offline_activity/offline_activity',
     '/pages/attendance_guide/attendance_guide',
@@ -34,32 +34,61 @@ function myNavigateTo(url) {
       url
     })
   } else {
-  wx.navigateTo({
+    wx.navigateTo({
       url
     })
   }
 }
 
 /**
- * 取代系统自带的后退wx.navigateBack
- * @param string jump 后退跳过的路径
- */
-const navigateBack = (jump) => {
-    if (jump) {
-      jump && (jump = jump.replace(/^\/|\/$/gm, ''));
-    }
-  
-    var pagse = getCurrentPages()
-    if (pagse.length == 1 || (jump && pagse.length == 2 && pagse[pagse.length - 2].route == jump)) {
-      wx.reLaunch({
-        url:'/pages/index/index',
-      })
-    } else {
-      wx.navigateBack({
-        delta: (jump && pagse.length == 2 && pagse[pagse.length - 2].route == jump) ? 2 : 1
-      })
-    }
+ * 取代系统自带的后退wx.navigateBack
+ * @param string jump 后退跳过的路径
+ */
+ const navigateBack = (jump) => {
+  const app = getApp();
+  const tabbarPageStack = app.globalData.tabbarPageStack;
+
+  if (jump) {
+    jump = jump.replace(/^\/|\/$/gm, '');
   }
+
+  var pagse = getCurrentPages();
+  if (pagse.length == 1 || (jump && pagse.length == 2 && pagse[pagse.length - 2].route == jump)) { // 
+    wx.reLaunch({
+      url: '/pages/index/index',
+    });
+  } else {
+    // 检查是否有tabbar页面在栈中
+    if (tabbarPageStack.length > 1) {
+      const lastTabbarPage = tabbarPageStack[tabbarPageStack.length - 2];
+      wx.switchTab({
+        url: lastTabbarPage.url,
+      });
+      // 移除当前页面
+      tabbarPageStack.pop();
+    } else {
+      wx.navigateBack({
+        delta: (jump && pagse.length == 2 && pagse[pagse.length - 2].route == jump) ? 2 : 1
+      });
+    }
+  }
+}
+// const navigateBack = (jump) => {
+//   if (jump) {
+//     jump && (jump = jump.replace(/^\/|\/$/gm, ''));
+//   }
+
+//   var pagse = getCurrentPages()
+//   if (pagse.length == 1 || (jump && pagse.length == 2 && pagse[pagse.length - 2].route == jump)) {
+//     wx.reLaunch({
+//       url: '/pages/index/index',
+//     })
+//   } else {
+//     wx.navigateBack({
+//       delta: (jump && pagse.length == 2 && pagse[pagse.length - 2].route == jump) ? 2 : 1
+//     })
+//   }
+// }
 
 module.exports = {
   formatTime,

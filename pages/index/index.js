@@ -3,6 +3,8 @@
 // var appInstance = getApp()
 // console.log(appInstance.globalData) // I am global data
 
+import { getBannerList, getProductLine, getRecommendList } from '../../utils/apis'
+
 Page({
   data: {
     // motto: 'Hello World',
@@ -18,10 +20,10 @@ Page({
     navHeight: wx.getSystemInfoSync().statusBarHeight + 44,
     // tabs list data
     tabsList: [
-      {title: 'TIA探厂记',date: '6月27日',place: '常州站'},
-      {title: 'TIA博途',date: '7月1日',place: '直播'},
-      {title: '智联未来',date: '6月27日',place: '苏州站'},
-      {title: 'TIA探厂记',date: '6月27日',place: '常州站'},
+      { title: 'TIA探厂记', date: '6月27日', place: '常州站' },
+      { title: 'TIA博途', date: '7月1日', place: '直播' },
+      { title: '智联未来', date: '6月27日', place: '苏州站' },
+      { title: 'TIA探厂记', date: '6月27日', place: '常州站' },
     ],
     // 当前选中的tab
     currentTab: 0,
@@ -72,4 +74,49 @@ Page({
       }
     })
   },
+
+  onLoad() {
+    // getBannerList((bannerList) => {
+    //   this.setData({
+    //     bannerList: bannerList
+    //   })
+    // })
+
+    // 获取产品线数据 [按钮]
+    getProductLine((productLine) => {
+      this.setData({
+        productLine: productLine.map((item) => {
+          return {
+            ...item,
+            lineName: item.lineName.split('/')[1], // sss/中中中
+            lineEnName: item.lineName.split('/')[0], // sss/中中中
+            miniAppLink: item.miniAppLink.split('@')[0],
+            miniAppPage: item.miniAppLink.split('@')[1],
+          }
+        })
+      })
+      // console.log(this.data.productLine);
+    })
+
+    // 获取精彩推荐数据
+    getRecommendList((recommendList) => {
+      console.log('recommendList', recommendList)
+      this.setData({
+        recommendList: recommendList
+      })
+    })
+    // getRecommendList((data)=>{
+    //   if(data){
+    //     this.offlineActiList = data.result[7]
+    //     // this.liveActiList = data.result[2]
+    //     this.newsList = data.result[3]
+    //     this.popAppGroupList = data.result[4]
+    //   }
+    // })
+  },
+
+  onShow() {
+    getApp().updateTabbarPageStack('/pages/index/index')
+  }
 })
+

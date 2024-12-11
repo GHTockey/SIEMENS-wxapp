@@ -34,7 +34,7 @@ page {
         border: 2rpx solid #00646E;
         display: flex;
         // gap: 20rpx;
-        row-gap: 40rpx;
+        // row-gap: 40rpx;
         flex-wrap: wrap;
         justify-content: space-between;
 
@@ -63,6 +63,7 @@ page {
             width: 100%;
             display: flex;
             justify-content: space-between;
+            margin-top: 34rpx;
 
             .all-activity-pop-tip-btn-cancel {
                 box-sizing: border-box;

@@ -27,14 +27,19 @@
         <!-- 举办城市 -->
         <view class="part-activity-tab-item" wx:if="{{0}}">
             <view catchtap="selectCityType" data-type="{{!cityPopTipSelected ? 'open' : 'cancel'}}">
-                {{ cityData[cityIndex] || '举办城市'}}
+                <!-- {{ cityData[cityIndex] || '举办城市'}} -->
+                {{ regionTree[cityIndex].name || '举办城市'}}
             </view>
             <image catchtap="selectCityType" data-type="{{!cityPopTipSelected ? 'open' : 'cancel'}}" style="width: 20rpx; height: 20rpx;" class="{{cityPopTipSelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
             <!-- 弹窗 -->
             <view wx:if="{{cityPopTipSelected}}" class="all-activity-pop-tip city-pop-tip">
-                <view catchtap="selectCityType" data-type="{{index}}" wx:for="{{cityData}}" wx:key="index" class="all-activity-pop-tip-item {{cityIndex == index ? 'active' : ''}}">
+                <!-- <view catchtap="selectCityType" data-type="{{index}}" wx:for="{{cityData}}" wx:key="index" class="all-activity-pop-tip-item {{cityIndex == index ? 'active' : ''}}">
                     <text>{{item}}</text>
-                </view>
+                </view> -->
+                <view catchtap="selectCityType" data-type="{{index}}" wx:for="{{regionTree}}" wx:key="index" class="all-activity-pop-tip-item {{cityIndex == index ? 'active' : ''}}">
+          <view>{{item.name}}</view>
+        </view>
+
                 <view class="all-activity-pop-tip-btns">
                     <view catchtap="selectCityType" data-type="cancel" class="all-activity-pop-tip-btn-cancel">
                         取消

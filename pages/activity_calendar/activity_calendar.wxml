@@ -3,7 +3,6 @@
 <wxs module="myWxs">
     module.exports.showDot = function (itemDate, activityList) {
         // 遍历 activityList 里的date 是否和 itemDate 相等  (itemDate 是 2024-01-01 格式， activityList 里的 date 是 2024-01-01 10:00 这种格式  都要去掉时间)
-        // 月份和日如果小于10 要补0
         for (var i = 0; i < activityList.length; i++) {
             if (getDate(activityList[i].date.split(' ')[0]).getMonth() == getDate(itemDate).getMonth() &&
              getDate(activityList[i].date.split(' ')[0]).getDate() == getDate(itemDate).getDate()) {

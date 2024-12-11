@@ -8,8 +8,10 @@
         <text>活动订阅</text>
         <image style="width: 66rpx;height: 34rpx;" src="../../static/{{ isSubscribe ? '459' : '2497' }}.svg" mode="widthFix" />
       </view>
-      <view class="activity-calendar-switch-item" >
-        <text bind:tap="myNavigateTo" data-url="/pages/activity_calendar/activity_calendar?listLayout={{isCalendar ? 'calendar' : 'list'}}">活动日历</text>
+      <view class="activity-calendar-switch-item">
+        <view bind:tap="myNavigateTo" data-url="/pages/activity_calendar/activity_calendar?listLayout={{isCalendar ? 'calendar' : 'list'}}">
+          活动日历
+        </view>
         <image bind:tap="switchSubscribeOrCalendar" data-type="Calendar" style="width: 50rpx;height: 50rpx;" src="../../static/{{ isCalendar ? '466' : '464' }}.svg" mode="widthFix" />
       </view>
     </view>
@@ -36,13 +38,19 @@
     </view>
     <!-- 举办城市 -->
     <view class="part-activity-tab-item">
-      <view catchtap="selectCityType" data-type="{{!cityPopTipSelected ? 'open' : 'cancel'}}">{{ cityData[cityIndex] || '举办城市'}}</view>
+      <view catchtap="selectCityType" data-type="{{!cityPopTipSelected ? 'open' : 'cancel'}}">
+        {{ regionTree[cityIndex].name || '举办城市'}}
+        <!-- {{ cityData[cityIndex] || '举办城市'}} -->
+      </view>
       <image catchtap="selectCityType" data-type="{{!cityPopTipSelected ? 'open' : 'cancel'}}" style="width: 20rpx; height: 20rpx;" class="{{cityPopTipSelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
       <!-- 弹窗 -->
       <view wx:if="{{cityPopTipSelected}}" class="all-activity-pop-tip city-pop-tip">
-        <view catchtap="selectCityType" data-type="{{index}}" wx:for="{{cityData}}" wx:key="index" class="all-activity-pop-tip-item {{cityIndex == index ? 'active' : ''}}">
-          <text>{{item}}</text>
+        <view catchtap="selectCityType" data-type="{{index}}" wx:for="{{regionTree}}" wx:key="index" class="all-activity-pop-tip-item {{cityIndex == index ? 'active' : ''}}">
+          <view>{{item.name}}</view>
         </view>
+        <!-- <view catchtap="selectCityType" data-type="{{index}}" wx:for="{{cityData}}" wx:key="index" class="all-activity-pop-tip-item {{cityIndex == index ? 'active' : ''}}">
+          <text>{{item}}</text>
+        </view> -->
         <view class="all-activity-pop-tip-btns">
           <view catchtap="selectCityType" data-type="cancel" class="all-activity-pop-tip-btn-cancel">
             取消
@@ -72,7 +80,9 @@
             </view>
             <!-- 下拉选择框 -->
             <view wx:if="{{isOpenYearSelectBox}}" class="date-pop-tip-year-select-box">
-              <view catchtap="selectDate" data-type="updYear" data-year="{{item}}" class="date-pop-tip-year-select-item {{currentYear == item ? 'active' : ''}}" wx:for="{{yearData}}" wx:key="index">{{item}}</view>
+              <view catchtap="selectDate" data-type="updYear" data-year="{{item}}" class="date-pop-tip-year-select-item {{currentYear == item ? 'active' : ''}}" wx:for="{{yearData}}" wx:key="index">
+                {{item}}
+              </view>
             </view>
           </view>
           <!-- 月选择 -->
@@ -84,7 +94,9 @@
             </view>
             <!-- 下拉选择框 -->
             <view wx:if="{{isOpenMonthSelectBox}}" class="date-pop-tip-month-select-box">
-              <view catchtap="selectDate" data-type="updMonth" data-month="{{item+1}}" class="date-pop-tip-month-select-item {{currentMonth == item+1 ? 'active' : ''}}" wx:for="{{12}}" wx:key="index">{{item+1}} 月</view>
+              <view catchtap="selectDate" data-type="updMonth" data-month="{{item+1}}" class="date-pop-tip-month-select-item {{currentMonth == item+1 ? 'active' : ''}}" wx:for="{{12}}" wx:key="index">
+                {{item+1}} 月
+              </view>
             </view>
           </view>
           <!-- 左右箭头 -->
@@ -117,9 +129,7 @@
           </view>
           <!-- 按钮：取消/确定 -->
           <view class="date-pop-tip-btns">
-            <view catchtap="selectDate" data-type="cancel" class="date-pop-tip-btn-cancel">
-              取消
-            </view>
+            <view catchtap="selectDate" data-type="cancel" class="date-pop-tip-btn-cancel">取消</view>
             <view catchtap="selectDate" data-type="confirm" class="date-pop-tip-btn-confirm">
               确定
             </view>

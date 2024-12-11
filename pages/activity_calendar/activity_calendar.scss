@@ -42,9 +42,12 @@
         .date-pop-tip-year-select-box,
         .date-pop-tip-month-select-box {
             // border: 1px solid red !important;
-            width: calc(100% + 4rpx) !important;
+            // width: 100% !important;
+            width: calc(100% + 2px) !important;
             border: 2rpx solid #707070 !important;
             border-top: 2rpx solid #70707042 !important;
+            background-color: #021135 !important;
+            z-index: 9;
         }
         .date-pop-tip-year-select-item,
         .date-pop-tip-month-select-item {
@@ -88,11 +91,16 @@
                 }
 
                 .date-pop-tip-calendar-days-item-day.active {
-                    background: linear-gradient(-90deg, #00CBC1 0%, #00FF9E 100%);
+                    background: linear-gradient(0, #00CBC1 0%, #00FF9E 100%) !important;
                     font-size: 31rpx;
                     color: #050A23;
                     // width: 65rpx;
                     // height: 65rpx;
+
+                    // 隐藏小绿点
+                    .date-pop-tip-calendar-days-item-day-dot {
+                        display: none;
+                    }
                 }
             }
         }

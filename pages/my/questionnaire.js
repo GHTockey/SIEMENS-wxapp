@@ -302,6 +302,10 @@ Page({
         dataset: { type: 'updDay', day: new Date().getDate() }
       }
     });
+    this.setData({
+      regionTree: getApp().globalData.regionTree
+    })
+
   },
 
   /**

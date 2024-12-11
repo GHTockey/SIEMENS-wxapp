@@ -25,7 +25,8 @@
     "pages/related_data/related_data",
     "pages/poster_detail/poster_detail",
     "pages/consult/detail",
-    "pages/activity_calendar/activity_calendar"
+    "pages/activity_calendar/activity_calendar",
+    "pages/index_secondary/index_secondary"
   ],
   "window": {
     "navigationBarTextStyle": "white",
