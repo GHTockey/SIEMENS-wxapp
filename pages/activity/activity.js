@@ -134,7 +134,7 @@ Page({
       });
       // 确定后调接口
       // ...
-      this.getOfflineActiList()
+      // this.getOfflineActiList()
     } else {
       this.data.allActivityTypeIndex = type;
       this.setData({
@@ -190,7 +190,7 @@ Page({
         selectedDate: `${this.data.currentYear}-${this.data.currentMonth < 10 ? '0' + this.data.currentMonth : this.data.currentMonth}-${this.data.currentDay < 10 ? '0' + this.data.currentDay : this.data.currentDay}`,
         datePickerSelected: false
       });
-      this.getOfflineActiList()
+      // this.getOfflineActiList()
     } else if (type === 'updYear') {
       this.setData({
         currentYear: e.currentTarget.dataset.year,
@@ -226,7 +226,7 @@ Page({
       });
       // 确定后调接口
       // ...
-      this.getOfflineActiList()
+      // this.getOfflineActiList()
     } else {
       this.data.cityIndex = type;
       this.setData({

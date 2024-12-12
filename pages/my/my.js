@@ -1,3 +1,5 @@
+const { myNavigateTo } = require("../../utils/util")
+
 // pages/my/my.js
 Page({
 
@@ -22,15 +24,16 @@ Page({
 
   myNavigateTo(e) {
     // online_consult 是tabbar页面，需要单独处理
-    if (e.currentTarget.dataset.url === '/pages/online_consult/online_consult') {
-      wx.switchTab({
-        url: '/pages/online_consult/online_consult'
-      })
-    } else {
-      wx.navigateTo({
-        url: e.currentTarget.dataset.url
-      })
-    }
+    // if (e.currentTarget.dataset.url === '/pages/online_consult/online_consult') {
+    //   wx.switchTab({
+    //     url: '/pages/online_consult/online_consult'
+    //   })
+    // } else {
+    //   wx.navigateTo({
+    //     url: e.currentTarget.dataset.url
+    //   })
+    // }
+    myNavigateTo(e.currentTarget.dataset.url)
   },
 
   /**

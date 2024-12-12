@@ -40,7 +40,7 @@
        indicator-dots="{{false}}" autoplay="{{swiperAutoplay}}" 
        indicator-color="#00d7a0"
        indicator-active-color="red"
-       interval="{{2000}}" duration="{{500}}"
+       interval="{{3000}}" duration="{{500}}"
        current="{{bannerIndex}}"
        bindchange="updateBannerIndex"
        bindanimationfinish="handleSwiperAnimationFinish">

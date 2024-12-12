@@ -61,7 +61,7 @@ Page({
 
   // 更新轮播图索引
   updateBannerIndex(e) {
-    console.log(e.detail.current)
+    // console.log(e.detail.current)
     this.setData({
       bannerIndex: e.detail.current,
       scrollIntoView: `scrollIntoView-${e.detail.current}`,

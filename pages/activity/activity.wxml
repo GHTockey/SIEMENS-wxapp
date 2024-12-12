@@ -17,10 +17,12 @@
     </view>
     <!-- 活动类型选择 -->
     <view class="part-activity-tab-item">
-      <view catchtap="selectAllActivityType" data-type="{{!allActivitySelected ? 'open' : 'cancel'}}">
-        {{ allActivityData[allActivityTypeIndex] || '全部活动'}}
+      <view class="part-activity-tab-item-box" catchtap="selectAllActivityType" data-type="{{!allActivitySelected ? 'open' : 'cancel'}}">
+        <view>
+          {{ allActivityData[allActivityTypeIndex] || '全部活动'}}
+        </view>
+        <image style="width: 20rpx; height: 20rpx;" class="{{allActivitySelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
       </view>
-      <image catchtap="selectAllActivityType" data-type="{{!allActivitySelected ? 'open' : 'cancel'}}" style="width: 20rpx; height: 20rpx;" class="{{allActivitySelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
       <!-- 弹窗 -->
       <view wx:if="{{allActivitySelected}}" class="all-activity-pop-tip">
         <view catchtap="selectAllActivityType" data-type="{{index}}" wx:for="{{allActivityData}}" wx:key="index" class="all-activity-pop-tip-item {{allActivityTypeIndex == index ? 'active' : ''}}">
@@ -38,11 +40,13 @@
     </view>
     <!-- 举办城市 -->
     <view class="part-activity-tab-item">
-      <view catchtap="selectCityType" data-type="{{!cityPopTipSelected ? 'open' : 'cancel'}}">
-        {{ regionTree[cityIndex].name || '举办城市'}}
-        <!-- {{ cityData[cityIndex] || '举办城市'}} -->
+      <view class="part-activity-tab-item-box" catchtap="selectCityType" data-type="{{!cityPopTipSelected ? 'open' : 'cancel'}}">
+        <view>
+          {{ regionTree[cityIndex].name || '举办城市'}}
+          <!-- {{ cityData[cityIndex] || '举办城市'}} -->
+        </view>
+        <image style="width: 20rpx; height: 20rpx;" class="{{cityPopTipSelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
       </view>
-      <image catchtap="selectCityType" data-type="{{!cityPopTipSelected ? 'open' : 'cancel'}}" style="width: 20rpx; height: 20rpx;" class="{{cityPopTipSelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
       <!-- 弹窗 -->
       <view wx:if="{{cityPopTipSelected}}" class="all-activity-pop-tip city-pop-tip">
         <view catchtap="selectCityType" data-type="{{index}}" wx:for="{{regionTree}}" wx:key="index" class="all-activity-pop-tip-item {{cityIndex == index ? 'active' : ''}}">
@@ -63,10 +67,12 @@
     </view>
     <!-- 日期选择 -->
     <view class="part-activity-tab-item">
-      <view catchtap="selectDate" data-type="{{!datePickerSelected ? 'open' : 'cancel'}}">
-        {{selectedDate || '全部日期'}}
+      <view class="part-activity-tab-item-box" catchtap="selectDate" data-type="{{!datePickerSelected ? 'open' : 'cancel'}}">
+        <view>
+          {{selectedDate || '全部日期'}}
+        </view>
+        <image style="width: 20rpx; height: 20rpx;" class="{{datePickerSelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
       </view>
-      <image catchtap="selectDate" data-type="{{!datePickerSelected ? 'open' : 'cancel'}}" style="width: 20rpx; height: 20rpx;" class="{{datePickerSelected ? 'rotate-img' : ''}}" src="../../static/493.svg" mode="widthFix" />
       <!-- 弹窗 -->
       <view wx:if="{{datePickerSelected}}" class="date-pop-tip">
         <!-- 年月选择/左右选择 -->
@@ -192,7 +198,7 @@
     </view>
   </view>
   <!-- 瀑布流列表 -->
-  <view wx:else class="activity-calendar-list">
+  <view wx:else class="activity-calendar-list {{allActivitySelected || cityPopTipSelected || datePickerSelected ? 'mask' : ''}}">
     <view class="part-activity-item" wx:for="{{activityList}}" wx:key="activityList" bind:tap="myNavigateTo" data-url="{{item.type === 'online' ? '/pages/live_activity/live_activity' : '/pages/offline_activity/offline_activity'}}">
       <!-- 图片 -->
       <view class="part-activity-item-img">

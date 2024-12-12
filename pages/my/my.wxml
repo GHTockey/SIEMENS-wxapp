@@ -33,7 +33,7 @@
         </view>
     </view>
     <!-- 活动横幅 -->
-    <view class="activity-banner">
+    <view class="activity-banner" bind:tap="myNavigateTo" data-url="/pages/offline_activity/offline_activity">
         <image style="width:100%;height:100%;" src="../../static/z5377.png" mode="aspectFill"></image>
         <!-- 参加按钮 -->
         <image class="join-btn" src="../../static/my/2395.svg" mode="widthFix" />
