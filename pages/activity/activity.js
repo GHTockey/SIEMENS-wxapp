@@ -3,8 +3,10 @@ const {
 } = require("../../utils/util");
 
 import {
-  getRegionTree
-} from '../../utils/apis'
+  getRegionTree,
+  getOfflineActiList
+} from '../../utils/apis';
+import request from '../../utils/apis';
 
 // pages/activity/activity.js
 Page({
@@ -74,7 +76,7 @@ Page({
     allActivityData: ['全部类型', '线上活动', '线下活动'],
     // tab-全部活动是否开启
     allActivitySelected: false,
-    // 当前选择的全部活动类型
+    // 当前选择活动类型的下标
     allActivityTypeIndex: null,
     // tab-日期选择器是否开启
     datePickerSelected: false,
@@ -98,7 +100,7 @@ Page({
     yearData: [],
 
     // 城市类型数据
-    cityData: [ // 接口数据 regionTree
+    cityData: [ // 改用接口数据 regionTree
       '全部城市', '北京市', '天津市',
       '河北省', '山东省', '江苏省',
       '浙江省', '上海市', '内蒙古自治区',
@@ -117,12 +119,14 @@ Page({
     let type = e.currentTarget.dataset.type;
     if (type === 'open') { // 打开
       this.setData({
-        allActivitySelected: true
+        allActivitySelected: true,
+        cityPopTipSelected: false,
+        datePickerSelected: false
       });
     } else if (type === 'cancel') { // 取消
       this.setData({
         allActivitySelected: false,
-        allActivityTypeIndex: 0
+        allActivityTypeIndex: null
       });
     } else if (type === 'confirm') { // 确定
       this.setData({
@@ -130,12 +134,124 @@ Page({
       });
       // 确定后调接口
       // ...
+      this.getOfflineActiList()
     } else {
       this.data.allActivityTypeIndex = type;
       this.setData({
         allActivityTypeIndex: this.data.allActivityTypeIndex
       });
     }
+  },
+  // 选择日期
+  selectDate(e) {
+    // updDay：更新当前选择的日   updMonth：更新当前选择的月   updYear：更新当前选择的年
+    // next: 下个月   prev: 上个月    open: 打开弹窗    cancel: 关闭弹窗   confirm: 确定
+    const type = e.currentTarget.dataset.type;
+    if (type === 'updDay') {
+      this.setData({
+        currentDay: e.currentTarget.dataset.day
+      });
+    } else if (type === 'next') {
+      if (this.data.currentMonth === 12) {
+        this.setData({
+          currentYear: this.data.currentYear + 1,
+          currentMonth: 1
+        });
+      } else {
+        this.setData({
+          currentMonth: this.data.currentMonth + 1
+        });
+      }
+    } else if (type === 'prev') {
+      if (this.data.currentMonth === 1) {
+        this.setData({
+          currentYear: this.data.currentYear - 1,
+          currentMonth: 12
+        });
+      } else {
+        this.setData({
+          currentMonth: this.data.currentMonth - 1
+        });
+      }
+    } else if (type === 'open') {
+      this.setData({
+        datePickerSelected: true,
+        cityPopTipSelected: false,
+        allActivitySelected: false
+      });
+    } else if (type === 'cancel') {
+      this.setData({
+        datePickerSelected: false,
+        selectedDate: ''
+      });
+    } else if (type === 'confirm') {
+      // console.log('确定');
+      this.setData({
+        selectedDate: `${this.data.currentYear}-${this.data.currentMonth < 10 ? '0' + this.data.currentMonth : this.data.currentMonth}-${this.data.currentDay < 10 ? '0' + this.data.currentDay : this.data.currentDay}`,
+        datePickerSelected: false
+      });
+      this.getOfflineActiList()
+    } else if (type === 'updYear') {
+      this.setData({
+        currentYear: e.currentTarget.dataset.year,
+        isOpenYearSelectBox: false
+      });
+    } else if (type === 'updMonth') {
+      this.setData({
+        currentMonth: e.currentTarget.dataset.month,
+        isOpenMonthSelectBox: false
+      });
+    }
+
+    // 更新日历
+    this.generateCurrentMonthDays(this.data.currentYear, this.data.currentMonth);
+  },
+  // 选择城市
+  selectCityType(e) {
+    let type = e.currentTarget.dataset.type;
+    if (type === 'open') { // 打开
+      this.setData({
+        cityPopTipSelected: true,
+        allActivitySelected: false,
+        datePickerSelected: false
+      });
+    } else if (type === 'cancel') { // 取消
+      this.setData({
+        cityPopTipSelected: false,
+        cityIndex: null
+      });
+    } else if (type === 'confirm') { // 确定
+      this.setData({
+        cityPopTipSelected: false
+      });
+      // 确定后调接口
+      // ...
+      this.getOfflineActiList()
+    } else {
+      this.data.cityIndex = type;
+      this.setData({
+        cityIndex: this.data.cityIndex
+      });
+    }
+  },
+  // 打开/关闭年月下拉选择框
+  openOrCloseYearMonthSelectBox(e) {
+    let type = e.currentTarget.dataset.type;
+    // 生成年份数据 当前年份前后10年
+    if (type === 'Year') {
+      // 根据 currentYear 生成数据
+      let yearData = [];
+      for (let i = -10; i <= 10; i++) {
+        yearData.push(this.data.currentYear + i);
+      }
+      this.setData({
+        yearData: yearData
+      });
+    }
+
+    this.setData({
+      [`isOpen${type}SelectBox`]: !this.data[`isOpen${type}SelectBox`]
+    });
   },
   // 生成 currentMonthDays 数据
   generateCurrentMonthDays(year, month) {
@@ -182,110 +298,6 @@ Page({
       adjustedWeekDays: adjustedWeekDays // 保存调整后的星期顺序
     });
   },
-  // 选择日期
-  selectDate(e) {
-    // updDay：更新当前选择的日   updMonth：更新当前选择的月   updYear：更新当前选择的年
-    // next: 下个月   prev: 上个月    open: 打开弹窗    cancel: 关闭弹窗   confirm: 确定
-    const type = e.currentTarget.dataset.type;
-    if (type === 'updDay') {
-      this.setData({
-        currentDay: e.currentTarget.dataset.day
-      });
-    } else if (type === 'next') {
-      if (this.data.currentMonth === 12) {
-        this.setData({
-          currentYear: this.data.currentYear + 1,
-          currentMonth: 1
-        });
-      } else {
-        this.setData({
-          currentMonth: this.data.currentMonth + 1
-        });
-      }
-    } else if (type === 'prev') {
-      if (this.data.currentMonth === 1) {
-        this.setData({
-          currentYear: this.data.currentYear - 1,
-          currentMonth: 12
-        });
-      } else {
-        this.setData({
-          currentMonth: this.data.currentMonth - 1
-        });
-      }
-    } else if (type === 'open') {
-      this.setData({
-        datePickerSelected: true
-      });
-    } else if (type === 'cancel') {
-      this.setData({
-        datePickerSelected: false
-      });
-    } else if (type === 'confirm') {
-      // console.log('确定');
-      this.setData({
-        selectedDate: `${this.data.currentYear}-${this.data.currentMonth < 10 ? '0' + this.data.currentMonth : this.data.currentMonth}-${this.data.currentDay < 10 ? '0' + this.data.currentDay : this.data.currentDay}`,
-        datePickerSelected: false
-      });
-    } else if (type === 'updYear') {
-      this.setData({
-        currentYear: e.currentTarget.dataset.year,
-        isOpenYearSelectBox: false
-      });
-    } else if (type === 'updMonth') {
-      this.setData({
-        currentMonth: e.currentTarget.dataset.month,
-        isOpenMonthSelectBox: false
-      });
-    }
-
-    // 更新日历
-    this.generateCurrentMonthDays(this.data.currentYear, this.data.currentMonth);
-  },
-  // 选择城市
-  selectCityType(e) {
-    let type = e.currentTarget.dataset.type;
-    if (type === 'open') { // 打开
-      this.setData({
-        cityPopTipSelected: true
-      });
-    } else if (type === 'cancel') { // 取消
-      this.setData({
-        cityPopTipSelected: false,
-        cityIndex: 0
-      });
-    } else if (type === 'confirm') { // 确定
-      this.setData({
-        cityPopTipSelected: false
-      });
-      // 确定后调接口
-      // ...
-    } else {
-      this.data.cityIndex = type;
-      this.setData({
-        cityIndex: this.data.cityIndex
-      });
-    }
-  },
-  // 打开/关闭年月下拉选择框
-  openOrCloseYearMonthSelectBox(e) {
-    let type = e.currentTarget.dataset.type;
-    // 生成年份数据 当前年份前后10年
-    if (type === 'Year') {
-      // 根据 currentYear 生成数据
-      let yearData = [];
-      for (let i = -10; i <= 10; i++) {
-        yearData.push(this.data.currentYear + i);
-      }
-      this.setData({
-        yearData: yearData
-      });
-    }
-
-    this.setData({
-      [`isOpen${type}SelectBox`]: !this.data[`isOpen${type}SelectBox`]
-    });
-  },
 
   // 切换订阅/日历
   switchSubscribeOrCalendar(e) {
@@ -303,6 +315,22 @@ Page({
     // })
   },
 
+
+
+
+  async getOfflineActiList() {
+    let res = await request('/offlineActivity2/list', 'get', {
+      // 活动类型  成立表示选择了某个类型
+      activityType: this.data.allActivityTypeIndex ? this.data.allActivityTypeIndex - 1 : '',
+      province: this.data.cityIndex ? this.data.regionTree[this.data.cityIndex]?.name || '' : '', // 省份
+      // qryTime: this.data.selectedDate ? this.data.selectedDate : '', // 日期
+    })
+    // console.log(res.result)
+    this.setData({
+      activityList: res.result.records
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -318,6 +346,12 @@ Page({
       }
     });
 
+    this.setData({
+      regionTree: getApp().globalData.regionTree
+    })
+
+    // this.getOfflineActiList()
+
     // 获取行政区域
     // getRegionTree((regionTree) => {
     //   console.log('regionTree', regionTree)
@@ -331,9 +365,6 @@ Page({
     // })
 
     // console.log(getApp().globalData.regionTree);
-    this.setData({
-      regionTree: getApp().globalData.regionTree
-    })
   },
 
   /**

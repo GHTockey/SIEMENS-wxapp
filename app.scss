@@ -45,7 +45,8 @@ page {
             background: #124A59;
             border-radius: 4rpx 4rpx 4rpx 4rpx;
             color: #D3D3D3;
-            font-size: 20rpx;
+            // font-size: 20rpx;
+            font-size: 24rpx;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -64,6 +65,7 @@ page {
             display: flex;
             justify-content: space-between;
             margin-top: 34rpx;
+            font-size: 24rpx;
 
             .all-activity-pop-tip-btn-cancel {
                 box-sizing: border-box;
@@ -71,7 +73,7 @@ page {
                 height: 46rpx;
                 background: #062D48;
                 border: 2rpx solid #00646E;
-                font-size: 20rpx;
+                // font-size: 20rpx;
                 color: #B9B9B9;
                 display: flex;
                 align-items: center;
@@ -83,7 +85,7 @@ page {
                 width: 154rpx;
                 height: 46rpx;
                 background: #00E2D8;
-                font-size: 20rpx;
+                // font-size: 20rpx;
                 color: #050A23;
                 display: flex;
                 align-items: center;
@@ -329,4 +331,28 @@ page {
         }
 
     }
+}
+
+// 选择时的遮罩
+// .date-pop-tip-mask {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background: rgba(0, 0, 0, 0.5);
+//     z-index: 9;
+// }
+
+
+// 伪元素遮罩
+.mask::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9;
 }

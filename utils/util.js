@@ -44,51 +44,49 @@ function myNavigateTo(url) {
  * 取代系统自带的后退wx.navigateBack
  * @param string jump 后退跳过的路径
  */
- const navigateBack = (jump) => {
-  const app = getApp();
-  const tabbarPageStack = app.globalData.tabbarPageStack;
-
+const navigateBack = (jump) => {
   if (jump) {
-    jump = jump.replace(/^\/|\/$/gm, '');
+    jump && (jump = jump.replace(/^\/|\/$/gm, ''));
   }
 
-  var pagse = getCurrentPages();
-  if (pagse.length == 1 || (jump && pagse.length == 2 && pagse[pagse.length - 2].route == jump)) { // 
-    wx.reLaunch({
-      url: '/pages/index/index',
-    });
-  } else {
-    // 检查是否有tabbar页面在栈中
-    if (tabbarPageStack.length > 1) {
-      const lastTabbarPage = tabbarPageStack[tabbarPageStack.length - 2];
-      wx.switchTab({
-        url: lastTabbarPage.url,
-      });
-      // 移除当前页面
-      tabbarPageStack.pop();
-    } else {
-      wx.navigateBack({
-        delta: (jump && pagse.length == 2 && pagse[pagse.length - 2].route == jump) ? 2 : 1
-      });
+  var pagse = getCurrentPages()
+  if (pagse.length == 1 || (jump && pagse.length == 2 && pagse[pagse.length - 2].route == jump)) {
+    // wx.reLaunch({
+    //   url: '/pages/index/index',
+    // })
+
+    const app = getApp()
+    const tabbarPageStack = app.globalData.tabbarPageStack || []
+
+    // 防止空数组访问
+    if (!tabbarPageStack.length) {
+      wx.reLaunch({
+        url: '/pages/index/index' // 默认首页
+      })
+      return
     }
+
+    // let recentlyTabbarPageStackPath = getApp().globalData.tabbarPageStack[getApp().globalData.tabbarPageStack.length - 1].url
+    // 最近一次的tabbar页面
+    let recentlyTabbarPageStackPath = tabbarPageStack[tabbarPageStack.length - 1]?.url
+    // 当前页面
+    const currentPagePath = '/' + pagse[pagse.length - 1].route
+    
+    // 如果最近一次的tabbar页面和当前页面相同，则将栈中最后一个元素删除
+    if (recentlyTabbarPageStackPath === currentPagePath && tabbarPageStack.length > 1) {
+      tabbarPageStack.pop()
+      recentlyTabbarPageStackPath = tabbarPageStack[tabbarPageStack.length - 1]?.url // 重新获取最近一次的tabbar页面
+    }
+    wx.switchTab({
+      url: recentlyTabbarPageStackPath,
+    })
+
+  } else {
+    wx.navigateBack({
+      delta: (jump && pagse.length == 2 && pagse[pagse.length - 2].route == jump) ? 2 : 1
+    })
   }
 }
-// const navigateBack = (jump) => {
-//   if (jump) {
-//     jump && (jump = jump.replace(/^\/|\/$/gm, ''));
-//   }
-
-//   var pagse = getCurrentPages()
-//   if (pagse.length == 1 || (jump && pagse.length == 2 && pagse[pagse.length - 2].route == jump)) {
-//     wx.reLaunch({
-//       url: '/pages/index/index',
-//     })
-//   } else {
-//     wx.navigateBack({
-//       delta: (jump && pagse.length == 2 && pagse[pagse.length - 2].route == jump) ? 2 : 1
-//     })
-//   }
-// }
 
 module.exports = {
   formatTime,

@@ -41,7 +41,7 @@
     <!-- 参与的活动 -->
     <view class="participated-activities-box">
         <view class="participated-activities-title">
-            <image style="width: 209rpx" src="../../static/my/2334.svg" mode="widthFix"></image>
+            <image style="width: 209rpx; height: 79rpx;" src="../../static/my/2334.svg" mode="widthFix"></image>
             <!-- 更多 -->
             <image bind:tap="myNavigateTo" data-url="/pages/my/part_activity" style="width: 78rpx;height: 34rpx;" src="../../static/my/2476.svg" mode="widthFix"></image>
         </view>

@@ -27,7 +27,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    getApp().updateTabbarPageStack('/pages/attendance-guide/attendance-guide')
   },
 
   /**

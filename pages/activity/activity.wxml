@@ -137,9 +137,11 @@
         </view>
       </view>
     </view>
+    <!-- 选择时的遮罩 -->
+    <!-- <view class="date-pop-tip-mask"></view> -->
   </view>
   <!-- 列表 -->
-  <view wx:if="{{!isCalendar}}" class="part-activity-list">
+  <view wx:if="{{!isCalendar}}" class="part-activity-list {{allActivitySelected || cityPopTipSelected || datePickerSelected ? 'mask' : ''}}">
     <view class="part-activity-item" wx:for="{{activityList}}" wx:key="activityList" bind:tap="myNavigateTo" data-url="{{item.type === 'online' ? '/pages/live_activity/live_activity' : '/pages/offline_activity/offline_activity'}}">
       <!-- 图片 -->
       <view class="part-activity-item-img">
@@ -155,8 +157,37 @@
         <text style="font-size: 24rpx; color: #CFCFCF;">{{item.date}}</text>
         <!-- 勾选框 -->
         <!-- <view class="part-activity-item-checkbox" data-index="{{index}}" bind:tap="selectActivity">
-                    <image style="width: 100%;" src="../../static/my/{{item.selected ? 2480 : 2177}}.svg" mode="widthFix" />
-                </view> -->
+            <image style="width: 100%;" src="../../static/my/{{item.selected ? 2480 : 2177}}.svg" mode="widthFix" />
+        </view> -->
+      </view>
+    </view>
+    <view wx:if="{{false}}" class="part-activity-item" wx:for="{{activityList}}" wx:key="activityList" bind:tap="myNavigateTo" data-url="{{item.type === 'online' ? '/pages/live_activity/live_activity' : '/pages/offline_activity/offline_activity'}}">
+      <!-- 图片 -->
+      <view class="part-activity-item-img">
+        <image style="width: 100%; height: auto;" src="{{item.coverPic}}" mode="widthFix" />
+        <!-- tag -->
+        <view class="part-activity-item-tag">
+          <!-- <text>{{item.activityType}}</text>
+          <text>{{item.activityType.indexOf(1)}}</text> -->
+          <!-- <text wx:if="{{item.activityType.indexOf(1) !== -1}}">线下？？</text>
+          <text wx:if="{{item.activityType.indexOf(0) !== -1}}">线上？？</text> -->
+          <text wx:if="{{item.activityType[0] == 1}}">线下活动</text>
+          <text wx:if="{{item.activityType[0] == 0}}">线上直播</text>
+        </view>
+      </view>
+      <!-- 活动信息 -->
+      <view class="part-activity-item-info">
+        <text>{{item.activityName}}</text>
+        <!-- <text style="font-size: 24rpx; color: #CFCFCF;">{{item.signInStartTime}}</text> -->
+        <text wx:if="item.startTime" style="font-size: 24rpx; color: #CFCFCF;">
+          {{item.startTime}}
+          <!-- {{ item.startTime.split(' ')[0].replace(/(-)/g,".") }}
+            {{ item.startTime.split(' ')[1].split(':')[0] }}:{{ item.startTime.split(' ')[1].split(':')[1] }} -->
+        </text>
+        <!-- 勾选框 -->
+        <!-- <view class="part-activity-item-checkbox" data-index="{{index}}" bind:tap="selectActivity">
+            <image style="width: 100%;" src="../../static/my/{{item.selected ? 2480 : 2177}}.svg" mode="widthFix" />
+        </view> -->
       </view>
     </view>
   </view>

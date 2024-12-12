@@ -3,7 +3,8 @@
 // var appInstance = getApp()
 // console.log(appInstance.globalData) // I am global data
 
-import { getBannerList, getProductLine, getRecommendList } from '../../utils/apis'
+// import { getBannerList, getProductLine, getRecommendList } from '../../utils/apis';
+import request from '../../utils/apis';
 
 Page({
   data: {
@@ -23,10 +24,10 @@ Page({
       { title: 'TIA探厂记', date: '6月27日', place: '常州站' },
       { title: 'TIA博途', date: '7月1日', place: '直播' },
       { title: '智联未来', date: '6月27日', place: '苏州站' },
-      { title: 'TIA探厂记', date: '6月27日', place: '常州站' },
     ],
     // 当前选中的tab
     currentTab: 0,
+    scrollIntoView: null,
     // 轮播图
     bannerList: [
       '../../static/swiper1.png',
@@ -35,6 +36,8 @@ Page({
     ],
     // 轮播图当前索引
     bannerIndex: 0,
+    // 轮播图是否自动播放
+    swiperAutoplay: true,
   },
 
   // 点击tab
@@ -42,14 +45,29 @@ Page({
     const index = e.currentTarget.dataset.index
     this.setData({
       currentTab: index,
+      // 联动轮播图
+      bannerIndex: index,
+      // 轮播图是否自动播放
+      swiperAutoplay: false
+    })
+  },
+
+  // 轮播图动画结束 [重新开启自动播放]
+  handleSwiperAnimationFinish() {
+    this.setData({
+      swiperAutoplay: true
     })
   },
 
   // 更新轮播图索引
   updateBannerIndex(e) {
-    // console.log(e.detail.current)
+    console.log(e.detail.current)
     this.setData({
       bannerIndex: e.detail.current,
+      scrollIntoView: `scrollIntoView-${e.detail.current}`,
+    })
+    this.setData({
+      currentTab: e.detail.current,
     })
   },
 
@@ -75,43 +93,32 @@ Page({
     })
   },
 
-  onLoad() {
-    // getBannerList((bannerList) => {
-    //   this.setData({
-    //     bannerList: bannerList
-    //   })
-    // })
-
-    // 获取产品线数据 [按钮]
-    getProductLine((productLine) => {
-      this.setData({
-        productLine: productLine.map((item) => {
-          return {
-            ...item,
-            lineName: item.lineName.split('/')[1], // sss/中中中
-            lineEnName: item.lineName.split('/')[0], // sss/中中中
-            miniAppLink: item.miniAppLink.split('@')[0],
-            miniAppPage: item.miniAppLink.split('@')[1],
-          }
-        })
+  async getProductLine() {
+    let res = await request('/productLine/list')
+    // console.log('/productLine/list res :' ,  res);
+    this.setData({
+      productLine: res.result.map((item) => {
+        return {
+          ...item,
+          lineName: item.lineName.split('/')[1], // [sss,中中中][1]
+          lineEnName: item.lineName.split('/')[0], // [sss,中中中][0]
+          miniAppLink: item.miniAppLink.split('@')[0],
+          miniAppPage: item.miniAppLink.split('@')[1],
+        }
       })
-      // console.log(this.data.productLine);
     })
+  },
+
+  onLoad() {
+    // 获取产品线数据 [按钮]
+    this.getProductLine()
 
     // 获取精彩推荐数据
-    getRecommendList((recommendList) => {
-      console.log('recommendList', recommendList)
-      this.setData({
-        recommendList: recommendList
-      })
-    })
-    // getRecommendList((data)=>{
-    //   if(data){
-    //     this.offlineActiList = data.result[7]
-    //     // this.liveActiList = data.result[2]
-    //     this.newsList = data.result[3]
-    //     this.popAppGroupList = data.result[4]
-    //   }
+    // getRecommendList((recommendList) => {
+    //   console.log('recommendList', recommendList)
+    //   this.setData({
+    //     recommendList: recommendList
+    //   })
     // })
   },
 

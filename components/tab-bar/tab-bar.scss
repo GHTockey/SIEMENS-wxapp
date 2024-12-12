@@ -38,8 +38,10 @@
         }
 
         .tab-bar-item-text {
-            font-size: 20rpx;
-            color: #ffffffd0;
+            // font-size: 20rpx; // 这里是和设计稿上的大小是一致的，被冤枉了记小本本
+            font-size: 24rpx;
+            // color: #ffffffd0;
+            color: #ffffff;
         }
     }
 
